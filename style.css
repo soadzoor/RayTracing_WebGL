@@ -1,0 +1,14 @@
+body {
+	display: flex;
+}
+#game-area {
+	flex: 1;
+}
+#options-area {
+	flex: 1;
+}
+#game-surface {
+	text-align: center;
+	width: 800px;
+	height: 600px;
+}
