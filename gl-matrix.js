@@ -4725,7 +4725,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {vec3} b the second operand
 	 * @returns {vec3} out
 	 */
-	vec3.add = function(out, a, b) {
+	vec3.add = function(a, b) {
+        var out = [];
 	    out[0] = a[0] + b[0];
 	    out[1] = a[1] + b[1];
 	    out[2] = a[2] + b[2];
@@ -4740,7 +4741,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {vec3} b the second operand
 	 * @returns {vec3} out
 	 */
-	vec3.subtract = function(out, a, b) {
+	vec3.subtract = function(a, b) {
+        var out = [];
 	    out[0] = a[0] - b[0];
 	    out[1] = a[1] - b[1];
 	    out[2] = a[2] - b[2];
@@ -4761,7 +4763,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {vec3} b the second operand
 	 * @returns {vec3} out
 	 */
-	vec3.multiply = function(out, a, b) {
+	vec3.multiply = function(a, b) {
+        var out = [];
 	    out[0] = a[0] * b[0];
 	    out[1] = a[1] * b[1];
 	    out[2] = a[2] * b[2];
@@ -4782,7 +4785,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {vec3} b the second operand
 	 * @returns {vec3} out
 	 */
-	vec3.divide = function(out, a, b) {
+	vec3.divide = function(a, b) {
+        var out = [];
 	    out[0] = a[0] / b[0];
 	    out[1] = a[1] / b[1];
 	    out[2] = a[2] / b[2];
@@ -4875,7 +4879,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {Number} b amount to scale the vector by
 	 * @returns {vec3} out
 	 */
-	vec3.scale = function(out, a, b) {
+	vec3.scale = function(a, b) {
+        var out = [];
 	    out[0] = a[0] * b;
 	    out[1] = a[1] * b;
 	    out[2] = a[2] * b;
@@ -4983,7 +4988,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {vec3} a vector to negate
 	 * @returns {vec3} out
 	 */
-	vec3.negate = function(out, a) {
+	vec3.negate = function(a) {
+        var out = [];
 	    out[0] = -a[0];
 	    out[1] = -a[1];
 	    out[2] = -a[2];
@@ -4997,11 +5003,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {vec3} a vector to invert
 	 * @returns {vec3} out
 	 */
-	vec3.inverse = function(out, a) {
-	  out[0] = 1.0 / a[0];
-	  out[1] = 1.0 / a[1];
-	  out[2] = 1.0 / a[2];
-	  return out;
+	vec3.inverse = function(a) {
+        var out = [];
+        out[0] = 1.0 / a[0];
+        out[1] = 1.0 / a[1];
+        out[2] = 1.0 / a[2];
+        return out;
 	};
 
 	/**
@@ -5011,7 +5018,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {vec3} a vector to normalize
 	 * @returns {vec3} out
 	 */
-	vec3.normalize = function(out, a) {
+	vec3.normalize = function(a) {
+        var out = [];
 	    var x = a[0],
 	        y = a[1],
 	        z = a[2];
@@ -5045,7 +5053,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @param {vec3} b the second operand
 	 * @returns {vec3} out
 	 */
-	vec3.cross = function(out, a, b) {
+	vec3.cross = function(a, b) {
+        var out = [];
 	    var ax = a[0], ay = a[1], az = a[2],
 	        bx = b[0], by = b[1], bz = b[2];
 
