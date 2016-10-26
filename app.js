@@ -56,9 +56,9 @@ function RunDemo() {
 	
 	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
 	
-	gl.clearColor(0.75, 0.85, 0.8, 1.0);
+	gl.clearColor(0.125, 0.25, 0.5, 1.0);
 	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-	gl.enable(gl.DEPTH_TEST);
+	//gl.enable(gl.DEPTH_TEST);
 	gl.enable(gl.CULL_FACE);
 	gl.cullFace(gl.BACK);
 	
@@ -424,7 +424,7 @@ function RunDemo() {
 	//
 	var loop = function () {
         
-        { //key actions
+        { //controls
 			if (isShiftDown) {
 				camSpeed = 0.2667/4.0;
 			} else {
@@ -451,19 +451,8 @@ function RunDemo() {
                 camAt = vec3.add(camAt, fw);
             }
         }
-        { // vertex shader uniforms
-            gl.uniform3fv(eyeLocation, camPos);
-            gl.uniform3fv(fwLocation, camFw);
-            camUp = vec3.cross(camRight, camFw);
-            gl.uniform3fv(upLocation, camUp);
-            gl.uniform3fv(rightLocation, camRight);
-			gl.uniform1f(ratioUniformLocation, ratio);
-        }
         
-        
-		
-		gl.clearColor(0.75, 0.85, 1.0, 1.0);
-		gl.clear(gl.DEPTH_BUFFER_BIT | gl.COLOR_BUFFER_BIT);
+		gl.clear(gl.COLOR_BUFFER_BIT);
         
 	
         if (pause)
@@ -486,6 +475,12 @@ function RunDemo() {
         //
         // Pass variables to the GPU
         //
+		setVec3Uniform(eyeLocation, camPos);
+		setVec3Uniform(fwLocation, camFw);
+		camUp = vec3.cross(camRight, camFw);
+		setVec3Uniform(upLocation, camUp);
+		setVec3Uniform(rightLocation, camRight);
+		setFloatUniform(ratioUniformLocation, ratio);
         setIntegerUniform(depthLocation, depth);
         setFloatUniform(timeLocation, time);
         setBoolUniform(isShadowOnLocation, isShadowOn);
@@ -601,7 +596,7 @@ function setVec4Uniform(Location, numbers) {
     gl.uniform4fv(Location, numbers);
 }
 
-function getF0(n, k) { // toresmutato, kioltasi tenyezo
+/*function getF0(n, k) { // toresmutato, kioltasi tenyezo
     //            
     //                (                        A                     )    (                         B                    )
     //                (                   atimesa             )           (                ctimesc                )
@@ -619,7 +614,7 @@ function getF0(n, k) { // toresmutato, kioltasi tenyezo
     var f0 = vec3.divide(A, B);
 
 	return f0;
-}
+}*/
 
 function colorModeToTernary(colorModeInTernary, currentColorMode) {
     colorModeInTernary[2] = currentColorMode % 3;

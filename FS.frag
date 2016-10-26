@@ -177,10 +177,6 @@ mat3 calculateR(in vec3 normal)
 	return R;
 }
 
-
-
-
-
 bool intersectSphere(in Ray ray, in vec4 sphere, out HitRec hitRec, in int ind)
 {
 	vec3 dist = ray.origin - sphere.xyz;
@@ -524,17 +520,16 @@ Material getMaterial(in int i)
     if (i == 3)  return material3;
     if (i == 4)  return material4;
     if (i == 5)  return material5;
-    if (i == 6)  return material5;  //same material
-    if (i == 7)  return material7; 
-    if (i == 8)  return material8; 
-    if (i == 9)  return material9; 
-    if (i == 10) return material10;
-    if (i == 11) return material10; //same material
-    if (i == 12) return material12;
-    //if (i == 13) return material13;
-	if (i > 13) return material14;
-	
-    else return material0;
+    if (i == 6)  return material5;   // same material
+    if (i == 7)  return material7;
+    if (i == 8)  return material8;   // gold
+    if (i == 9)  return material9;   // glass
+	if (i >= 10 && i < spheresCount) return material10;
+	if (i == spheresCount || i == spheresCount+1) return material10;
+	if (i == spheresCount+2) return material12;
+	//if (i == spheresCount+3) return material13;
+	if (i > spheresCount+3) return material14;
+	else return material0;
 }
 
 vec3 shade(in HitRec closestHit, in Ray ray) //Blinn-Phong

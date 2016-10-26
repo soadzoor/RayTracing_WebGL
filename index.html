@@ -32,14 +32,22 @@
 			<p id="shadows">Shadows: OFF</p>
 			<p id="normalmaps">NormalMaps: ON</p>
 			<p id="colormode">ColorMode: RGB</p>
-			<br>
 			<p>Resolution:</p>
-			<label for canvasWidth>Width: </label>
+			<label for "canvasWidth">Width: </label>
 			<input type="number" value="800" id="canvasWidth" min="1" max="9999"></input>
-			<label for canvasHeight>Height: </label>
+			<label for "canvasHeight">Height: </label>
 			<input type="number" value="600" id="canvasHeight" min="1" max="9999"></input>
 			<input type="button" id="setResolutionButton" value="Set"></input>
-			<input type="button" id="setFullScreenButton" value="FullScreen"></input>
+			<input type="button" id="setFullScreenButton" value="FullScreen"></input><label for "setFullScreenButton"> Press Esc twice to exit FullScreen and get the original resolution back.</label>
+			<br>
+			<p>Press WASD to move around</p>
+			<p>Hold left mouse button to look around</p>
+			<p>Hold left Shift to move slower</p>
+			<p>N: toggle normalmaps (bumpmaps) on the Earth and the Moon</p>
+			<p>1: toogle shadows</p>
+			<p>G: toggle Glowing Effect on the Sun</p>
+			<p>Left/Right arrow: change depth</p>
+			<p>Up/Down arrow: change ColorMode</p>
 		</div>
 		<script src="jquery-min.js"></script>
 		<script src="gl-matrix.js"></script>
