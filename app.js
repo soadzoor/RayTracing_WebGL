@@ -1,5 +1,5 @@
 document.getElementById("game-surface").addEventListener('contextmenu', function(evt) { 
-  evt.preventDefault();
+	evt.preventDefault();
 }, false);
 
 var vertexShaderText, fragmentShaderText;
@@ -37,15 +37,15 @@ function RunDemo() {
         glVersion = 'webgl';
 		gl = canvas.getContext(glVersion);
 	}
-    if (!gl) {
-        console.log('WebGL not supported, falling back on experimental webgl...');
-        glVersion = 'experimental-webgl';
+    	if (!gl) {
+        	console.log('WebGL not supported, falling back on experimental webgl...');
+        	glVersion = 'experimental-webgl';
 		gl = canvas.getContext(glVersion);
-    }
-    if (!gl) {
-        alert('Your browser does not support WegGL!');
-        return;
-    }
+    	}
+    	if (!gl) {
+        	alert('Your browser does not support WegGL!');
+        	return;
+    	}
 	
 	if (glVersion == 'webgl2' || glVersion == 'experimental-webgl2') {
 		loadShaders('VS_GL_ES_3.vert', 'FS_GL_ES_3.frag');
@@ -144,94 +144,85 @@ function RunDemo() {
 	var positionAttribLocation = gl.getAttribLocation(program, 'vertPosition');
 	initAttribPointer(positionAttribLocation);
 	gl.enableVertexAttribArray(positionAttribLocation);
+	//
+	// Defining spheres
+	//
+	var spheres = [];
+	spheres[0] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 1.4), Location: gl.getUniformLocation(program, "spheres[0]") }; // Sun
+	spheres[1] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[1]") }; // Green sphere
+	spheres[2] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[2]") }; // Blue sphere
+	spheres[3] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[3]") }; // Earth
+	spheres[4] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[4]") }; // Moon
     
-    //
-    // Defining spheres
-    //
-    var spheres = [];
-    spheres[0] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 1.4), Location: gl.getUniformLocation(program, "spheres[0]") }; // Sun
-    spheres[1] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[1]") }; // Green sphere
-    spheres[2] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[2]") }; // Blue sphere
-    spheres[3] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[3]") }; // Earth
-    spheres[4] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[4]") }; // Moon
-    
-    spheres[5] = { vec: vec4.fromValues(-2.0, 20.0, 0.0, 0.05), Location: gl.getUniformLocation(program, "spheres[5]") };
-    spheres[6] = { vec: vec4.fromValues(20.0, 20.0, 0.0, 0.05), Location: gl.getUniformLocation(program, "spheres[6]") };
-    spheres[7] = { vec: vec4.fromValues(-2.0 + 0.3, 20.0 - 0.6, 0.0 - 0.3, 0.3), Location: gl.getUniformLocation(program, "spheres[7]") }; // Red sphere
-    spheres[8] = { vec: vec4.fromValues(6.0, 0.0, -10.0, 1.4), Location: gl.getUniformLocation(program, "spheres[8]") }; // Golden sphere
-    spheres[9] = { vec: vec4.fromValues(-7.0, 0.0, 0.0, 1.4), Location: gl.getUniformLocation(program, "spheres[9]") }; // Glass sphere
+	spheres[5] = { vec: vec4.fromValues(-2.0, 20.0, 0.0, 0.05), Location: gl.getUniformLocation(program, "spheres[5]") };
+	spheres[6] = { vec: vec4.fromValues(20.0, 20.0, 0.0, 0.05), Location: gl.getUniformLocation(program, "spheres[6]") };
+	spheres[7] = { vec: vec4.fromValues(-2.0 + 0.3, 20.0 - 0.6, 0.0 - 0.3, 0.3), Location: gl.getUniformLocation(program, "spheres[7]") }; // Red sphere
+	spheres[8] = { vec: vec4.fromValues(6.0, 0.0, -10.0, 1.4), Location: gl.getUniformLocation(program, "spheres[8]") }; // Golden sphere
+	spheres[9] = { vec: vec4.fromValues(-7.0, 0.0, 0.0, 1.4), Location: gl.getUniformLocation(program, "spheres[9]") }; // Glass sphere
 
 
 	loadingLabel.innerHTML = "Defining vertices, geometries, etc...DONE!";
 	console.log("Defining vertices, geometries, etc...DONE!");
 	loadingLabel.innerHTML = "Loading textures...";
 	console.log("Loading textures...");
-    //
-    // Load textures
-    //
-    var sunTexture         = loadTexture("sunTexture");
-    var earthTexture       = loadTexture("earthTexture");
-    var earthNormalMap     = loadTexture("earthNormalMap");
-    var moonTexture        = loadTexture("moonTexture");
-    var moonNormalMap      = loadTexture("moonNormalMap");
-    var groundTexture      = loadTexture("groundTexture");
-    var skyboxTextureBack  = loadClampTexture("skyboxTextureBack");
-    var skyboxTextureDown  = loadClampTexture("skyboxTextureDown");
-    var skyboxTextureFront = loadClampTexture("skyboxTextureFront");
-    var skyboxTextureLeft  = loadClampTexture("skyboxTextureLeft");
-    var skyboxTextureRight = loadClampTexture("skyboxTextureRight");
-    var skyboxTextureUp    = loadClampTexture("skyboxTextureUp");
-	
-	
-	
-	
-	        var sunTextureLocation = gl.getUniformLocation(program, "sunTexture");
-	      var earthTextureLocation = gl.getUniformLocation(program, "earthTexture");    
-	    var earthNormalMapLocation = gl.getUniformLocation(program, "earthNormalMap");   
-	       var moonTextureLocation = gl.getUniformLocation(program, "moonTexture");      
-	     var moonNormalMapLocation = gl.getUniformLocation(program, "moonNormalMap");    
-	     var groundTextureLocation = gl.getUniformLocation(program, "groundTexture");    
-	 var skyboxTextureBackLocation = gl.getUniformLocation(program, "skyboxTextureBack");
-	 var skyboxTextureDownLocation = gl.getUniformLocation(program, "skyboxTextureDown");
+	//
+	// Load textures
+	//
+	var sunTexture         = loadTexture("sunTexture");
+	var earthTexture       = loadTexture("earthTexture");
+	var earthNormalMap     = loadTexture("earthNormalMap");
+	var moonTexture        = loadTexture("moonTexture");
+	var moonNormalMap      = loadTexture("moonNormalMap");
+	var groundTexture      = loadTexture("groundTexture");
+	var skyboxTextureBack  = loadClampTexture("skyboxTextureBack");
+	var skyboxTextureDown  = loadClampTexture("skyboxTextureDown");
+	var skyboxTextureFront = loadClampTexture("skyboxTextureFront");
+	var skyboxTextureLeft  = loadClampTexture("skyboxTextureLeft");
+	var skyboxTextureRight = loadClampTexture("skyboxTextureRight");
+	var skyboxTextureUp    = loadClampTexture("skyboxTextureUp");
+
+	var sunTextureLocation         = gl.getUniformLocation(program, "sunTexture");
+	var earthTextureLocation       = gl.getUniformLocation(program, "earthTexture");    
+	var earthNormalMapLocation     = gl.getUniformLocation(program, "earthNormalMap");   
+	var moonTextureLocation        = gl.getUniformLocation(program, "moonTexture");      
+	var moonNormalMapLocation      = gl.getUniformLocation(program, "moonNormalMap");    
+	var groundTextureLocation      = gl.getUniformLocation(program, "groundTexture");    
+	var skyboxTextureBackLocation  = gl.getUniformLocation(program, "skyboxTextureBack");
+	var skyboxTextureDownLocation  = gl.getUniformLocation(program, "skyboxTextureDown");
 	var skyboxTextureFrontLocation = gl.getUniformLocation(program, "skyboxTextureFront");
-	 var skyboxTextureLeftLocation = gl.getUniformLocation(program, "skyboxTextureLeft");
+	var skyboxTextureLeftLocation  = gl.getUniformLocation(program, "skyboxTextureLeft");
 	var skyboxTextureRightLocation = gl.getUniformLocation(program, "skyboxTextureRight");
-	   var skyboxTextureUpLocation = gl.getUniformLocation(program, "skyboxTextureUp");  
-	
-	
-    
-    loadingLabel.innerHTML = "Loading textures...DONE!";
+	var skyboxTextureUpLocation    = gl.getUniformLocation(program, "skyboxTextureUp");  
+
+	loadingLabel.innerHTML = "Loading textures...DONE!";
 	console.log("Loading textures...DONE!");
-    
+
 	gl.useProgram(program);
-	
+
 	loadingLabel.innerHTML = "Loading necessary uniforms...";
 	console.log("Loading necessary uniforms...");
 	
 	var eyeLocation   = gl.getUniformLocation(program, 'eye');
 	var upLocation    = gl.getUniformLocation(program, 'up');
 	var fwLocation    = gl.getUniformLocation(program, 'fw');
-    var rightLocation = gl.getUniformLocation(program, "right");
+	var rightLocation = gl.getUniformLocation(program, "right");
 	var ratioUniformLocation = gl.getUniformLocation(program, 'ratio');
-    
-    var ratio = canvas.clientWidth / canvas.clientHeight;
-	
+
+	var ratio = canvas.clientWidth / canvas.clientHeight;
+
 	document.getElementById("setResolutionButton").addEventListener("click", function(){
 		ratio = setResolution(canvas);
 	});
 	document.getElementById("setFullScreenButton").addEventListener("click", function(){
 		ratio = setFullScreen(canvas);
 	});
-	
-	
-	
-    
+
 	var viewMatrix  = new Float32Array(16);
 	var projMatrix  = new Float32Array(16);
-    
+
 	var u = -Math.PI/2;
 	var v =  Math.PI/2;
-	
+
 	var camRight = [1, 0, 0];
 	var camUp    = [0, 1, 0];
 	var camAt    = [0, 0, 0];
@@ -240,157 +231,151 @@ function RunDemo() {
 	var camDist  = vec3.dist(camAt, camPos);
 	
 	var depth = 1;
-    var isShadowOn = false;
-    var isGlowOn = false;
-    var useNormalMap = true;
-    var pause = false;
-    var sumElapsedTime = 0;
-    var curElapsedTime = 0;
-    var pausedTime = 0;
-    var currentColorMode = 5;
-    var colorModeInTernary = [];
-    colorModeToTernary(colorModeInTernary, currentColorMode);
-	
+	var isShadowOn = false;
+	var isGlowOn = false;
+	var useNormalMap = true;
+	var pause = false;
+	var sumElapsedTime = 0;
+	var curElapsedTime = 0;
+	var pausedTime = 0;
+	var currentColorMode = 5;
+	var colorModeInTernary = [];
+	colorModeToTernary(colorModeInTernary, currentColorMode);
+
 	var depthLocation = gl.getUniformLocation(program, "depth");
-    var isShadowOnLocation = gl.getUniformLocation(program, "isShadowOn");
-    var isGlowOnLocation = gl.getUniformLocation(program, "isGlowOn");
-    var useNormalMapLocation = gl.getUniformLocation(program, "useNormalMap");
-	
-	
+	var isShadowOnLocation = gl.getUniformLocation(program, "isShadowOn");
+	var isGlowOnLocation = gl.getUniformLocation(program, "isGlowOn");
+	var useNormalMapLocation = gl.getUniformLocation(program, "useNormalMap");
+
+
 	var colorModeInTernary0Location = gl.getUniformLocation(program, "colorModeInTernary[0]");
 	var colorModeInTernary1Location = gl.getUniformLocation(program, "colorModeInTernary[1]");
 	var colorModeInTernary2Location = gl.getUniformLocation(program, "colorModeInTernary[2]");
-	
-    var colorModes = ["RRR", "RRG", "RRB",
-                      "RGR", "RGG", "RGB",
-                      "RBR", "RBG", "RBB",
-                      "GRR", "GRG", "GRB",
-                      "GGR", "GGG", "GGB",
-                      "GBR", "GBG", "GBB",
-                      "BRR", "BRG", "BRB",
-                      "BGR", "BGG", "BGB",
-                      "BBR", "BBG", "BBB"];
-					  
+
+	var colorModes = ["RRR", "RRG", "RRB",
+			  "RGR", "RGG", "RGB",
+			  "RBR", "RBG", "RBB",
+ 			  "GRR", "GRG", "GRB",
+			  "GGR", "GGG", "GGB",
+			  "GBR", "GBG", "GBB",
+			  "BRR", "BRG", "BRB",
+			  "BGR", "BGG", "BGB",
+   			  "BBR", "BBG", "BBB"];
+			  
 	var isShiftDown = false;
 	var isDDown = false;
 	var isADown = false;
 	var isSDown = false;
 	var isWDown = false;
 	var isMouseActive = false;
-	
-	
+
+
 	window.onkeydown = function(e) {
-	    var key = e.keyCode ? e.keyCode : e.which;
-        
-		switch(key) {
+	var key = e.keyCode ? e.keyCode : e.which;
+	switch(key) {
 			case 16:
-				isShiftDown = true;
-				break;
-			case 68:
-				isDDown = true;
-				break;
-			case 65:
-				isADown = true;
-				break;
-			case 83:
-				isSDown = true;
-				break;
-			case 87:
-				isWDown = true;
-				break;
-            case 37:
-                if (depth > 1) {
-                    //console.log("Depth: " + (--depth));
-					depthLabel.innerHTML = "Depth: " + --depth;
-                }
-                break;
-            case 39:
-                if (depth < 8) {
-				    //console.log("Depth: " + (++depth));
-					depthLabel.innerHTML = "Depth: " + ++depth;
-                }
-                break;
-            case 38:
-                if (currentColorMode < 26)
-                {
-                    //console.log("Current color mode: " + colorModes[++currentColorMode]);
-					colorModeLabel.innerHTML = "ColorMode: " + colorModes[++currentColorMode];
-                    colorModeToTernary(colorModeInTernary, currentColorMode);
-                }
-                break;
-            case 40:
-                if (currentColorMode > 0)
-                {
-                    //console.log("Current color mode: " + colorModes[--currentColorMode]);
-					colorModeLabel.innerHTML = "ColorMode: " + colorModes[--currentColorMode];
-                    colorModeToTernary(colorModeInTernary, currentColorMode);
-                }
-                break;
-            case 49:
-                isShadowOn = !isShadowOn;
-                //isShadowOn ? console.log("Shadows ON") : console.log("Shadows OFF");
-				isShadowOn ? shadowsLabel.innerHTML = "Shadows: ON" : shadowsLabel.innerHTML = "Shadows: OFF";
-                break;
-            case 71:
-                isGlowOn = !isGlowOn;
-                isGlowOn ? glowEffectLabel.innerHTML = "Glow effect: ON" : glowEffectLabel.innerHTML = "Glow effect: OFF";
-                break;
-            case 78:
-                useNormalMap = !useNormalMap;
-                useNormalMap ? normalMapsLabel.innerHTML = "Normalmaps: ON" : normalMapsLabel.innerHTML = "Normalmaps: OFF";
-                break;
-            case 80:
-                pause = !pause;
-                if (pause)
-                {
-                    curElapsedTime = 0;
-                    console.log("Time paused");
-                    pausedTime = performance.now() / 1000.0;
-                }
-                else
-                {
-                    sumElapsedTime += curElapsedTime;
-                    console.log("Returned");
-                }
-                break;
-			case 27:
-				ratio = setResolution(canvas);
-				break;
+			isShiftDown = true;
+			break;
+		case 68:
+			isDDown = true;
+			break;
+		case 65:
+			isADown = true;
+			break;
+		case 83:
+			isSDown = true;
+			break;
+		case 87:
+			isWDown = true;
+			break;
+		case 37:
+			if (depth > 1) {
+				//console.log("Depth: " + (--depth));
+				depthLabel.innerHTML = "Depth: " + --depth;
+			}
+			break;
+		case 39:
+ 			if (depth < 8) {
+				//console.log("Depth: " + (++depth));
+				depthLabel.innerHTML = "Depth: " + ++depth;
+			}
+			break;
+		case 38:
+			if (currentColorMode < 26) {
+				//console.log("Current color mode: " + colorModes[++currentColorMode]);
+				colorModeLabel.innerHTML = "ColorMode: " + colorModes[++currentColorMode];
+				colorModeToTernary(colorModeInTernary, currentColorMode);
+			}
+			break;
+		case 40:
+			if (currentColorMode > 0) {
+				//console.log("Current color mode: " + colorModes[--currentColorMode]);
+				colorModeLabel.innerHTML = "ColorMode: " + colorModes[--currentColorMode];
+				colorModeToTernary(colorModeInTernary, currentColorMode);
+			}
+			break;
+		case 49:
+			isShadowOn = !isShadowOn;
+			//isShadowOn ? console.log("Shadows ON") : console.log("Shadows OFF");
+			isShadowOn ? shadowsLabel.innerHTML = "Shadows: ON" : shadowsLabel.innerHTML = "Shadows: OFF";
+			break;
+		case 71:
+			isGlowOn = !isGlowOn;
+			isGlowOn ? glowEffectLabel.innerHTML = "Glow effect: ON" : glowEffectLabel.innerHTML = "Glow effect: OFF";
+			break;
+		case 78:
+			useNormalMap = !useNormalMap;
+			useNormalMap ? normalMapsLabel.innerHTML = "Normalmaps: ON" : normalMapsLabel.innerHTML = "Normalmaps: OFF";
+ 			break;
+		case 80:
+			pause = !pause;
+			if (pause) {
+				curElapsedTime = 0;
+				console.log("Time paused");
+				pausedTime = performance.now() / 1000.0;
+			} else {
+				sumElapsedTime += curElapsedTime;
+				console.log("Returned");
+			}
+			break;
+		case 27:
+			ratio = setResolution(canvas);
+			break;
 		}
 	}
 	
 	window.onkeyup = function(e) {
-	    var key = e.keyCode ? e.keyCode : e.which;
-	    switch(key) {
-			case 16:
-				isShiftDown = false;
-				break;
-			case 68:
-				isDDown = false;
-				break;
-			case 65:
-				isADown = false;
-				break;
-			case 83:
-				isSDown = false;
-				break;
-			case 87:
-				isWDown = false;
-				break;
+	var key = e.keyCode ? e.keyCode : e.which;
+	switch(key) {
+		case 16:
+			isShiftDown = false;
+			break;
+		case 68:
+			isDDown = false;
+			break;
+		case 65:
+			isADown = false;
+			break;
+		case 83:
+			isSDown = false;
+			break;
+		case 87:
+			isWDown = false;
+			break;
 		}
 	}
-	
+
 	canvas.onmousedown = function (e) {
 		isMouseActive = true;
 	}
-	
+
 	window.onmouseup = function (e) {
 		isMouseActive = false;
 		prevX = 0;
 		prevY = 0;
 		document.getElementById('game-surface').style.cursor = "default";
 	}
-	
+
 	var prevX = 0;
 	var prevY = 0;
 	window.onmousemove = function (e) {
@@ -413,9 +398,9 @@ function RunDemo() {
 	}
 	var time;
 	var timeLocation = gl.getUniformLocation(program, "time");
-    var frameCount = 0;
-    var currentTime;
-    var lastFPSUpdate = performance.now();
+	var frameCount = 0;
+	var currentTime;
+	var lastFPSUpdate = performance.now();
 	var camSpeed = 0.2667;
 	loadingLabel.innerHTML = "Loading...DONE!";
 	console.log("Loading...DONE!");
@@ -424,118 +409,108 @@ function RunDemo() {
 	//
 	var loop = function () {
         
-        { //controls
+		{ //controls
 			if (isShiftDown) {
 				camSpeed = 0.2667/4.0;
 			} else {
 				camSpeed = 0.2667;
 			}
-            if (isDDown) {
-                var right = vec3.scale(camRight, camSpeed);
-                camPos = vec3.add(camPos, right);
-                camAt = vec3.add(camAt, right);
-            }
-            if (isADown) {
-                var right = vec3.scale(camRight, camSpeed);
-                camPos = vec3.sub(camPos, right);
-                camAt = vec3.sub(camAt, right);
-            }
-            if (isSDown) {
-                var fw = vec3.scale(camFw, camSpeed);
-                camPos = vec3.sub(camPos, fw);
-                camAt = vec3.sub(camAt, fw);
-            }
-            if (isWDown) {
-                var fw = vec3.scale(camFw, camSpeed);
-                camPos = vec3.add(camPos, fw);
-                camAt = vec3.add(camAt, fw);
-            }
-        }
-        
+			if (isDDown) {
+				var right = vec3.scale(camRight, camSpeed);
+				camPos = vec3.add(camPos, right);
+				camAt = vec3.add(camAt, right);
+			}
+			if (isADown) {
+				var right = vec3.scale(camRight, camSpeed);
+ 				camPos = vec3.sub(camPos, right);
+				camAt = vec3.sub(camAt, right);
+			}
+			if (isSDown) {
+				var fw = vec3.scale(camFw, camSpeed);
+				camPos = vec3.sub(camPos, fw);
+				camAt = vec3.sub(camAt, fw);
+			}
+			if (isWDown) {
+				var fw = vec3.scale(camFw, camSpeed);
+				camPos = vec3.add(camPos, fw);
+				camAt = vec3.add(camAt, fw);
+			}
+		}
+
 		gl.clear(gl.COLOR_BUFFER_BIT);
-        
-	
-        if (pause)
-        {
-            time = pausedTime - sumElapsedTime;
-            curElapsedTime = performance.now() / 1000.0 - pausedTime;
-        }
-        else
-        {
-            time = performance.now() / 1000.0 - sumElapsedTime;
-        }
-        //
-        // Moving specific spheres on a circle shape
-        //
-        spheres[1].vec = vec4.fromValues(2 * Math.sin(time / 2.0), 0.0, 2.0 * Math.cos(time / 2.0), 0.26);
-        spheres[2].vec = vec4.fromValues(2.5 * Math.cos(time / 3.0), 0.0, 2.5 * Math.sin(time / 3.0), 0.18);
-        spheres[3].vec = vec4.fromValues(5.0 * Math.cos(time / 5.0), 0.0, 5.0 * Math.sin(time / 5.0), 0.366);
-        spheres[4].vec = vec4.fromValues(5 * Math.cos(time / 5.0) + 1.0*Math.cos(2.0 * time), 0.0, 5.0 * Math.sin(time / 5.0) + 1.0*Math.sin(2.0 * time), 0.1);
-        
-        //
-        // Pass variables to the GPU
-        //
+
+		if (pause) {
+			time = pausedTime - sumElapsedTime;
+			curElapsedTime = performance.now() / 1000.0 - pausedTime;
+		} else {
+			time = performance.now() / 1000.0 - sumElapsedTime;
+		}
+
+		//
+		// Moving specific spheres on a circle shape
+		//
+		spheres[1].vec = vec4.fromValues(2 * Math.sin(time / 2.0), 0.0, 2.0 * Math.cos(time / 2.0), 0.26);
+		spheres[2].vec = vec4.fromValues(2.5 * Math.cos(time / 3.0), 0.0, 2.5 * Math.sin(time / 3.0), 0.18);
+		spheres[3].vec = vec4.fromValues(5.0 * Math.cos(time / 5.0), 0.0, 5.0 * Math.sin(time / 5.0), 0.366);
+		spheres[4].vec = vec4.fromValues(5 * Math.cos(time / 5.0) + 1.0*Math.cos(2.0 * time), 0.0, 5.0 * Math.sin(time / 5.0) + 1.0*Math.sin(2.0 * time), 0.1);
+
+		//
+		// Pass variables to the GPU
+		//
 		setVec3Uniform(eyeLocation, camPos);
 		setVec3Uniform(fwLocation, camFw);
 		camUp = vec3.cross(camRight, camFw);
 		setVec3Uniform(upLocation, camUp);
 		setVec3Uniform(rightLocation, camRight);
 		setFloatUniform(ratioUniformLocation, ratio);
-        setIntegerUniform(depthLocation, depth);
-        setFloatUniform(timeLocation, time);
-        setBoolUniform(isShadowOnLocation, isShadowOn);
-        setBoolUniform(isGlowOnLocation, isGlowOn);
-        setBoolUniform(useNormalMapLocation, useNormalMap);
+		setIntegerUniform(depthLocation, depth);
+		setFloatUniform(timeLocation, time);
+		setBoolUniform(isShadowOnLocation, isShadowOn);
+		setBoolUniform(isGlowOnLocation, isGlowOn);
+		setBoolUniform(useNormalMapLocation, useNormalMap);
 
-        
-        //
-        // Pass spheres to GPU
-        //
-        for (var i = 0; i < spheres.length; ++i) {
-            setVec4Uniform(spheres[i].Location, spheres[i].vec);
-        }
-        //
+		//
+		// Pass spheres to GPU
+		//
+			for (var i = 0; i < spheres.length; ++i) {
+			setVec4Uniform(spheres[i].Location, spheres[i].vec);
+			}
+
+		//
 		// Pass textures to GPU
 		//
-        setTexture(sunTextureLocation,          0, sunTexture);
-        setTexture(earthTextureLocation,        1, earthTexture);
-        setTexture(earthNormalMapLocation,      2, earthNormalMap);
-        setTexture(moonTextureLocation,         3, moonTexture);
-        setTexture(moonNormalMapLocation,       4, moonNormalMap);
-        setTexture(groundTextureLocation,       5, groundTexture);
-        setTexture(skyboxTextureBackLocation,   6, skyboxTextureBack);
-        setTexture(skyboxTextureDownLocation,   7, skyboxTextureDown);
-        setTexture(skyboxTextureFrontLocation,  8, skyboxTextureFront);
-        setTexture(skyboxTextureLeftLocation,   9, skyboxTextureLeft);
-        setTexture(skyboxTextureRightLocation, 10, skyboxTextureRight);
-        setTexture(skyboxTextureUpLocation,    11, skyboxTextureUp);
+		setTexture(sunTextureLocation,          0, sunTexture);
+		setTexture(earthTextureLocation,        1, earthTexture);
+		setTexture(earthNormalMapLocation,      2, earthNormalMap);
+		setTexture(moonTextureLocation,         3, moonTexture);
+		setTexture(moonNormalMapLocation,       4, moonNormalMap);
+		setTexture(groundTextureLocation,       5, groundTexture);
+		setTexture(skyboxTextureBackLocation,   6, skyboxTextureBack);
+		setTexture(skyboxTextureDownLocation,   7, skyboxTextureDown);
+		setTexture(skyboxTextureFrontLocation,  8, skyboxTextureFront);
+		setTexture(skyboxTextureLeftLocation,   9, skyboxTextureLeft);
+		setTexture(skyboxTextureRightLocation, 10, skyboxTextureRight);
+		setTexture(skyboxTextureUpLocation,    11, skyboxTextureUp);
 
-        //
-        // Pass colorMode to GPU
-        //
-        setIntegerUniform(colorModeInTernary0Location, colorModeInTernary[0]);
-        setIntegerUniform(colorModeInTernary1Location, colorModeInTernary[1]);
-        setIntegerUniform(colorModeInTernary2Location, colorModeInTernary[2]);
+		//
+		// Pass colorMode to GPU
+		//
+		setIntegerUniform(colorModeInTernary0Location, colorModeInTernary[0]);
+		setIntegerUniform(colorModeInTernary1Location, colorModeInTernary[1]);
+		setIntegerUniform(colorModeInTernary2Location, colorModeInTernary[2]);
 
-        
-        gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
-        
-        frameCount++;
-        currentTime = performance.now();
-		if (currentTime - lastFPSUpdate >= 1000)
-		{
+		gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
 
+		frameCount++;
+		currentTime = performance.now();
+		if (currentTime - lastFPSUpdate > 1000) {
 			FPSLabel.innerHTML = "FPS: " + --frameCount;
-			
-
 			lastFPSUpdate = performance.now();
 			frameCount = 0;
 		}
 		requestAnimationFrame(loop);
 	};
 	requestAnimationFrame(loop);
-	
-	
 };
 
 
@@ -556,7 +531,7 @@ function loadTexture(textureID) {
 }
 
 function loadClampTexture(textureID) {
-    var texture = gl.createTexture();
+	var texture = gl.createTexture();
 	gl.bindTexture(gl.TEXTURE_2D, texture);
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
@@ -568,56 +543,57 @@ function loadClampTexture(textureID) {
 		document.getElementById(textureID)
 	);
 	gl.bindTexture(gl.TEXTURE_2D, null);
-    return texture;
+
+	return texture;
 }
 
 function setTexture(Location, _sampler, _textureID) {
 	gl.activeTexture(gl.TEXTURE0 + _sampler);
 	gl.bindTexture(gl.TEXTURE_2D, _textureID);
-    gl.uniform1i(Location, _sampler);
+	gl.uniform1i(Location, _sampler);
 }
 
 function setIntegerUniform(Location, number) {
-    gl.uniform1i(Location, number);
+	gl.uniform1i(Location, number);
 }
 function setBoolUniform(Location, variable) {
-    gl.uniform1i(Location, variable);
+	gl.uniform1i(Location, variable);
 }
 function setFloatUniform(Location, number) {
-    gl.uniform1f(Location, number);
+	gl.uniform1f(Location, number);
 }
 function setVec2Uniform(Location, numbers) {
-    gl.uniform2fv(Location, numbers);
+	gl.uniform2fv(Location, numbers);
 }
 function setVec3Uniform(Location, numbers) {
-    gl.uniform3fv(Location, numbers);
+	gl.uniform3fv(Location, numbers);
 }
 function setVec4Uniform(Location, numbers) {
-    gl.uniform4fv(Location, numbers);
+	gl.uniform4fv(Location, numbers);
 }
 
 /*function getF0(n, k) { // toresmutato, kioltasi tenyezo
-    //            
-    //                (                        A                     )    (                         B                    )
-    //                (                   atimesa             )           (                ctimesc                )
-    //                (          a       ) (          a       )   (b )    (          c       ) (       c          )   (b )
-    //glm::vec3 f0 = ((n - glm::vec3(1.0))*(n - glm::vec3(1.0)) + k*k) / ((n + glm::vec3(1.0))*(n + glm::vec3(1.0)) + k*k);
-    
-    var a = vec3.sub(n, vec3.fromValues(1.0, 1.0, 1.0));
-    var b = vec3.mul(k, k);
-    var c = vec3.add(n, vec3.fromValues(1.0, 1.0, 1.0));
-    var atimesa = vec3.mul(a, a);
-    var ctimesc = vec3.mul(c, c);
-    var A = vec3.add(atimesa, b);
-    var B = vec3.add(ctimesc, b);
+	//            
+	//                (                        A                     )    (                         B                    )
+	//                (                   atimesa             )           (                ctimesc                )
+	//                (          a       ) (          a       )   (b )    (          c       ) (       c          )   (b )
+	//glm::vec3 f0 = ((n - glm::vec3(1.0))*(n - glm::vec3(1.0)) + k*k) / ((n + glm::vec3(1.0))*(n + glm::vec3(1.0)) + k*k);
 
-    var f0 = vec3.divide(A, B);
+	var a = vec3.sub(n, vec3.fromValues(1.0, 1.0, 1.0));
+	var b = vec3.mul(k, k);
+	var c = vec3.add(n, vec3.fromValues(1.0, 1.0, 1.0));
+	var atimesa = vec3.mul(a, a);
+	var ctimesc = vec3.mul(c, c);
+	var A = vec3.add(atimesa, b);
+	var B = vec3.add(ctimesc, b);
+
+	var f0 = vec3.divide(A, B);
 
 	return f0;
 }*/
 
 function colorModeToTernary(colorModeInTernary, currentColorMode) {
-    colorModeInTernary[2] = currentColorMode % 3;
+	colorModeInTernary[2] = currentColorMode % 3;
 	currentColorMode = Math.floor(currentColorMode/3);
 	colorModeInTernary[1] = currentColorMode % 3;
 	currentColorMode = Math.floor(currentColorMode/3);
@@ -633,7 +609,6 @@ function clamp(num, min, max) {
 	}
 	return num;
 }
-
 
 function getSphereUV(u, v) {
 	var uv = [0, 0, 0];
