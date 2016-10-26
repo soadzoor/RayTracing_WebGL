@@ -1,8 +1,9 @@
+#version 300 es
 precision lowp float;
 
-attribute vec3 vertPosition;
+in vec3 vertPosition;
 
-varying vec3 vsRay;
+out vec3 vsRay;
 
 uniform vec3 eye;
 uniform vec3 up;

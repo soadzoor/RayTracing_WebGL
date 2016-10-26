@@ -1,9 +1,10 @@
-<html>
+<!DOCTYPE html>
 	<head>
-		<title>WebGL</title>
+		<meta charset="UTF-8">
+		<title>WebGL Raytracing</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-	<body onload="InitDemo();">
+	<body onload="RunDemo();">
 		<div id="game-area">
 			<canvas id="game-surface" width="800px" height="600px">
 				Your browser does not support HTML5
@@ -23,23 +24,23 @@
             <img src="textures/skybox/rightImage.jpg" alt="skyboxTextureRight" id="skyboxTextureRight" width="0" height="0">
             <img src="textures/skybox/upImage.jpg" alt="skyboxTextureUp" id="skyboxTextureUp" width="0" height="0">
 		</div>
-		<!--<div id="options-area">
-			<p>Ball speed:</p>
-			<input type="range" id="ball-speed-range" value="10">
+		<div id="options-area">
+			<p id="loading">Loading...</p>
+			<p id="FPS">FPS: </p>
+			<p id="depth">Depth: 1</p>
+			<p id="gloweffect">GlowEffect: OFF</p>
+			<p id="shadows">Shadows: OFF</p>
+			<p id="normalmaps">NormalMaps: ON</p>
+			<p id="colormode">ColorMode: RGB</p>
 			<br>
-			<p>Camera speed:</p>
-			<input type="range" id="camera-speed-range" value="50">
-			<br>
-			<p>Shape to put:</p>
-			<select id="geometries">
-			  <option value="Box">Box</option>
-			  <option value="Torus">Torus</option>
-			  <option value="Cone">Cone</option>
-			  <option value="Cylinder">Cylinder</option>
-			  <option value="Pyramid">Pyramid</option>
-			  <option value="Sphere">Sphere</option>
-			</select>
-		</div>-->
+			<p>Resolution:</p>
+			<label for canvasWidth>Width: </label>
+			<input type="number" value="800" id="canvasWidth" min="1" max="9999"></input>
+			<label for canvasHeight>Height: </label>
+			<input type="number" value="600" id="canvasHeight" min="1" max="9999"></input>
+			<input type="button" id="setResolutionButton" value="Set"></input>
+			<input type="button" id="setFullScreenButton" value="FullScreen"></input>
+		</div>
 		<script src="jquery-min.js"></script>
 		<script src="gl-matrix.js"></script>
 		<script src="app.js"></script>

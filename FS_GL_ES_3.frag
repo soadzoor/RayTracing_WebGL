@@ -1,3 +1,4 @@
+#version 300 es
 precision lowp float;
 
 #define EPSILON 0.001
@@ -8,7 +9,10 @@ precision lowp float;
 #define trianglesCount 2
 
 // attribs from the vertex shader
-varying vec3 vsRay;
+in vec3 vsRay;
+
+// Frag Color
+out vec4 fragColor;
 
 uniform vec3 eye;
 
@@ -128,30 +132,6 @@ struct Stack
 	vec3 coeff;
 	int depth;
 };
-Stack getStack(in Stack stack[STACK_SIZE], in int i)
-{
-    if (i == 0) return stack[0];
-    if (i == 1) return stack[1];
-    if (i == 2) return stack[2];
-    if (i == 3) return stack[3];
-    if (i == 4) return stack[4];
-    if (i == 5) return stack[5];
-    if (i == 6) return stack[6];
-    if (i == 7) return stack[7];
-    else return stack[0];
-}
-void setStack(inout Stack stack[STACK_SIZE], in int i, in Stack currentStack)
-{
-	if (i == 0) stack[0] = currentStack;
-	if (i == 1) stack[1] = currentStack;
-	if (i == 2) stack[2] = currentStack;
-	if (i == 3) stack[3] = currentStack;
-	if (i == 4) stack[4] = currentStack;
-	if (i == 5) stack[5] = currentStack;
-	if (i == 6) stack[6] = currentStack;
-	if (i == 7) stack[7] = currentStack;
-	else return;
-}
 
 mat3 rotationMatrix(in vec3 axis, in float angle) //http://www.neilmendoza.com/glsl-rotation-about-an-arbitrary-axis/
 {
@@ -525,9 +505,9 @@ Material getMaterial(in int i)
     if (i == 4)  return material4;
     if (i == 5)  return material5;
     if (i == 6)  return material5;  //same material
-    if (i == 7)  return material7; 
-    if (i == 8)  return material8; 
-    if (i == 9)  return material9; 
+    if (i == 7)  return material7;
+    if (i == 8)  return material8;
+    if (i == 9)  return material9;
     if (i == 10) return material10;
     if (i == 11) return material10; //same material
     if (i == 12) return material12;
@@ -662,7 +642,7 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 				{
 					u += time/2.0;
 					uv = vec2(u, v);
-					vec3 normalFromMap = normalize(2.0*( (texture2D(earthNormalMap, uv)).rgb ) - 1.0);
+					vec3 normalFromMap = normalize(2.0*( (texture(earthNormalMap, uv)).rgb ) - 1.0);
 			
 					mat3 R = calculateR(closestHit.normal);
 					closestHit.normal = R*normalFromMap;
@@ -671,7 +651,7 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 				{
 					u += time/7.0;
 					uv = vec2(u, v);
-					vec3 normalFromMap = normalize(2.0*( (texture2D(moonNormalMap, uv)).rgb ) - 1.0);
+					vec3 normalFromMap = normalize(2.0*( (texture(moonNormalMap, uv)).rgb ) - 1.0);
 			
 					mat3 R = calculateR(closestHit.normal);
 					closestHit.normal = R*normalFromMap;
@@ -690,7 +670,7 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 				u += time/5.0;
 				v += time/5.0;
 				vec2 uv = vec2(u, v);
-				color *= texture2D(sunTexture, uv).rgb + vec3(0.0, 0.0, 0.5);
+				color *= texture(sunTexture, uv).rgb + vec3(0.0, 0.0, 0.5);
 			}
 			else if (closestHit.ind == 3) //earth
 			{
@@ -700,7 +680,7 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 				}
 			
 				vec2 uv = vec2(u, v);
-				color *= texture2D(earthTexture, uv).rgb;
+				color *= texture(earthTexture, uv).rgb;
 			}
 			else if (closestHit.ind == 4) //moon
 			{
@@ -709,35 +689,35 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 					u += time/7.0;
 				}
 				vec2 uv = vec2(u, v);
-				color *= texture2D(moonTexture, uv).rgb;
+				color *= texture(moonTexture, uv).rgb;
 			}
 			else if (closestHit.ind == spheresCount+trianglesCount) //ground
 			{
-				color *= texture2D(groundTexture, 0.15*closestHit.point.xz).rgb;
+				color *= texture(groundTexture, 0.15*closestHit.point.xz).rgb;
 			}
 			else if (closestHit.ind == spheresCount + trianglesCount + 2) //skyboxBack
 			{
-				color *= texture2D(skyboxTextureBack, (-closestHit.point.xy + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
+				color *= texture(skyboxTextureBack, (-closestHit.point.xy + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
 			}
 			else if (closestHit.ind == spheresCount + trianglesCount + 3) //skyboxDown
 			{
-				color *= texture2D(skyboxTextureDown, (closestHit.point.xz + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
+				color *= texture(skyboxTextureDown, (closestHit.point.xz + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
 			}
 			else if (closestHit.ind == spheresCount + trianglesCount + 4) //skyboxFront
 			{
-				color *= texture2D(skyboxTextureFront, (closestHit.point.xy*vec2(1, -1) + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
+				color *= texture(skyboxTextureFront, (closestHit.point.xy*vec2(1, -1) + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
 			}
 			else if (closestHit.ind == spheresCount + trianglesCount + 5) //skyboxLeft
 			{
-				color *= texture2D(skyboxTextureLeft, (closestHit.point.yz + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
+				color *= texture(skyboxTextureLeft, (closestHit.point.yz + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
 			}
 			else if (closestHit.ind == spheresCount + trianglesCount + 6) //skyboxRight
 			{
-				color *= texture2D(skyboxTextureRight, (closestHit.point.zy*vec2(1, -1) + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
+				color *= texture(skyboxTextureRight, (closestHit.point.zy*vec2(1, -1) + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
 			}
 			else if (closestHit.ind == spheresCount + trianglesCount + 7) //skyboxUp
 			{
-				color *= texture2D(skyboxTextureUp, (closestHit.point.xz + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
+				color *= texture(skyboxTextureUp, (closestHit.point.xz + vec2(skyboxDistance, skyboxDistance)) / (2.0*skyboxDistance)).rgb;
 			}
 			bool hitWater = (closestHit.ind == 3 && color.b > color.r && color.b > color.g);
 			if ((mat.reflective || mat.refractive || hitWater) && bounceCount <= depth)
@@ -769,12 +749,9 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 						}
 						else
 						{
-                            Stack currentStack = getStack(stack, stackSize);
-							currentStack.coeff = coeff*(vec3(1.0) - fresnel(ray.dir, closestHit.normal, mat.f0));
-							currentStack.depth = bounceCount;
-							currentStack.ray = refractedRay;
-							setStack(stack, stackSize, currentStack);
-                            stackSize++;
+                            stack[stackSize].coeff = coeff*(vec3(1.0) - fresnel(ray.dir, closestHit.normal, mat.f0));
+							stack[stackSize].depth = bounceCount;
+							stack[stackSize++].ray = refractedRay;
 						}
 					}
 				}
@@ -832,23 +809,14 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 
 		if (!continueLoop && stackSize > 0)
 		{
-            --stackSize;
-            Stack currentStack = getStack(stack, stackSize);
-			ray = currentStack.ray;
-			bounceCount = currentStack.depth;
-			coeff = currentStack.coeff;
+            ray = stack[--stackSize].ray;
+			bounceCount = stack[stackSize].depth;
+			coeff = stack[stackSize].coeff;
 			continueLoop = true;
 		}
 	}
 
 	return color;
-}
-float getColorFromTernary(in vec3 color, in int i)
-{
-    if (i == 0) return color.r;
-    if (i == 1) return color.g;
-    if (i == 2) return color.b;
-    else return color.r;
 }
 
 void main()
@@ -858,8 +826,5 @@ void main()
 	ray.dir = normalize(vsRay);
 	vec3 color = trace(ray);
 	
-	gl_FragColor = vec4(getColorFromTernary(color, colorModeInTernary[0]), getColorFromTernary(color, colorModeInTernary[1]), getColorFromTernary(color, colorModeInTernary[2]), 1.0);
-    //gl_FragColor = vec4(color, 1.0);
-    //gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
-    //gl_FragColor = vec4(triangles[0].A, 1.0);
+	fragColor = vec4(color[colorModeInTernary[0]], color[colorModeInTernary[1]], color[colorModeInTernary[2]], 1.0);
 }

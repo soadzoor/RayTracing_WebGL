@@ -5,6 +5,7 @@ body {
 	flex: 1;
 }
 #options-area {
+	margin-left: 50px;
 	flex: 1;
 }
 #game-surface {

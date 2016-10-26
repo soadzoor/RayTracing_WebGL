@@ -2,42 +2,57 @@ document.getElementById("game-surface").addEventListener('contextmenu', function
   evt.preventDefault();
 }, false);
 
+var vertexShaderText, fragmentShaderText;
 
-function InitDemo () {
-	loadTextResource('VS.vert', function(vsErr, vsText) {
-		if (vsErr) {
-			alert('Fatal error getting vertex shader (see console)');
-			console.error(vsErr);
-		} else {
-			loadTextResource('FS.frag', function(fsErr, fsText) {
-				if (fsErr) {
-					alert('Fatal error getting vertex shader (see console)');
-					console.error(fsErr);
-				} else {
-					RunDemo(vsText, fsText);
-				}
-			});
-		}
-	});
+function loadShaders(vsFileName, fsFileName) {
+	loadVertexTextResource(vsFileName);
+	loadFragmentTextResource(fsFileName);
 };
+
 var gl;
-function RunDemo(vertexShaderText, fragmentShaderText) {
-	
+function RunDemo() {
+	var loadingLabel = document.getElementById('loading');
+	var FPSLabel = document.getElementById('FPS');
+	var depthLabel = document.getElementById('depth');
+	var colorModeLabel = document.getElementById('colormode');
+	var glowEffectLabel = document.getElementById('gloweffect');
+	var shadowsLabel = document.getElementById('shadows');
+	var normalMapsLabel = document.getElementById('normalmaps');
+
 	var canvas = document.getElementById('game-surface');
-	gl = canvas.getContext('webgl');
+	canvas.addEventListener("webglcontextlost", function(event) {
+		event.preventDefault();
+	}, false);
+	canvas.addEventListener("webglcontextrestored", RunDemo, true);
 	
+	glVersion = 'webgl2';
+	gl = canvas.getContext(glVersion);
 	if (!gl) {
-		console.log('WebGL not supported, falling back on experimental-webgl...');
-		gl = canvas.getContext('experimental-webgl');
+		console.log('WebGL 2.0 not supported, falling back on experimental-webgl 2.0..');
+        glVersion = 'experimental-webgl2';
+		gl = canvas.getContext(glVersion);
+	}
+	if (!gl) {
+        console.log('Experimental WebGL 2.0 not supported, falling back on webgl 1.0...');
+        glVersion = 'webgl';
+		gl = canvas.getContext(glVersion);
+	}
+    if (!gl) {
+        console.log('WebGL not supported, falling back on experimental webgl...');
+        glVersion = 'experimental-webgl';
+		gl = canvas.getContext(glVersion);
+    }
+    if (!gl) {
+        alert('Your browser does not support WegGL!');
+        return;
+    }
+	
+	if (glVersion == 'webgl2' || glVersion == 'experimental-webgl2') {
+		loadShaders('VS_GL_ES_3.vert', 'FS_GL_ES_3.frag');
+	} else {
+		loadShaders('VS.vert', 'FS.frag');
 	}
 	
-	if (!gl) {
-		alert('Your browser does not support WegGL!');
-	}
-	
-	/*canvas.width = windows.innerWidth;
-	canvas.height = windows.innerHeight;
-	gl.viewport(0, 0, window.innerWidth, windows.innerHeight);*/
 	
 	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
 	
@@ -55,32 +70,50 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
 	
 	gl.shaderSource(vertexShader, vertexShaderText);
 	gl.shaderSource(fragmentShader, fragmentShaderText);
-	
+	loadingLabel.innerHTML = "Compiling Vertex Shader...";
+	console.log("Compiling Vertex Shader...");
 	gl.compileShader(vertexShader);
 	if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
 		console.error('ERROR compiling vertex shader!', gl.getShaderInfoLog(vertexShader));
 		return;
 	}
+	loadingLabel.innerHTML = "Compiling Vertex Shader...DONE!";
+	console.log("Compiling Vertex Shader...DONE!");
+	loadingLabel.innerHTML = "Compiling Fragment Shader...";
+	console.log("Compiling Fragment Shader...");
 	gl.compileShader(fragmentShader);
 	if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
 		console.error('ERROR compiling fragment shader!', gl.getShaderInfoLog(fragmentShader));
 		return;
 	}
+	loadingLabel.innerHTML = "Compiling Fragment Shader...DONE!";
+	console.log("Compiling Fragment Shader...DONE!");
 	
 	var program = gl.createProgram();
 	gl.attachShader(program, vertexShader);
 	gl.attachShader(program, fragmentShader);
+	loadingLabel.innerHTML = "Linking program...";
+	console.log("Linking program...");
 	gl.linkProgram(program);
-	if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-		console.error('ERROR linking program!', gl.getProgramInfoLog(program));
+	if (!gl.getProgramParameter(program, gl.LINK_STATUS) && !gl.isContextLost()) {
+		loadingLabel.innerHTML = "ERROR Linking program! Try again.";
+		console.error('ERROR linking program! Error code: '+ gl.getError() + ": " + gl.getProgramInfoLog(program));
+		gl.deleteProgram(program);
 		return;
 	}
+	loadingLabel.innerHTML = "Linking program...DONE!";
+	console.log("Linking program...DONE!");
+	loadingLabel.innerHTML = "Validating program...";
+	console.log("Validating program...");
 	gl.validateProgram(program);
 	if (!gl.getProgramParameter(program, gl.VALIDATE_STATUS)) {
 		console.error('ERROR validating program!', gl.getProgramInfoLog(program));
 		return;
 	}
-	
+	loadingLabel.innerHTML = "Validating program...DONE!";
+	console.log("Validating program...DONE!");
+	loadingLabel.innerHTML = "Defining vertices, geometries, etc...";
+	console.log("Defining vertices, geometries, etc.");
 	//
 	// buffer
 	//
@@ -113,291 +146,26 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
 	gl.enableVertexAttribArray(positionAttribLocation);
     
     //
-    // Defining lights
-    //
-    var lights = [];
-    lights[0] = {col: vec3.fromValues(1.0, 1.0, 1.0), pos: vec3.fromValues(0.0, 0.0, 0.0)};
-    lights[1] = {col: vec3.fromValues(1.0, 1.0, 1.0), pos: vec3.fromValues(-2.0, 20.0, 0.0)};
-    lights[2] = {col: vec3.fromValues(1.0, 1.0, 1.0), pos: vec3.fromValues(20.0, 20.0, 0.0)};
-
-    //
     // Defining spheres
     //
     var spheres = [];
-    spheres[0] = vec4.fromValues(0.0, 0.0, 0.0, 1.4); // Sun
-    spheres[1] = vec4.fromValues(0.0, 0.0, 0.0, 0.0); // Green sphere
-    spheres[2] = vec4.fromValues(0.0, 0.0, 0.0, 0.0); // Blue sphere
-    spheres[3] = vec4.fromValues(0.0, 0.0, 0.0, 0.0); // Earth
-    spheres[4] = vec4.fromValues(0.0, 0.0, 0.0, 0.0); // Moon
+    spheres[0] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 1.4), Location: gl.getUniformLocation(program, "spheres[0]") }; // Sun
+    spheres[1] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[1]") }; // Green sphere
+    spheres[2] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[2]") }; // Blue sphere
+    spheres[3] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[3]") }; // Earth
+    spheres[4] = { vec: vec4.fromValues(0.0, 0.0, 0.0, 0.0), Location: gl.getUniformLocation(program, "spheres[4]") }; // Moon
     
-    spheres[5] = vec4.fromValues(lights[1].pos[0], lights[1].pos[1], lights[1].pos[2], 0.05);
-    spheres[6] = vec4.fromValues(lights[2].pos[0], lights[2].pos[1], lights[2].pos[2], 0.05);
-    spheres[7] = vec4.fromValues(lights[1].pos[0] + 0.6, lights[1].pos[1] - 0.6, lights[1].pos[2] - 0.6, 0.3); // Red sphere with static position
-    spheres[8] = vec4.fromValues(6.0, 0.0, -10.0, 1.4); // Golden sphere
-    spheres[9] = vec4.fromValues(-7.0, 0.0, 0.0, 1.4); // Glass sphere
-
-    //
-    // Defining triangles
-    //
-    var triangles = [];
-    triangles[0] = {
-        A: vec3.fromValues(-14.0, 14.0, -14.0),
-        B: vec3.fromValues(-14.0, -5.0, -12.0),
-        C: vec3.fromValues( 14.0, -5.0, -12.0)
-    };
-    
-    triangles[1] = {
-        A: vec3.fromValues(-14.0, 14.0, -14.0),
-        B: vec3.fromValues( 14.0, -5.0, -12.0),
-        C: vec3.fromValues( 14.0, 14.0, -14.0)
-    };
-    //
-	// Ground
-	//
-    var ground = {
-        o: vec3.fromValues(0.0, -10.0, 0.0),
-        n: vec3.fromValues(0.0, 1.0, 0.0),
-        r: 30.0
-    };
-    //
-    // Torus
-    //
-    torus = vec2.fromValues(1.0, 0.25);
-    //
-	// Skybox (planes)
-	//
-    var skyboxDistance = 10000.0;
-    skyboxBack = {
-        n: vec3.fromValues(0, 0, -1),
-        q: vec3.fromValues(0, 0, skyboxDistance)
-    };
-    skyboxDown = {
-        n: vec3.fromValues(0, 1, 0),
-        q: vec3.fromValues(0, -skyboxDistance, 0)
-    };
-	skyboxFront = {
-        n: vec3.fromValues(0, 0, 1),
-        q: vec3.fromValues(0, 0, -skyboxDistance)
-    };
-    skyboxLeft = {
-        n: vec3.fromValues(1, 0, 0),
-        q: vec3.fromValues(-skyboxDistance, 0, 0)
-    };
-    skyboxRight = {
-        n: vec3.fromValues(-1, 0, 0),
-        q: vec3.fromValues(skyboxDistance, 0, 0)
-    };
-	skyboxUp = {
-        n: vec3.fromValues(0, -1, 0),
-        q: vec3.fromValues(0, skyboxDistance, 0)
-    };
-    //
-    // Defining materials
-    //
-    var materials = [];
-    //
-    // Sun
-    //
-    materials[0] = {
-        amb: vec3.fromValues(1.0, 0.95, 0.85),
-        dif: vec3.fromValues(0.0, 0.0, 0.0),
-        spec: vec3.fromValues(0.0, 0.0, 0.0),
-        pow: 30.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-
-    //
-    // Green sphere
-    //
-    materials[1] = {
-        amb: vec3.fromValues(0, 0.2, 0),
-        dif: vec3.fromValues(0, 0.4, 0),
-        spec: vec3.fromValues(1.0, 0.6, 0.8),
-        pow: 20.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-
-    //
-    // Blue sphere
-    //
-    materials[2] = {
-        amb: vec3.fromValues(0.0, 0.0, 0.2),
-        dif: vec3.fromValues(0.0, 0.0, 0.4),
-        spec: vec3.fromValues(0.0),
-        pow: 20.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-
-    //
-    // Earth
-    //
-    materials[3] = {
-        amb: vec3.fromValues(0.5, 0.5, 0.5),
-        dif: vec3.fromValues(0.5, 0.5, 0.5),
-        spec: vec3.fromValues(0.5, 0.5, 0.5),
-        pow: 30.0,
-        refractive: false,
-        reflective: true,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-
-    //
-    // Moon
-    //
-    materials[4] = {
-        amb: vec3.fromValues(0.5, 0.5, 0.5),
-        dif: vec3.fromValues(0.5, 0.5, 0.5),
-        spec: vec3.fromValues(0.5, 0.5, 0.5),
-        pow: 20.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-
-    //
-    // Spheres of lightsources
-    //
-    materials[5] = {
-        amb: vec3.fromValues(0.5, 0.5, 0.5),
-        dif: vec3.fromValues(0.8, 0.5, 0.8),
-        spec: vec3.fromValues(0.9, 0.9, 0.9),
-        pow: 20.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-
-    materials[6] = {
-        amb: vec3.fromValues(0.5, 0.5, 0.5),
-        dif: vec3.fromValues(0.8, 0.8, 0.8),
-        spec: vec3.fromValues(0.5, 0.5, 0.9),
-        pow: 20.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-
-    //
-    // Red sphere
-    //
-
-    materials[7] = {
-        amb: vec3.fromValues(0.2, 0.0, 0.0),
-        dif: vec3.fromValues(0.5, 0.0, 0.0),
-        spec: vec3.fromValues(0.8, 0.8, 0.8),
-        pow: 66.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-
-    //
-    // Golden sphere
-    //
-    materials[8] = {
-        amb: vec3.fromValues(0.0, 0.0, 0.0),
-        dif: vec3.fromValues(0.0, 0.0, 0.0),
-        spec: vec3.fromValues(0.628281, 0.555802, 0.366065),
-        pow: 51.2,
-        refractive: false,
-        reflective: true,
-        f0: getF0(vec3.fromValues(0.17, 0.35, 1.5), vec3.fromValues(3.1, 2.7, 1.9)), //arany kioltasi tenyezo
-        n: 1.0
-    };
-    //
-    // Glass sphere
-    //
-    materials[9] = {
-        amb: vec3.fromValues(0.0, 0.0, 0.0),
-        dif: vec3.fromValues(0.0, 0.0, 0.0),
-        spec: vec3.fromValues(0.0, 0.0, 0.0),
-        pow: 70.0,
-        refractive: true,
-        reflective: true,
-        f0: getF0(vec3.fromValues(1.5, 1.5, 1.5), vec3.fromValues(0.0, 0.0, 0.0)),
-        n: 1.5
-    };
-    //
-    // Triangle 1
-    //
-    materials[spheres.length] = {
-        amb: vec3.fromValues(0.0, 0.0, 0.0), //glm::vec3(240/255, 240/255, 250/255);
-        dif: vec3.fromValues(0.01, 0.01, 0.01),
-        spec: vec3.fromValues(0.8, 0.8, 0.8),
-        pow: 120.0,
-        refractive: false,
-        reflective: true,
-        f0: getF0(vec3.fromValues(0.14, 0.16, 0.13), vec3.fromValues(4.1, 2.3, 3.1)),
-        n: 1.0
-    };
-    //
-    // Triangle 2
-    //
-    materials[spheres.length+1] = materials[spheres.length];
-    //
-    // Ground (disc)
-    //
-    materials[spheres.length+triangles.length] = {
-        amb: vec3.fromValues(0.0, 0.0, 0.0),
-        dif: vec3.fromValues(0.3, 0.34, 0.36),
-        spec: vec3.fromValues(0.8, 0.8, 0.8),
-        pow: 60.0,
-        refractive: false,
-        reflective: false,
-        f0: getF0(vec3.fromValues(0.6, 0.6, 0.6), vec3.fromValues(2.6, 2.6, 2.6)),
-        n: 1.0
-    };
-    //
-    // Torus
-    //
-    materials[spheres.length + triangles.length + 1] = {
-        amb: vec3.fromValues(0.0, 0.0, 0.4),
-        dif: vec3.fromValues(0.0, 0.0, 0.4),
-        spec: vec3.fromValues(0.8, 0.8, 0.8),
-        pow: 30.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0
-    };
-    //
-    // Skybox
-    //
-    var skyboxMaterial = {
-        amb: vec3.fromValues(0.5, 0.5, 0.5),
-        dif: vec3.fromValues(0.5, 0.5, 0.5),
-        spec: vec3.fromValues(0.5, 0.5, 0.5),
-        pow: 20.0,
-        refractive: false,
-        reflective: false,
-        f0: vec3.fromValues(0.0, 0.0, 0.0),
-        n: 1.0 
-    };
-    for (var i = spheres.length + triangles.length + 2; i < spheres.length + triangles.length + 8; ++i) {
-        materials[i] = skyboxMaterial;
-    }
+    spheres[5] = { vec: vec4.fromValues(-2.0, 20.0, 0.0, 0.05), Location: gl.getUniformLocation(program, "spheres[5]") };
+    spheres[6] = { vec: vec4.fromValues(20.0, 20.0, 0.0, 0.05), Location: gl.getUniformLocation(program, "spheres[6]") };
+    spheres[7] = { vec: vec4.fromValues(-2.0 + 0.3, 20.0 - 0.6, 0.0 - 0.3, 0.3), Location: gl.getUniformLocation(program, "spheres[7]") }; // Red sphere
+    spheres[8] = { vec: vec4.fromValues(6.0, 0.0, -10.0, 1.4), Location: gl.getUniformLocation(program, "spheres[8]") }; // Golden sphere
+    spheres[9] = { vec: vec4.fromValues(-7.0, 0.0, 0.0, 1.4), Location: gl.getUniformLocation(program, "spheres[9]") }; // Glass sphere
 
 
-
-
-
-
-
-	
+	loadingLabel.innerHTML = "Defining vertices, geometries, etc...DONE!";
+	console.log("Defining vertices, geometries, etc...DONE!");
+	loadingLabel.innerHTML = "Loading textures...";
+	console.log("Loading textures...");
     //
     // Load textures
     //
@@ -413,19 +181,50 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
     var skyboxTextureLeft  = loadClampTexture("skyboxTextureLeft");
     var skyboxTextureRight = loadClampTexture("skyboxTextureRight");
     var skyboxTextureUp    = loadClampTexture("skyboxTextureUp");
+	
+	
+	
+	
+	        var sunTextureLocation = gl.getUniformLocation(program, "sunTexture");
+	      var earthTextureLocation = gl.getUniformLocation(program, "earthTexture");    
+	    var earthNormalMapLocation = gl.getUniformLocation(program, "earthNormalMap");   
+	       var moonTextureLocation = gl.getUniformLocation(program, "moonTexture");      
+	     var moonNormalMapLocation = gl.getUniformLocation(program, "moonNormalMap");    
+	     var groundTextureLocation = gl.getUniformLocation(program, "groundTexture");    
+	 var skyboxTextureBackLocation = gl.getUniformLocation(program, "skyboxTextureBack");
+	 var skyboxTextureDownLocation = gl.getUniformLocation(program, "skyboxTextureDown");
+	var skyboxTextureFrontLocation = gl.getUniformLocation(program, "skyboxTextureFront");
+	 var skyboxTextureLeftLocation = gl.getUniformLocation(program, "skyboxTextureLeft");
+	var skyboxTextureRightLocation = gl.getUniformLocation(program, "skyboxTextureRight");
+	   var skyboxTextureUpLocation = gl.getUniformLocation(program, "skyboxTextureUp");  
+	
+	
     
-    
+    loadingLabel.innerHTML = "Loading textures...DONE!";
+	console.log("Loading textures...DONE!");
     
 	gl.useProgram(program);
 	
-	var eyeUniformLocation   = gl.getUniformLocation(program, 'eye');
-	var upUniformLocation    = gl.getUniformLocation(program, 'up');
-	var fwUniformLocation    = gl.getUniformLocation(program, 'fw');
-    var rightUniformLocation = gl.getUniformLocation(program, "right");
+	loadingLabel.innerHTML = "Loading necessary uniforms...";
+	console.log("Loading necessary uniforms...");
+	
+	var eyeLocation   = gl.getUniformLocation(program, 'eye');
+	var upLocation    = gl.getUniformLocation(program, 'up');
+	var fwLocation    = gl.getUniformLocation(program, 'fw');
+    var rightLocation = gl.getUniformLocation(program, "right");
 	var ratioUniformLocation = gl.getUniformLocation(program, 'ratio');
     
     var ratio = canvas.clientWidth / canvas.clientHeight;
-    gl.uniform1f(ratioUniformLocation, ratio);
+	
+	document.getElementById("setResolutionButton").addEventListener("click", function(){
+		ratio = setResolution(canvas);
+	});
+	document.getElementById("setFullScreenButton").addEventListener("click", function(){
+		ratio = setFullScreen(canvas);
+	});
+	
+	
+	
     
 	var viewMatrix  = new Float32Array(16);
 	var projMatrix  = new Float32Array(16);
@@ -439,22 +238,11 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
 	var camPos   = [0, 0, 35];
 	var camFw    = getSphereUV(u, v);
 	var camDist  = vec3.dist(camAt, camPos);
-    gl.uniform3fv(upUniformLocation, camUp);
-
-
-	
-	
-	mat4.lookAt(viewMatrix, camPos, camAt, camUp);
-	mat4.perspective(projMatrix, glMatrix.toRadian(45), canvas.clientWidth / canvas.clientHeight, 0.1, 1000.0);
-	
-	
-	
 	
 	var depth = 1;
     var isShadowOn = false;
     var isGlowOn = false;
     var useNormalMap = true;
-    var showTorus = false;
     var pause = false;
     var sumElapsedTime = 0;
     var curElapsedTime = 0;
@@ -462,6 +250,17 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
     var currentColorMode = 5;
     var colorModeInTernary = [];
     colorModeToTernary(colorModeInTernary, currentColorMode);
+	
+	var depthLocation = gl.getUniformLocation(program, "depth");
+    var isShadowOnLocation = gl.getUniformLocation(program, "isShadowOn");
+    var isGlowOnLocation = gl.getUniformLocation(program, "isGlowOn");
+    var useNormalMapLocation = gl.getUniformLocation(program, "useNormalMap");
+	
+	
+	var colorModeInTernary0Location = gl.getUniformLocation(program, "colorModeInTernary[0]");
+	var colorModeInTernary1Location = gl.getUniformLocation(program, "colorModeInTernary[1]");
+	var colorModeInTernary2Location = gl.getUniformLocation(program, "colorModeInTernary[2]");
+	
     var colorModes = ["RRR", "RRG", "RRB",
                       "RGR", "RGG", "RGB",
                       "RBR", "RBG", "RBB",
@@ -471,17 +270,22 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
                       "BRR", "BRG", "BRB",
                       "BGR", "BGG", "BGB",
                       "BBR", "BBG", "BBB"];
-
+					  
+	var isShiftDown = false;
 	var isDDown = false;
 	var isADown = false;
 	var isSDown = false;
 	var isWDown = false;
 	var isMouseActive = false;
 	
+	
 	window.onkeydown = function(e) {
 	    var key = e.keyCode ? e.keyCode : e.which;
         
 		switch(key) {
+			case 16:
+				isShiftDown = true;
+				break;
 			case 68:
 				isDDown = true;
 				break;
@@ -496,39 +300,44 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
 				break;
             case 37:
                 if (depth > 1) {
-                    console.log("Depth: " + (--depth));
+                    //console.log("Depth: " + (--depth));
+					depthLabel.innerHTML = "Depth: " + --depth;
                 }
                 break;
             case 39:
                 if (depth < 8) {
-				    console.log("Depth: " + (++depth));
+				    //console.log("Depth: " + (++depth));
+					depthLabel.innerHTML = "Depth: " + ++depth;
                 }
                 break;
             case 38:
                 if (currentColorMode < 26)
                 {
-                    console.log("Current color mode: " + colorModes[++currentColorMode]);
+                    //console.log("Current color mode: " + colorModes[++currentColorMode]);
+					colorModeLabel.innerHTML = "ColorMode: " + colorModes[++currentColorMode];
                     colorModeToTernary(colorModeInTernary, currentColorMode);
                 }
                 break;
             case 40:
                 if (currentColorMode > 0)
                 {
-                    console.log("Current color mode: " + colorModes[--currentColorMode]);
+                    //console.log("Current color mode: " + colorModes[--currentColorMode]);
+					colorModeLabel.innerHTML = "ColorMode: " + colorModes[--currentColorMode];
                     colorModeToTernary(colorModeInTernary, currentColorMode);
                 }
                 break;
             case 49:
                 isShadowOn = !isShadowOn;
-                isShadowOn ? console.log("Shadows ON") : console.log("Shadows OFF");
+                //isShadowOn ? console.log("Shadows ON") : console.log("Shadows OFF");
+				isShadowOn ? shadowsLabel.innerHTML = "Shadows: ON" : shadowsLabel.innerHTML = "Shadows: OFF";
                 break;
             case 71:
                 isGlowOn = !isGlowOn;
-                isGlowOn ? console.log("Glow effect ON") : console.log("Glow effect OFF");
+                isGlowOn ? glowEffectLabel.innerHTML = "Glow effect: ON" : glowEffectLabel.innerHTML = "Glow effect: OFF";
                 break;
             case 78:
                 useNormalMap = !useNormalMap;
-                useNormalMap ? console.log("Normalmaps ON") : console.log("Normalmaps OFF");
+                useNormalMap ? normalMapsLabel.innerHTML = "Normalmaps: ON" : normalMapsLabel.innerHTML = "Normalmaps: OFF";
                 break;
             case 80:
                 pause = !pause;
@@ -544,16 +353,18 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
                     console.log("Returned");
                 }
                 break;
-            case 84:
-                showTorus = !showTorus;
-                showTorus ? console.log("Torus ON") : console.log("Torus OFF");
-                break;
+			case 27:
+				ratio = setResolution(canvas);
+				break;
 		}
 	}
 	
 	window.onkeyup = function(e) {
 	    var key = e.keyCode ? e.keyCode : e.which;
 	    switch(key) {
+			case 16:
+				isShiftDown = false;
+				break;
 			case 68:
 				isDDown = false;
 				break;
@@ -601,16 +412,24 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
 		}
 	}
 	var time;
+	var timeLocation = gl.getUniformLocation(program, "time");
     var frameCount = 0;
     var currentTime;
     var lastFPSUpdate = performance.now();
+	var camSpeed = 0.2667;
+	loadingLabel.innerHTML = "Loading...DONE!";
+	console.log("Loading...DONE!");
 	//
 	// Main render loop
 	//
 	var loop = function () {
-		var camSpeed = 1.0;
         
         { //key actions
+			if (isShiftDown) {
+				camSpeed = 0.2667/4.0;
+			} else {
+				camSpeed = 0.2667;
+			}
             if (isDDown) {
                 var right = vec3.scale(camRight, camSpeed);
                 camPos = vec3.add(camPos, right);
@@ -633,12 +452,12 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
             }
         }
         { // vertex shader uniforms
-            mat4.lookAt(viewMatrix, camPos, camAt, camUp);
-            gl.uniform3fv(eyeUniformLocation, camPos);
-            gl.uniform3fv(fwUniformLocation, camFw);
+            gl.uniform3fv(eyeLocation, camPos);
+            gl.uniform3fv(fwLocation, camFw);
             camUp = vec3.cross(camRight, camFw);
-            gl.uniform3fv(upUniformLocation, camUp);
-            gl.uniform3fv(rightUniformLocation, camRight);
+            gl.uniform3fv(upLocation, camUp);
+            gl.uniform3fv(rightLocation, camRight);
+			gl.uniform1f(ratioUniformLocation, ratio);
         }
         
         
@@ -659,111 +478,50 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
         //
         // Moving specific spheres on a circle shape
         //
-        spheres[1] = vec4.fromValues(2 * Math.sin(time / 2.0), 0.0, 2.0 * Math.cos(time / 2.0), 0.26);
-        spheres[2] = vec4.fromValues(2.5 * Math.cos(time / 3.0), 0.0, 2.5 * Math.sin(time / 3.0), 0.18);
-        spheres[3] = vec4.fromValues(5.0 * Math.cos(time / 5.0), 0.0, 5.0 * Math.sin(time / 5.0), 0.366);
-        spheres[4] = vec4.fromValues(5 * Math.cos(time / 5.0) + 1.0*Math.cos(2.0 * time), 0.0, 5.0 * Math.sin(time / 5.0) + 1.0*Math.sin(2.0 * time), 0.1);
+        spheres[1].vec = vec4.fromValues(2 * Math.sin(time / 2.0), 0.0, 2.0 * Math.cos(time / 2.0), 0.26);
+        spheres[2].vec = vec4.fromValues(2.5 * Math.cos(time / 3.0), 0.0, 2.5 * Math.sin(time / 3.0), 0.18);
+        spheres[3].vec = vec4.fromValues(5.0 * Math.cos(time / 5.0), 0.0, 5.0 * Math.sin(time / 5.0), 0.366);
+        spheres[4].vec = vec4.fromValues(5 * Math.cos(time / 5.0) + 1.0*Math.cos(2.0 * time), 0.0, 5.0 * Math.sin(time / 5.0) + 1.0*Math.sin(2.0 * time), 0.1);
         
         //
         // Pass variables to the GPU
         //
-        setIntegerUniform(program, "depth", depth);
-        setFloatUniform(program, "time", time);
-        setFloatUniform(program, "skyboxRatio", skyboxDistance * 2);
-        setBoolUniform(program, "isShadowOn", isShadowOn);
-        setBoolUniform(program, "isGlowOn", isGlowOn);
-        setBoolUniform(program, "useNormalMap", useNormalMap);
-        setBoolUniform(program, "showTorus", showTorus);
-        //
-        // Pass lights to GPU
-        //
-        for (var i = 0; i < lights.length; ++i) {
-            setVec3Uniform(program, "lights[" + i + "].col", lights[i].col);
-            setVec3Uniform(program, "lights[" + i + "].pos", lights[i].pos);
-        }
+        setIntegerUniform(depthLocation, depth);
+        setFloatUniform(timeLocation, time);
+        setBoolUniform(isShadowOnLocation, isShadowOn);
+        setBoolUniform(isGlowOnLocation, isGlowOn);
+        setBoolUniform(useNormalMapLocation, useNormalMap);
+
         
         //
         // Pass spheres to GPU
         //
         for (var i = 0; i < spheres.length; ++i) {
-            setVec4Uniform(program, "spheres[" + i + "]", spheres[i]);
+            setVec4Uniform(spheres[i].Location, spheres[i].vec);
         }
         //
-        // Pass triangles to GPU
-        //
-        for (var i = 0; i < triangles.length; ++i) {
-            setVec3Uniform(program, "triangles[" + i + "].A", triangles[i].A);
-            setVec3Uniform(program, "triangles[" + i + "].B", triangles[i].B);
-            setVec3Uniform(program, "triangles[" + i + "].C", triangles[i].C);
-        }
-        //
-        // Pass ground to GPU (disc)
-        //
-        setVec3Uniform(program, "ground.o", ground.o);
-        setVec3Uniform(program, "ground.n", ground.n);
-        setFloatUniform(program, "ground.r", ground.r);
-        //
-        // Pass torus to GPU
-        //
-        setVec2Uniform(program, "torus", torus);
-        //
-        // Pass skybox to GPU
-        //
-        setVec3Uniform(program, "skyboxBack.n",  skyboxBack.n);
-        setVec3Uniform(program, "skyboxBack.q",  skyboxBack.q);
+		// Pass textures to GPU
+		//
+        setTexture(sunTextureLocation,          0, sunTexture);
+        setTexture(earthTextureLocation,        1, earthTexture);
+        setTexture(earthNormalMapLocation,      2, earthNormalMap);
+        setTexture(moonTextureLocation,         3, moonTexture);
+        setTexture(moonNormalMapLocation,       4, moonNormalMap);
+        setTexture(groundTextureLocation,       5, groundTexture);
+        setTexture(skyboxTextureBackLocation,   6, skyboxTextureBack);
+        setTexture(skyboxTextureDownLocation,   7, skyboxTextureDown);
+        setTexture(skyboxTextureFrontLocation,  8, skyboxTextureFront);
+        setTexture(skyboxTextureLeftLocation,   9, skyboxTextureLeft);
+        setTexture(skyboxTextureRightLocation, 10, skyboxTextureRight);
+        setTexture(skyboxTextureUpLocation,    11, skyboxTextureUp);
 
-        setVec3Uniform(program, "skyboxDown.n",  skyboxDown.n);
-        setVec3Uniform(program, "skyboxDown.q",  skyboxDown.q);
-
-        setVec3Uniform(program, "skyboxFront.n", skyboxFront.n);
-        setVec3Uniform(program, "skyboxFront.q", skyboxFront.q);
-
-        setVec3Uniform(program, "skyboxLeft.n",  skyboxLeft.n);
-        setVec3Uniform(program, "skyboxLeft.q",  skyboxLeft.q);
-
-        setVec3Uniform(program, "skyboxRight.n", skyboxRight.n);
-        setVec3Uniform(program, "skyboxRight.q", skyboxRight.q);
-
-        setVec3Uniform(program, "skyboxUp.n",    skyboxUp.n);
-        setVec3Uniform(program, "skyboxUp.q",    skyboxUp.q);
-        //
-        // Pass textures to GPU
-        //
-        setTexture(program, "sunTexture",          0, sunTexture);
-        setTexture(program, "earthTexture",        1, earthTexture);
-        setTexture(program, "earthNormalMap",      2, earthNormalMap);
-        setTexture(program, "moonTexture",         3, moonTexture);
-        setTexture(program, "moonNormalMap",       4, moonNormalMap);
-        setTexture(program, "groundTexture",       5, groundTexture);
-        setTexture(program, "skyboxTextureBack",   6, skyboxTextureBack);
-        setTexture(program, "skyboxTextureDown",   7, skyboxTextureDown);
-        setTexture(program, "skyboxTextureFront",  8, skyboxTextureFront);
-        setTexture(program, "skyboxTextureLeft",   9, skyboxTextureLeft);
-        setTexture(program, "skyboxTextureRight", 10, skyboxTextureRight);
-        setTexture(program, "skyboxTextureUp",    11, skyboxTextureUp);
-        //
-        // Pass materials to GPU
-        //
-        for (var i = 0; i < materials.length; ++i) {
-            setVec3Uniform(program,    "materials[" + i + "].amb",        materials[i].amb);
-            setVec3Uniform(program,    "materials[" + i + "].dif",        materials[i].dif);
-            setVec3Uniform(program,    "materials[" + i + "].spec",       materials[i].spec);
-            setFloatUniform(program,   "materials[" + i + "].pow",        materials[i].pow);
-            setIntegerUniform(program, "materials[" + i + "].refractive", materials[i].refractive);
-            setIntegerUniform(program, "materials[" + i + "].reflective", materials[i].reflective);
-            setVec3Uniform(program,    "materials[" + i + "].f0",         materials[i].f0);
-            setFloatUniform(program,   "materials[" + i + "].n",          materials[i].n);
-        }
         //
         // Pass colorMode to GPU
         //
-        setIntegerUniform(program, "colorModeInTernary[0]", colorModeInTernary[0]);
-        setIntegerUniform(program, "colorModeInTernary[1]", colorModeInTernary[1]);
-        setIntegerUniform(program, "colorModeInTernary[2]", colorModeInTernary[2]);
+        setIntegerUniform(colorModeInTernary0Location, colorModeInTernary[0]);
+        setIntegerUniform(colorModeInTernary1Location, colorModeInTernary[1]);
+        setIntegerUniform(colorModeInTernary2Location, colorModeInTernary[2]);
 
-        
-        
-        
         
         gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
         
@@ -772,7 +530,7 @@ function RunDemo(vertexShaderText, fragmentShaderText) {
 		if (currentTime - lastFPSUpdate >= 1000)
 		{
 
-			console.log("avg. FPS: " + frameCount);
+			FPSLabel.innerHTML = "FPS: " + --frameCount;
 			
 
 			lastFPSUpdate = performance.now();
@@ -810,7 +568,7 @@ function loadClampTexture(textureID) {
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
 	gl.texImage2D(
-		gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
+		gl.TEXTURE_2D, 0, gl.RGB, gl.RGB,
 		gl.UNSIGNED_BYTE,
 		document.getElementById(textureID)
 	);
@@ -818,29 +576,29 @@ function loadClampTexture(textureID) {
     return texture;
 }
 
-function setTexture(program, _uniform, _sampler, _textureID) {
+function setTexture(Location, _sampler, _textureID) {
 	gl.activeTexture(gl.TEXTURE0 + _sampler);
 	gl.bindTexture(gl.TEXTURE_2D, _textureID);
-    gl.uniform1i(gl.getUniformLocation(program, _uniform), _sampler);
+    gl.uniform1i(Location, _sampler);
 }
 
-function setIntegerUniform(program, uniform, number) {
-    gl.uniform1i(gl.getUniformLocation(program, uniform), number);
+function setIntegerUniform(Location, number) {
+    gl.uniform1i(Location, number);
 }
-function setBoolUniform(program, uniform, variable) {
-    gl.uniform1i(gl.getUniformLocation(program, uniform), variable);
+function setBoolUniform(Location, variable) {
+    gl.uniform1i(Location, variable);
 }
-function setFloatUniform(program, uniform, number) {
-    gl.uniform1f(gl.getUniformLocation(program, uniform), number);
+function setFloatUniform(Location, number) {
+    gl.uniform1f(Location, number);
 }
-function setVec2Uniform(program, uniform, numbers) {
-    gl.uniform2fv(gl.getUniformLocation(program, uniform), numbers);
+function setVec2Uniform(Location, numbers) {
+    gl.uniform2fv(Location, numbers);
 }
-function setVec3Uniform(program, uniform, numbers) {
-    gl.uniform3fv(gl.getUniformLocation(program, uniform), numbers);
+function setVec3Uniform(Location, numbers) {
+    gl.uniform3fv(Location, numbers);
 }
-function setVec4Uniform(program, uniform, numbers) {
-    gl.uniform4fv(gl.getUniformLocation(program, uniform), numbers);
+function setVec4Uniform(Location, numbers) {
+    gl.uniform4fv(Location, numbers);
 }
 
 function getF0(n, k) { // toresmutato, kioltasi tenyezo
@@ -888,6 +646,37 @@ function getSphereUV(u, v) {
 	return uv;
 }
 
+function setResolution(canvas) {
+	var width  = document.getElementById("canvasWidth").valueAsNumber;
+	var height = document.getElementById("canvasHeight").valueAsNumber;
+	ratio = width / height;
+	canvas.width = width;
+	canvas.height = height;
+	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+	
+	return ratio;
+}
+function setFullScreen(canvas) {
+	var width  = screen.width;
+	var height = screen.height;
+	ratio = width / height;
+	canvas.width = width;
+	canvas.height = height;
+	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+
+	if (canvas.requestFullscreen) {
+		canvas.requestFullscreen();
+	} else if (canvas.msRequestFullscreen) {
+		canvas.msRequestFullscreen();
+	} else if (canvas.mozRequestFullScreen) {
+		canvas.mozRequestFullScreen();
+	} else if (canvas.webkitRequestFullscreen) {
+		canvas.webkitRequestFullscreen();
+	}
+	
+	return ratio;
+}
+
 
 function initAttribPointer(positionAttribLocation) {
 	//Vertices of triangles
@@ -900,15 +689,23 @@ function initAttribPointer(positionAttribLocation) {
 		0// Offset from the beginning of a single vertex to this attribute
 	);
 }
-function loadTextResource(url, callback) {
+function saveVertexText() {
+	//console.log(this.responseText);
+	vertexShaderText = this.responseText;
+}
+function saveFragmentText() {
+	//console.log(this.responseText);
+	fragmentShaderText = this.responseText;
+}
+function loadVertexTextResource(url) {
 	var request = new XMLHttpRequest();
-	request.open('GET', url + '?please-dont-cache=' + Math.random(), true);
-	request.onload = function () {
-		if (request.status < 200 || request.status > 299) {
-			callback('Error: HTTP Status ' + request.status + ' on resource ' + url);
-		} else {
-			callback(null, request.responseText);
-		}
-	};
+	request.addEventListener("load", saveVertexText);
+	request.open('GET', url + '?please-dont-cache=' + Math.random(), false);
+	request.send();
+};
+function loadFragmentTextResource(url) {
+	var request = new XMLHttpRequest();
+	request.addEventListener("load", saveFragmentText);
+	request.open('GET', url + '?please-dont-cache=' + Math.random(), false);
 	request.send();
 };
