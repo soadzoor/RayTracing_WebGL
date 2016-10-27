@@ -18,12 +18,13 @@ function RunDemo() {
 	var glowEffectLabel = document.getElementById('gloweffect');
 	var shadowsLabel = document.getElementById('shadows');
 	var normalMapsLabel = document.getElementById('normalmaps');
+	var vendorID = document.getElementById("vendorID");
 
 	var canvas = document.getElementById('game-surface');
-	canvas.addEventListener("webglcontextlost", function(event) {
-		event.preventDefault();
-	}, false);
-	canvas.addEventListener("webglcontextrestored", RunDemo, true);
+	//canvas.addEventListener("webglcontextlost", function(event) {
+	//	event.preventDefault();
+	//}, false);
+	//canvas.addEventListener("webglcontextrestored", RunDemo, true);
 	
 	glVersion = 'webgl2';
 	gl = canvas.getContext(glVersion);
@@ -402,8 +403,11 @@ function RunDemo() {
 	var currentTime;
 	var lastFPSUpdate = performance.now();
 	var camSpeed = 0.2667;
-	loadingLabel.innerHTML = "Loading...DONE!";
+	document.getElementById("options-area").removeChild(document.getElementById("loading"));
 	console.log("Loading...DONE!");
+	
+	var vendor = "" + getUnmaskedInfo(gl).vendor + getUnmaskedInfo(gl).renderer;
+	vendorID.innerHTML = vendor;
 	//
 	// Main render loop
 	//
@@ -646,6 +650,21 @@ function setFullScreen(canvas) {
 	
 	return ratio;
 }
+
+function getUnmaskedInfo(gl) {
+				var unMaskedInfo = {
+					renderer: '',
+					vendor: ''
+				};
+
+				var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
+				if (dbgRenderInfo != null) {
+					unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
+					unMaskedInfo.vendor   = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
+				}
+
+				return unMaskedInfo;
+			}
 
 
 function initAttribPointer(positionAttribLocation) {
