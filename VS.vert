@@ -1,4 +1,10 @@
-precision lowp float;
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+	precision highp float;
+#elif GL_FRAGMENT_PRECISION_MEDIUM
+	precision mediump float;
+#else
+	precision lowp float;
+#endif
 
 attribute vec3 vertPosition;
 
