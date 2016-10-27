@@ -53,6 +53,9 @@ function RunDemo() {
 	} else {
 		loadShaders('VS.vert', 'FS.frag');
 	}
+	var vendor = "" + gl.getParameter(gl.VERSION) + " " + gl.getParameter(gl.SHADING_LANGUAGE_VERSION) + "<br>" + 
+				getUnmaskedInfo(gl).vendor + getUnmaskedInfo(gl).renderer;
+	vendorID.innerHTML = vendor;
 	
 	
 	gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
@@ -406,8 +409,6 @@ function RunDemo() {
 	document.getElementById("options-area").removeChild(document.getElementById("loading"));
 	console.log("Loading...DONE!");
 	
-	var vendor = "" + getUnmaskedInfo(gl).vendor + getUnmaskedInfo(gl).renderer;
-	vendorID.innerHTML = vendor;
 	//
 	// Main render loop
 	//
