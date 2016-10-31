@@ -517,9 +517,9 @@ Material getMaterial(in int i)
     if (i == 9)  return material9;   // glass
 	if (i >= 10 && i < spheresCount) return material10;
 	if (i == spheresCount || i == spheresCount+1) return material10;
-	if (i == spheresCount+2) return material12;
-	//if (i == spheresCount+3) return material13;
-	if (i > spheresCount+3) return material14;
+	if (i == spheresCount+trianglesCount) return material12;
+	//if (i == spheresCount+trianglesCount+1) return material13;
+	if (i > spheresCount+trianglesCount+1) return material14;
 	else return material0;
 }
 
@@ -728,21 +728,20 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 			bool hitWater = (closestHit.ind == 3 && color.b > color.r && color.b > color.g);
 			if ((mat.reflective || mat.refractive || hitWater) && bounceCount <= depth)
 			{
+				bool totalInternalReflection = false;
 				//glass
 				if (mat.refractive)
 				{
 					float eta = 1.0/mat.n;
-					vec3 tempRay = ray.dir;
 					Ray refractedRay;
 
 					//                     coming from outside the object  ?                        yes                                       no
 					refractedRay.dir = dot(ray.dir, closestHit.normal) <= 0.0 ? refract(ray.dir, closestHit.normal, eta) : refract(ray.dir, -closestHit.normal, 1.0/eta);
-				
-					if (length(refractedRay.dir) < EPSILON) //total internal reflection ( refract returns with vec3(0.0) if it's a TIR )
+					totalInternalReflection = length(refractedRay.dir) < EPSILON;
+					if (totalInternalReflection) //total internal reflection ( refract returns with vec3(0.0) if it's a TIR )
 					{
-						ray.dir = normalize(reflect(tempRay, closestHit.normal));
-						ray.origin = closestHit.point - 1.5*closestHit.normal*EPSILON;
-						coeff = coeff*fresnel(ray.dir, closestHit.normal, mat.f0);
+						ray.dir = normalize(reflect(ray.dir, -closestHit.normal));
+						ray.origin = closestHit.point - closestHit.normal*EPSILON;
 					}
 					else
 					{
@@ -762,7 +761,7 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 					}
 				}
 				//mirror
-				if ((mat.reflective && closestHit.ind != 3) || (hitWater))
+				if ((mat.reflective && !totalInternalReflection && closestHit.ind != 3) || (hitWater))
 				{
 					if (dot(ray.dir, closestHit.normal) < 0.0)
 					{
@@ -771,10 +770,6 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 						ray.origin = closestHit.point + closestHit.normal*EPSILON;
 					}
 					else
-					{
-						continueLoop = false;
-					}
-					if (closestHit.ind == 3 && !hitWater)
 					{
 						continueLoop = false;
 					}
