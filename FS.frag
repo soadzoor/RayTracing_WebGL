@@ -289,8 +289,7 @@ bool intersectDisc(in Ray ray, in Disc disc, out HitRec hitRec, in int ind)
 	{ 
         vec3 p = ray.origin + hitRec.t*ray.dir; 
         vec3 v = p - disc.o; 
-        float d2 = dot(v, v); 
-        if (!(d2 <= disc.r*disc.r))
+        if (!(length(v) <= disc.r))
 		{
 			return false;
 		}
