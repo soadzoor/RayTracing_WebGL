@@ -6,6 +6,7 @@
 	precision lowp float;
 #endif
 
+
 attribute vec3 vertPosition;
 
 varying vec3 vsRay;

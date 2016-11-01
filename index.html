@@ -6,7 +6,7 @@
 	</head>
 	<body onload="RunDemo();">
 		<div id="game-area">
-			<canvas id="game-surface" width="800px" height="600px">
+			<canvas id="game-surface" width="320px" height="240px">
 				Your browser does not support HTML5
 			</canvas>
 			<br>
@@ -27,16 +27,16 @@
 		<div id="options-area">
 			<p id="loading">Loading...</p>
 			<p id="FPS">FPS: </p>
-			<p id="depth">Depth: 1</p>
-			<p id="gloweffect">GlowEffect: OFF</p>
+			<p id="depth">Depth: 8</p>
+			<p id="gloweffect">GlowEffect: ON</p>
 			<p id="shadows">Shadows: OFF</p>
 			<p id="normalmaps">NormalMaps: ON</p>
 			<p id="colormode">ColorMode: RGB</p>
 			<p>Resolution:</p>
 			<label for "canvasWidth">Width: </label>
-			<input type="number" value="800" id="canvasWidth" min="1" max="9999"></input>
+			<input type="number" value="320" id="canvasWidth" min="1" max="9999"></input>
 			<label for "canvasHeight">Height: </label>
-			<input type="number" value="600" id="canvasHeight" min="1" max="9999"></input>
+			<input type="number" value="240" id="canvasHeight" min="1" max="9999"></input>
 			<input type="button" id="setResolutionButton" value="Set"></input>
 			<input type="button" id="setFullScreenButton" value="FullScreen"></input><label for "setFullScreenButton"> Press Esc twice to exit FullScreen and get the original resolution back.</label>
 			<br>

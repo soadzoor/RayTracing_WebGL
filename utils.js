@@ -15,7 +15,7 @@ function loadTexture(textureID) {
 }
 
 function loadClampTexture(textureID) {
-	var texture = gl.createTexture();
+    var texture = gl.createTexture();
 	gl.bindTexture(gl.TEXTURE_2D, texture);
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
 	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
@@ -27,57 +27,56 @@ function loadClampTexture(textureID) {
 		document.getElementById(textureID)
 	);
 	gl.bindTexture(gl.TEXTURE_2D, null);
-
-	return texture;
+    return texture;
 }
 
-function setTexture(Location, _sampler, _textureID) {
+function setTexture(program, _uniform, _sampler, _textureID) {
 	gl.activeTexture(gl.TEXTURE0 + _sampler);
 	gl.bindTexture(gl.TEXTURE_2D, _textureID);
-	gl.uniform1i(Location, _sampler);
+    gl.uniform1i(gl.getUniformLocation(program, _uniform), _sampler);
 }
 
-function setIntegerUniform(Location, number) {
-	gl.uniform1i(Location, number);
+function setIntegerUniform(program, uniform, number) {
+    gl.uniform1i(gl.getUniformLocation(program, uniform), number);
 }
-function setBoolUniform(Location, variable) {
-	gl.uniform1i(Location, variable);
+function setBoolUniform(program, uniform, variable) {
+    gl.uniform1i(gl.getUniformLocation(program, uniform), variable);
 }
-function setFloatUniform(Location, number) {
-	gl.uniform1f(Location, number);
+function setFloatUniform(program, uniform, number) {
+    gl.uniform1f(gl.getUniformLocation(program, uniform), number);
 }
-function setVec2Uniform(Location, numbers) {
-	gl.uniform2fv(Location, numbers);
+function setVec2Uniform(program, uniform, numbers) {
+    gl.uniform2fv(gl.getUniformLocation(program, uniform), numbers);
 }
-function setVec3Uniform(Location, numbers) {
-	gl.uniform3fv(Location, numbers);
+function setVec3Uniform(program, uniform, numbers) {
+    gl.uniform3fv(gl.getUniformLocation(program, uniform), numbers);
 }
-function setVec4Uniform(Location, numbers) {
-	gl.uniform4fv(Location, numbers);
+function setVec4Uniform(program, uniform, numbers) {
+    gl.uniform4fv(gl.getUniformLocation(program, uniform), numbers);
 }
 
-/*function getF0(n, k) { // toresmutato, kioltasi tenyezo
-	//            
-	//                (                        A                     )    (                         B                    )
-	//                (                   atimesa             )           (                ctimesc                )
-	//                (          a       ) (          a       )   (b )    (          c       ) (       c          )   (b )
-	//glm::vec3 f0 = ((n - glm::vec3(1.0))*(n - glm::vec3(1.0)) + k*k) / ((n + glm::vec3(1.0))*(n + glm::vec3(1.0)) + k*k);
+function getF0(n, k) { // toresmutato, kioltasi tenyezo
+    //            
+    //                (                        A                     )    (                         B                    )
+    //                (                   atimesa             )           (                ctimesc                )
+    //                (          a       ) (          a       )   (b )    (          c       ) (       c          )   (b )
+    //glm::vec3 f0 = ((n - glm::vec3(1.0))*(n - glm::vec3(1.0)) + k*k) / ((n + glm::vec3(1.0))*(n + glm::vec3(1.0)) + k*k);
+    
+    var a = vec3.sub(n, vec3.fromValues(1.0, 1.0, 1.0));
+    var b = vec3.mul(k, k);
+    var c = vec3.add(n, vec3.fromValues(1.0, 1.0, 1.0));
+    var atimesa = vec3.mul(a, a);
+    var ctimesc = vec3.mul(c, c);
+    var A = vec3.add(atimesa, b);
+    var B = vec3.add(ctimesc, b);
 
-	var a = vec3.sub(n, vec3.fromValues(1.0, 1.0, 1.0));
-	var b = vec3.mul(k, k);
-	var c = vec3.add(n, vec3.fromValues(1.0, 1.0, 1.0));
-	var atimesa = vec3.mul(a, a);
-	var ctimesc = vec3.mul(c, c);
-	var A = vec3.add(atimesa, b);
-	var B = vec3.add(ctimesc, b);
-
-	var f0 = vec3.divide(A, B);
+    var f0 = vec3.divide(A, B);
 
 	return f0;
-}*/
+}
 
 function colorModeToTernary(colorModeInTernary, currentColorMode) {
-	colorModeInTernary[2] = currentColorMode % 3;
+    colorModeInTernary[2] = currentColorMode % 3;
 	currentColorMode = Math.floor(currentColorMode/3);
 	colorModeInTernary[1] = currentColorMode % 3;
 	currentColorMode = Math.floor(currentColorMode/3);
@@ -93,6 +92,7 @@ function clamp(num, min, max) {
 	}
 	return num;
 }
+
 
 function getSphereUV(u, v) {
 	var uv = [0, 0, 0];
@@ -146,7 +146,6 @@ function getUnmaskedInfo(gl) {
 	return unMaskedInfo;
 }
 
-
 function initAttribPointer(positionAttribLocation) {
 	//Vertices of triangles
 	gl.vertexAttribPointer(
@@ -158,3 +157,23 @@ function initAttribPointer(positionAttribLocation) {
 		0// Offset from the beginning of a single vertex to this attribute
 	);
 }
+function saveVertexText() {
+	//console.log(this.responseText);
+	vertexShaderText = this.responseText;
+}
+function saveFragmentText() {
+	//console.log(this.responseText);
+	fragmentShaderText = this.responseText;
+}
+function loadVertexTextResource(url) {
+	var request = new XMLHttpRequest();
+	request.addEventListener("load", saveVertexText);
+	request.open('GET', url + '?please-dont-cache=' + Math.random(), false);
+	request.send();
+};
+function loadFragmentTextResource(url) {
+	var request = new XMLHttpRequest();
+	request.addEventListener("load", saveFragmentText);
+	request.open('GET', url + '?please-dont-cache=' + Math.random(), false);
+	request.send();
+};
