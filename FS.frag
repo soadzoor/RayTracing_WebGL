@@ -647,7 +647,7 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 	vec3 coeff = vec3(1.0);
 	bool continueLoop = true;
 
-	for (int i = 0; i < STACK_SIZE; ++i)
+	for (int i = 0; i < 2*STACK_SIZE; ++i)
 	{
         if (!continueLoop) break;
         

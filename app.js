@@ -34,15 +34,15 @@ function RunDemo() {
         glVersion = 'webgl';
 		gl = canvas.getContext(glVersion);
 	}
-    	if (!gl) {
-        	console.log('WebGL not supported, falling back on experimental webgl...');
-        	glVersion = 'experimental-webgl';
+	if (!gl) {
+		console.log('WebGL not supported, falling back on experimental webgl...');
+		glVersion = 'experimental-webgl';
 		gl = canvas.getContext(glVersion);
-    	}
-    	if (!gl) {
-        	alert('Your browser does not support WegGL!');
-        	return;
-    	}
+	}
+	if (!gl) {
+		alert('Your browser does not support WegGL!');
+		return;
+	}
 	
 	if (glVersion == 'webgl2' || glVersion == 'experimental-webgl2') {
 		loadShaders('VS_GL_ES_3.vert', 'FS_GL_ES_3.frag');
@@ -217,9 +217,6 @@ function RunDemo() {
 		ratio = setFullScreen(canvas);
 	});
 
-	var viewMatrix  = new Float32Array(16);
-	var projMatrix  = new Float32Array(16);
-
 	var u = -Math.PI/2;
 	var v =  Math.PI/2;
 
@@ -290,33 +287,28 @@ function RunDemo() {
 			break;
 		case 37:
 			if (depth > 1) {
-				//console.log("Depth: " + (--depth));
 				depthLabel.innerHTML = "Depth: " + --depth;
 			}
 			break;
 		case 39:
  			if (depth < 8) {
-				//console.log("Depth: " + (++depth));
 				depthLabel.innerHTML = "Depth: " + ++depth;
 			}
 			break;
 		case 38:
 			if (currentColorMode < 26) {
-				//console.log("Current color mode: " + colorModes[++currentColorMode]);
 				colorModeLabel.innerHTML = "ColorMode: " + colorModes[++currentColorMode];
 				colorModeToTernary(colorModeInTernary, currentColorMode);
 			}
 			break;
 		case 40:
 			if (currentColorMode > 0) {
-				//console.log("Current color mode: " + colorModes[--currentColorMode]);
 				colorModeLabel.innerHTML = "ColorMode: " + colorModes[--currentColorMode];
 				colorModeToTernary(colorModeInTernary, currentColorMode);
 			}
 			break;
 		case 49:
 			isShadowOn = !isShadowOn;
-			//isShadowOn ? console.log("Shadows ON") : console.log("Shadows OFF");
 			isShadowOn ? shadowsLabel.innerHTML = "Shadows: ON" : shadowsLabel.innerHTML = "Shadows: OFF";
 			break;
 		case 71:
