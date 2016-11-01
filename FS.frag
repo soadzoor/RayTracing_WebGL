@@ -100,7 +100,7 @@ uniform Plane skyboxUp;
 Material material0  = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0), 30.0, false, false, vec3(0.0), 1.0); // sun
 Material material1  = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8), 20.0, false, false, vec3(0.0), 1.0);   // green sphere
 Material material2  = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0), 50.0, false, false, vec3(0.0), 1.0);   // blue sphere
-Material material3  = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5), 30.0, false, true, vec3(0.0), 1.0);    // earth
+Material material3  = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5), 30.0, false, false, vec3(0.0), 1.0);   // earth
 Material material4  = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5), 20.0, false, false, vec3(0.0), 1.0);   // moon
 Material material5  = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9), 20.0, false, false, vec3(0.0), 1.0);   // sphere of lightsources
 Material material7  = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8), 66.0, false, false, vec3(0.0), 1.0);   // red sphere
@@ -673,7 +673,8 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 			{
 				color *= texture2D(skyboxTextureUp, (closestHit.point.xz + vec2(skyboxRatio/2.0, skyboxRatio/2.0)) / skyboxRatio).rgb;
 			}
-			if ((mat.reflective || mat.refractive) && bounceCount <= depth)
+			bool hitWater = (closestHit.ind == 3 && color.b > color.r && color.b > color.g);
+			if ((mat.reflective || mat.refractive || hitWater) && bounceCount <= depth)
 			{
 				bool totalInternalReflection = false;
 				//glass
@@ -713,7 +714,7 @@ vec3 trace(in Ray ray) //https://www.cg.tuwien.ac.at/research/publications/2013/
 					}
 				}
 				//mirror
-				if (mat.reflective && !totalInternalReflection && (closestHit.ind != 3 || (closestHit.ind == 3 && color.z > color.x && color.z > color.y))) //A fold csak a vizen tukrozodjon
+				if ((mat.reflective && !totalInternalReflection) || hitWater)
 				{
 					if (dot(ray.dir, closestHit.normal) < 0.0) //coming from outside
 					{
