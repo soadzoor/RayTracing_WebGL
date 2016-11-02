@@ -206,7 +206,7 @@ function RunDemo() {
 	var upLocation    = gl.getUniformLocation(program, 'up');
 	var fwLocation    = gl.getUniformLocation(program, 'fw');
 	var rightLocation = gl.getUniformLocation(program, "right");
-	var ratioUniformLocation = gl.getUniformLocation(program, 'ratio');
+	var ratioLocation = gl.getUniformLocation(program, 'ratio');
 
 	var ratio = canvas.clientWidth / canvas.clientHeight;
 
@@ -243,7 +243,6 @@ function RunDemo() {
 	var isShadowOnLocation = gl.getUniformLocation(program, "isShadowOn");
 	var isGlowOnLocation = gl.getUniformLocation(program, "isGlowOn");
 	var useNormalMapLocation = gl.getUniformLocation(program, "useNormalMap");
-
 
 	var colorModeInTernary0Location = gl.getUniformLocation(program, "colorModeInTernary[0]");
 	var colorModeInTernary1Location = gl.getUniformLocation(program, "colorModeInTernary[1]");
@@ -455,7 +454,7 @@ function RunDemo() {
 		camUp = vec3.cross(camRight, camFw);
 		setVec3Uniform(upLocation, camUp);
 		setVec3Uniform(rightLocation, camRight);
-		setFloatUniform(ratioUniformLocation, ratio);
+		setFloatUniform(ratioLocation, ratio);
 		setIntegerUniform(depthLocation, depth);
 		setFloatUniform(timeLocation, time);
 		setBoolUniform(isShadowOnLocation, isShadowOn);
