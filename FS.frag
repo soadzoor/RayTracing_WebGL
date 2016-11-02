@@ -178,6 +178,13 @@ mat3 calculateR(in vec3 normal)
 	float cosAngle = dot(normal, vec3(0.0, 0.0, 1.0));
 	float angle = acos(cosAngle);
 	vec3 axis = cross(normal, vec3(0.0, 0.0, 1.0));
+	
+	if (length(axis) < EPSILON)
+	{
+		return mat3(1.0, 0.0, 0.0,
+					0.0, 1.0, 0.0,
+					0.0, 0.0, 1.0);
+	}
 
 	mat3 R = rotationMatrix(axis, angle);
 	return R;
