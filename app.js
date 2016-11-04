@@ -45,9 +45,9 @@ function RunDemo() {
 	}
 	
 	if (glVersion == 'webgl2' || glVersion == 'experimental-webgl2') {
-		loadShaders('VS_GL_ES_3.vert', 'FS_GL_ES_3.frag');
+		loadShaders('shaders/VS_GL_ES_3.vert', 'shaders/FS_GL_ES_3.frag');
 	} else {
-		loadShaders('VS.vert', 'FS.frag');
+		loadShaders('shaders/VS.vert', 'shaders/FS.frag');
 	}
 	var vendor = "" + gl.getParameter(gl.VERSION) + " " + gl.getParameter(gl.SHADING_LANGUAGE_VERSION) + "<br>" + 
 				getUnmaskedInfo(gl).vendor + getUnmaskedInfo(gl).renderer;
@@ -393,7 +393,7 @@ function RunDemo() {
 	var currentTime;
 	var lastFPSUpdate = performance.now();
 	var camSpeed = 0.2667;
-	document.getElementById("options-area").removeChild(document.getElementById("loading"));
+	document.getElementById("game-area").removeChild(document.getElementById("loading"));
 	console.log("Loading...DONE!");
 	
 	//
