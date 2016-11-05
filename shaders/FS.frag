@@ -268,10 +268,10 @@ bool intersectTriangle(in Ray ray, in Triangle t, out HitRec hitRec, in int ind)
 
 bool intersectPlane(in Ray ray, in Plane plane, out HitRec hitRec, in int ind)
 {
-	if (dot(ray.dir, plane.n) > 0.0) //culling
-	{
-		return false;
-	}
+	//if (dot(ray.dir, plane.n) > 0.0) //culling
+	//{
+	//	return false;
+	//}
 
 	float t = dot(plane.n,(plane.q - ray.origin)) / dot(plane.n, ray.dir);
 
@@ -567,8 +567,8 @@ vec3 shade(in HitRec closestHit, in Ray ray) //Blinn-Phong
 		HitRec shadowHit = closestHit;
 		int ind = shadowHit.ind;
 		Ray shadowRay;
-		shadowRay.origin = shadowHit.point+1.5*shadowHit.normal*EPSILON;
-		shadowRay.dir = light0.pos-shadowHit.point;
+		shadowRay.origin = shadowHit.point+shadowHit.normal*EPSILON;
+		shadowRay.dir = normalize(light0.pos-shadowHit.point);
 		findClosest(shadowRay, shadowHit);
 		if (shadowHit.ind != 0 && shadowHit.ind != 5 && shadowHit.ind != 6 && shadowHit.ind != spheresCount+trianglesCount && shadowHit.ind != ind && ind <= spheresCount + trianglesCount)
 		{
@@ -593,8 +593,8 @@ vec3 shade(in HitRec closestHit, in Ray ray) //Blinn-Phong
 		HitRec shadowHit = closestHit;
 		int ind = shadowHit.ind;
 		Ray shadowRay;
-		shadowRay.origin = shadowHit.point+1.5*shadowHit.normal*EPSILON;
-		shadowRay.dir = light1.pos-shadowHit.point;
+		shadowRay.origin = shadowHit.point+shadowHit.normal*EPSILON;
+		shadowRay.dir = normalize(light1.pos-shadowHit.point);
 		findClosest(shadowRay, shadowHit);
 		if (shadowHit.ind != 0 && shadowHit.ind != 5 && shadowHit.ind != 6 && shadowHit.ind != spheresCount+trianglesCount && shadowHit.ind != ind && ind <= spheresCount + trianglesCount)
 		{
@@ -619,8 +619,8 @@ vec3 shade(in HitRec closestHit, in Ray ray) //Blinn-Phong
 		HitRec shadowHit = closestHit;
 		int ind = shadowHit.ind;
 		Ray shadowRay;
-		shadowRay.origin = shadowHit.point+1.5*shadowHit.normal*EPSILON;
-		shadowRay.dir = light2.pos-shadowHit.point;
+		shadowRay.origin = shadowHit.point+shadowHit.normal*EPSILON;
+		shadowRay.dir = normalize(light2.pos-shadowHit.point);
 		findClosest(shadowRay, shadowHit);
 		if (shadowHit.ind != 0 && shadowHit.ind != 5 && shadowHit.ind != 6 && shadowHit.ind != spheresCount+trianglesCount && shadowHit.ind != ind && ind <= spheresCount + trianglesCount)
 		{
