@@ -213,10 +213,10 @@ bool intersectSphere(in Ray ray, in vec4 sphere, out HitRec hitRec, in int ind)
 
 bool intersectPlane(in Ray ray, in Plane plane, out HitRec hitRec, in int ind)
 {
-	if (dot(ray.dir, plane.n) > 0.0) //culling
-	{
-		return false;
-	}
+	//if (dot(ray.dir, plane.n) > 0.0) //culling
+	//{
+	//	return false;
+	//}
 
 	float t = dot(plane.n,(plane.q - ray.origin)) / dot(plane.n, ray.dir);
 
@@ -530,8 +530,8 @@ vec3 shade(in HitRec closestHit, in Ray ray) //Blinn-Phong
 			HitRec shadowHit = closestHit;
 			int ind = shadowHit.ind;
 			Ray shadowRay;
-			shadowRay.origin = shadowHit.point+1.5*shadowHit.normal*EPSILON;
-			shadowRay.dir = lights[j].pos-shadowHit.point;
+			shadowRay.origin = shadowHit.point+shadowHit.normal*EPSILON;
+			shadowRay.dir = normalize(lights[j].pos-shadowHit.point);
 			findClosest(shadowRay, shadowHit, 1);
 			if (shadowHit.ind != 0 && shadowHit.ind != 5 && shadowHit.ind != 6 && shadowHit.ind != spheresCount+trianglesCount && shadowHit.ind != ind && ind <= spheresCount + trianglesCount)
 			{
