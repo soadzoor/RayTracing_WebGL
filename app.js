@@ -45,7 +45,7 @@ function RunDemo() {
 	}
 	
 	if (glVersion == 'webgl2' || glVersion == 'experimental-webgl2') {
-		loadShaders('shaders/VS_GL_ES_3.vert', 'shaders/FS_GL_ES_3.frag');
+		loadShaders('shaders/VS_GL_ES_3_optimized.vert', 'shaders/FS_GL_ES_3_optimized.frag');
 	} else {
 		loadShaders('shaders/VS.vert', 'shaders/FS.frag');
 	}

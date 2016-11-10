@@ -861,7 +861,4 @@ void main()
 	vec3 color = trace(ray);
 	
 	gl_FragColor = vec4(getColorFromTernary(color, colorModeInTernary[0]), getColorFromTernary(color, colorModeInTernary[1]), getColorFromTernary(color, colorModeInTernary[2]), 1.0);
-    //gl_FragColor = vec4(color, 1.0);
-    //gl_FragColor = vec4(1.0, 1.0, 0.0, 1.0);
-    //gl_FragColor = vec4(triangles[0].A, 1.0);
 }
