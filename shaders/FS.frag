@@ -108,7 +108,7 @@ Material material8  = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.
 Material material9  = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0), 70.0, true, true, vec3(0.04), 1.5); // glass sphere
 Material material10 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8), 120.0, false, true, vec3(0.9691, 0.90355, 0.952236), 1.0); // triangle 1, 2
 Material material11 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0), 70.0, true, true, vec3(0.04), 2.4); // diamond
-Material material12 = Material(vec3(0.0, 0.0, 0.0), vec3(0.3, 0.34, 0.36), vec3(0.8), 60.0, false, false, vec3(0.0), 1.0);                        // ground
+Material material12 = Material(vec3(0.25), vec3(0.3, 0.34, 0.36), vec3(0.8), 60.0, false, false, vec3(0.0), 1.0);                        // ground
 Material material13 = Material(vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.4), vec3(0.8), 30.0, false, false, vec3(0.0), 1.0);                          //torus
 Material material14 = Material(vec3(0.5), vec3(0.5), vec3(0.5), 20.0, false, false, vec3(0.0), 1.0);
 
