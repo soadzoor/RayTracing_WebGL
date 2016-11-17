@@ -382,10 +382,8 @@ function RunDemo() {
 	
 	var camRight = [1, 0, 0];
 	var camUp    = [0, 1, 0];
-	var camAt    = [0, 0, 0];
 	var camPos   = [0, 0, 35];
 	var camFw    = getSphereUV(u, v);
-	var camDist  = vec3.dist(camAt, camPos);
 	
 	var depth = 8;
     var isShadowOn = false;
@@ -524,16 +522,14 @@ function RunDemo() {
 	canvas.onmousedown = function (e) {
 		isMouseActive = true;
 	}
-	
+	var prevX = 0;
+	var prevY = 0;
 	window.onmouseup = function (e) {
 		isMouseActive = false;
 		prevX = 0;
 		prevY = 0;
 		document.getElementById('game-surface').style.cursor = "default";
 	}
-	
-	var prevX = 0;
-	var prevY = 0;
 	window.onmousemove = function (e) {
 		if (isMouseActive) {
 			if (prevX < 1 || prevY < 1) {
@@ -544,7 +540,6 @@ function RunDemo() {
 			v += (e.clientY-prevY) / 200;
 			v = clamp(v, 0.01, 3.14);
 			camFw = getSphereUV(u, v);
-			camAt = vec3.add(camPos, camFw);
 			camRight = vec3.cross(camFw, [0, 1, 0]);
 			camRight = vec3.normalize(camRight);
 			prevX = e.clientX;
@@ -574,22 +569,18 @@ function RunDemo() {
             if (isDDown) {
                 var right = vec3.scale(camRight, camSpeed);
                 camPos = vec3.add(camPos, right);
-                camAt = vec3.add(camAt, right);
             }
             if (isADown) {
                 var right = vec3.scale(camRight, camSpeed);
                 camPos = vec3.sub(camPos, right);
-                camAt = vec3.sub(camAt, right);
             }
             if (isSDown) {
                 var fw = vec3.scale(camFw, camSpeed);
                 camPos = vec3.sub(camPos, fw);
-                camAt = vec3.sub(camAt, fw);
             }
             if (isWDown) {
                 var fw = vec3.scale(camFw, camSpeed);
                 camPos = vec3.add(camPos, fw);
-                camAt = vec3.add(camAt, fw);
             }
         }
 		
