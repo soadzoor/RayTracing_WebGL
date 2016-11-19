@@ -6,7 +6,6 @@
 #else
 	precision lowp float;
 #endif
-precision highp float;
 struct Ray {
   vec3 origin;
   vec3 dir;
@@ -271,11 +270,11 @@ void main ()
       tmpvar_66 = bool(1);
     };
     if (tmpvar_66) {
-      lowp vec3 tmpvar_68;
-      tmpvar_68 = ((tmpvar_16 + (tmpvar_64 * tmpvar_17)) - vec3(0.0, -10.0, 0.0));
-      lowp float tmpvar_69;
-      tmpvar_69 = sqrt(dot (tmpvar_68, tmpvar_68));
-      if ((tmpvar_69 > 30.0)) {
+      lowp float tmpvar_68;
+      lowp vec3 tmpvar_69;
+      tmpvar_69 = ((tmpvar_16 + (tmpvar_64 * tmpvar_17)) - vec3(0.0, -10.0, 0.0));
+      tmpvar_68 = sqrt(dot (tmpvar_69, tmpvar_69));
+      if ((tmpvar_68 > 30.0)) {
         tmpvar_63 = bool(0);
       } else {
         tmpvar_63 = bool(1);
@@ -1064,11 +1063,11 @@ void main ()
             tmpvar_183 = bool(1);
           };
           if (tmpvar_183) {
-            lowp vec3 tmpvar_185;
-            tmpvar_185 = ((tmpvar_144 + (tmpvar_182 * tmpvar_145)) - vec3(0.0, -10.0, 0.0));
-            lowp float tmpvar_186;
-            tmpvar_186 = sqrt(dot (tmpvar_185, tmpvar_185));
-            if ((tmpvar_186 > 30.0)) {
+            lowp float tmpvar_185;
+            lowp vec3 tmpvar_186;
+            tmpvar_186 = ((tmpvar_144 + (tmpvar_182 * tmpvar_145)) - vec3(0.0, -10.0, 0.0));
+            tmpvar_185 = sqrt(dot (tmpvar_186, tmpvar_186));
+            if ((tmpvar_185 > 30.0)) {
               tmpvar_181 = bool(0);
             } else {
               tmpvar_181 = bool(1);
@@ -1514,11 +1513,11 @@ void main ()
             tmpvar_250 = bool(1);
           };
           if (tmpvar_250) {
-            lowp vec3 tmpvar_252;
-            tmpvar_252 = ((tmpvar_211 + (tmpvar_249 * tmpvar_212)) - vec3(0.0, -10.0, 0.0));
-            lowp float tmpvar_253;
-            tmpvar_253 = sqrt(dot (tmpvar_252, tmpvar_252));
-            if ((tmpvar_253 > 30.0)) {
+            lowp float tmpvar_252;
+            lowp vec3 tmpvar_253;
+            tmpvar_253 = ((tmpvar_211 + (tmpvar_249 * tmpvar_212)) - vec3(0.0, -10.0, 0.0));
+            tmpvar_252 = sqrt(dot (tmpvar_253, tmpvar_253));
+            if ((tmpvar_252 > 30.0)) {
               tmpvar_248 = bool(0);
             } else {
               tmpvar_248 = bool(1);
@@ -1964,11 +1963,11 @@ void main ()
             tmpvar_317 = bool(1);
           };
           if (tmpvar_317) {
-            lowp vec3 tmpvar_319;
-            tmpvar_319 = ((tmpvar_278 + (tmpvar_316 * tmpvar_279)) - vec3(0.0, -10.0, 0.0));
-            lowp float tmpvar_320;
-            tmpvar_320 = sqrt(dot (tmpvar_319, tmpvar_319));
-            if ((tmpvar_320 > 30.0)) {
+            lowp float tmpvar_319;
+            lowp vec3 tmpvar_320;
+            tmpvar_320 = ((tmpvar_278 + (tmpvar_316 * tmpvar_279)) - vec3(0.0, -10.0, 0.0));
+            tmpvar_319 = sqrt(dot (tmpvar_320, tmpvar_320));
+            if ((tmpvar_319 > 30.0)) {
               tmpvar_315 = bool(0);
             } else {
               tmpvar_315 = bool(1);
