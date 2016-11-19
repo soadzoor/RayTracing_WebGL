@@ -299,11 +299,11 @@ void main ()
       tmpvar_75 = bool(1);
     };
     if (tmpvar_75) {
-      lowp vec3 tmpvar_77;
-      tmpvar_77 = ((tmpvar_16 + (tmpvar_71 * tmpvar_17)) - tmpvar_67);
-      lowp float tmpvar_78;
-      tmpvar_78 = sqrt(dot (tmpvar_77, tmpvar_77));
-      if ((tmpvar_78 > tmpvar_68)) {
+      lowp float tmpvar_77;
+      lowp vec3 tmpvar_78;
+      tmpvar_78 = ((tmpvar_16 + (tmpvar_71 * tmpvar_17)) - tmpvar_67);
+      tmpvar_77 = sqrt(dot (tmpvar_78, tmpvar_78));
+      if ((tmpvar_77 > tmpvar_68)) {
         tmpvar_70 = bool(0);
       } else {
         tmpvar_70 = bool(1);
@@ -1377,11 +1377,11 @@ void main ()
               tmpvar_255 = bool(1);
             };
             if (tmpvar_255) {
-              lowp vec3 tmpvar_257;
-              tmpvar_257 = ((tmpvar_217 + (tmpvar_254 * tmpvar_218)) - tmpvar_250);
-              lowp float tmpvar_258;
-              tmpvar_258 = sqrt(dot (tmpvar_257, tmpvar_257));
-              if ((tmpvar_258 > tmpvar_251)) {
+              lowp float tmpvar_257;
+              lowp vec3 tmpvar_258;
+              tmpvar_258 = ((tmpvar_217 + (tmpvar_254 * tmpvar_218)) - tmpvar_250);
+              tmpvar_257 = sqrt(dot (tmpvar_258, tmpvar_258));
+              if ((tmpvar_257 > tmpvar_251)) {
                 tmpvar_253 = bool(0);
               } else {
                 tmpvar_253 = bool(1);

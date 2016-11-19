@@ -261,9 +261,8 @@ bool intersectDisc(in Ray ray, in Disc disc, out HitRec hitRec, in int ind)
 
     if (intersectPlane(ray, plane, hitRec, ind)) 
 	{ 
-        vec3 p = ray.origin + hitRec.t*ray.dir; 
-        vec3 v = p - disc.o; 
-        if (!(length(v) <= disc.r))
+        vec3 p = ray.origin + hitRec.t*ray.dir;
+        if (!(distance(p, disc.o) <= disc.r))
 		{
 			return false;
 		}
