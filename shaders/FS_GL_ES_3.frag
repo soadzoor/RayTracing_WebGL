@@ -277,15 +277,13 @@ bool intersectDisc(in Ray ray, in Disc disc, out HitRec hitRec, in int ind)
 	plane.n = disc.n;
 	plane.q = disc.o;
 
-    if (intersectPlane(ray, plane, hitRec, ind)) 
+    if (intersectPlane(ray, plane, hitRec, ind))
 	{ 
         vec3 p = ray.origin + hitRec.t*ray.dir;
-        if (!(distance(p, disc.o) <= disc.r))
+        if (distance(p, disc.o) <= disc.r)
 		{
-			return false;
+			return true;
 		}
-	
-		return true;
     }
 
 	return false;

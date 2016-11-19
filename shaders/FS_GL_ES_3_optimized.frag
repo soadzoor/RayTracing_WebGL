@@ -257,175 +257,178 @@ void main ()
       hit_24 = bool(1);
     };
     bool tmpvar_63;
-    lowp float tmpvar_64;
-    lowp vec3 tmpvar_65;
-    bool tmpvar_66;
-    lowp float tmpvar_67;
-    tmpvar_67 = ((vec3(0.0, -10.0, 0.0) - tmpvar_16).y / tmpvar_17.y);
-    if ((tmpvar_67 < 0.001)) {
-      tmpvar_66 = bool(0);
+    tmpvar_63 = bool(1);
+    bool tmpvar_64;
+    lowp float tmpvar_65;
+    lowp vec3 tmpvar_66;
+    bool tmpvar_67;
+    lowp float tmpvar_68;
+    tmpvar_68 = ((vec3(0.0, -10.0, 0.0) - tmpvar_16).y / tmpvar_17.y);
+    if ((tmpvar_68 < 0.001)) {
+      tmpvar_67 = bool(0);
     } else {
-      tmpvar_64 = tmpvar_67;
-      tmpvar_65 = (tmpvar_16 + (tmpvar_67 * tmpvar_17));
-      tmpvar_66 = bool(1);
+      tmpvar_65 = tmpvar_68;
+      tmpvar_66 = (tmpvar_16 + (tmpvar_68 * tmpvar_17));
+      tmpvar_67 = bool(1);
     };
-    if (tmpvar_66) {
-      lowp float tmpvar_68;
-      lowp vec3 tmpvar_69;
-      tmpvar_69 = ((tmpvar_16 + (tmpvar_64 * tmpvar_17)) - vec3(0.0, -10.0, 0.0));
-      tmpvar_68 = sqrt(dot (tmpvar_69, tmpvar_69));
-      if ((tmpvar_68 > 30.0)) {
+    if (tmpvar_67) {
+      lowp float tmpvar_69;
+      lowp vec3 tmpvar_70;
+      tmpvar_70 = ((tmpvar_16 + (tmpvar_65 * tmpvar_17)) - vec3(0.0, -10.0, 0.0));
+      tmpvar_69 = sqrt(dot (tmpvar_70, tmpvar_70));
+      if ((tmpvar_69 <= 30.0)) {
+        tmpvar_64 = bool(1);
         tmpvar_63 = bool(0);
-      } else {
-        tmpvar_63 = bool(1);
       };
-    } else {
-      tmpvar_63 = bool(0);
     };
     if (tmpvar_63) {
-      if (((tmpvar_64 < minT_25) || (minT_25 < 0.0))) {
-        minT_25 = tmpvar_64;
+      tmpvar_64 = bool(0);
+      tmpvar_63 = bool(0);
+    };
+    if (tmpvar_64) {
+      if (((tmpvar_65 < minT_25) || (minT_25 < 0.0))) {
+        minT_25 = tmpvar_65;
         tmpvar_18 = 12;
-        tmpvar_19 = tmpvar_64;
-        tmpvar_20 = tmpvar_65;
+        tmpvar_19 = tmpvar_65;
+        tmpvar_20 = tmpvar_66;
         tmpvar_21 = vec3(0.0, 1.0, 0.0);
         tmpvar_22 = vec3(0.0, -10.0, 0.0);
       };
       hit_24 = bool(1);
     };
-    lowp float tmpvar_70;
-    lowp vec3 tmpvar_71;
-    bool tmpvar_72;
-    lowp float tmpvar_73;
-    tmpvar_73 = (dot (vec3(0.0, 0.0, -1.0), (vec3(0.0, 0.0, 10000.0) - tmpvar_16)) / dot (vec3(0.0, 0.0, -1.0), tmpvar_17));
-    if ((tmpvar_73 < 0.001)) {
-      tmpvar_72 = bool(0);
+    lowp float tmpvar_71;
+    lowp vec3 tmpvar_72;
+    bool tmpvar_73;
+    lowp float tmpvar_74;
+    tmpvar_74 = (dot (vec3(0.0, 0.0, -1.0), (vec3(0.0, 0.0, 10000.0) - tmpvar_16)) / dot (vec3(0.0, 0.0, -1.0), tmpvar_17));
+    if ((tmpvar_74 < 0.001)) {
+      tmpvar_73 = bool(0);
     } else {
-      tmpvar_70 = tmpvar_73;
-      tmpvar_71 = (tmpvar_16 + (tmpvar_73 * tmpvar_17));
-      tmpvar_72 = bool(1);
+      tmpvar_71 = tmpvar_74;
+      tmpvar_72 = (tmpvar_16 + (tmpvar_74 * tmpvar_17));
+      tmpvar_73 = bool(1);
     };
-    if (tmpvar_72) {
-      if (((tmpvar_70 < minT_25) || (minT_25 < 0.0))) {
-        minT_25 = tmpvar_70;
+    if (tmpvar_73) {
+      if (((tmpvar_71 < minT_25) || (minT_25 < 0.0))) {
+        minT_25 = tmpvar_71;
         tmpvar_18 = 14;
-        tmpvar_19 = tmpvar_70;
-        tmpvar_20 = tmpvar_71;
+        tmpvar_19 = tmpvar_71;
+        tmpvar_20 = tmpvar_72;
         tmpvar_21 = vec3(0.0, 0.0, -1.0);
         tmpvar_22 = vec3(0.0, 0.0, 10000.0);
       };
       hit_24 = bool(1);
     };
-    lowp float tmpvar_74;
-    lowp vec3 tmpvar_75;
-    bool tmpvar_76;
-    lowp float tmpvar_77;
-    tmpvar_77 = ((vec3(0.0, -10000.0, 0.0) - tmpvar_16).y / tmpvar_17.y);
-    if ((tmpvar_77 < 0.001)) {
-      tmpvar_76 = bool(0);
+    lowp float tmpvar_75;
+    lowp vec3 tmpvar_76;
+    bool tmpvar_77;
+    lowp float tmpvar_78;
+    tmpvar_78 = ((vec3(0.0, -10000.0, 0.0) - tmpvar_16).y / tmpvar_17.y);
+    if ((tmpvar_78 < 0.001)) {
+      tmpvar_77 = bool(0);
     } else {
-      tmpvar_74 = tmpvar_77;
-      tmpvar_75 = (tmpvar_16 + (tmpvar_77 * tmpvar_17));
-      tmpvar_76 = bool(1);
+      tmpvar_75 = tmpvar_78;
+      tmpvar_76 = (tmpvar_16 + (tmpvar_78 * tmpvar_17));
+      tmpvar_77 = bool(1);
     };
-    if (tmpvar_76) {
-      if (((tmpvar_74 < minT_25) || (minT_25 < 0.0))) {
-        minT_25 = tmpvar_74;
+    if (tmpvar_77) {
+      if (((tmpvar_75 < minT_25) || (minT_25 < 0.0))) {
+        minT_25 = tmpvar_75;
         tmpvar_18 = 15;
-        tmpvar_19 = tmpvar_74;
-        tmpvar_20 = tmpvar_75;
+        tmpvar_19 = tmpvar_75;
+        tmpvar_20 = tmpvar_76;
         tmpvar_21 = vec3(0.0, 1.0, 0.0);
         tmpvar_22 = vec3(0.0, -10000.0, 0.0);
       };
       hit_24 = bool(1);
     };
-    lowp float tmpvar_78;
-    lowp vec3 tmpvar_79;
-    bool tmpvar_80;
-    lowp float tmpvar_81;
-    tmpvar_81 = ((vec3(0.0, 0.0, -10000.0) - tmpvar_16).z / tmpvar_17.z);
-    if ((tmpvar_81 < 0.001)) {
-      tmpvar_80 = bool(0);
+    lowp float tmpvar_79;
+    lowp vec3 tmpvar_80;
+    bool tmpvar_81;
+    lowp float tmpvar_82;
+    tmpvar_82 = ((vec3(0.0, 0.0, -10000.0) - tmpvar_16).z / tmpvar_17.z);
+    if ((tmpvar_82 < 0.001)) {
+      tmpvar_81 = bool(0);
     } else {
-      tmpvar_78 = tmpvar_81;
-      tmpvar_79 = (tmpvar_16 + (tmpvar_81 * tmpvar_17));
-      tmpvar_80 = bool(1);
+      tmpvar_79 = tmpvar_82;
+      tmpvar_80 = (tmpvar_16 + (tmpvar_82 * tmpvar_17));
+      tmpvar_81 = bool(1);
     };
-    if (tmpvar_80) {
-      if (((tmpvar_78 < minT_25) || (minT_25 < 0.0))) {
-        minT_25 = tmpvar_78;
+    if (tmpvar_81) {
+      if (((tmpvar_79 < minT_25) || (minT_25 < 0.0))) {
+        minT_25 = tmpvar_79;
         tmpvar_18 = 16;
-        tmpvar_19 = tmpvar_78;
-        tmpvar_20 = tmpvar_79;
+        tmpvar_19 = tmpvar_79;
+        tmpvar_20 = tmpvar_80;
         tmpvar_21 = vec3(0.0, 0.0, 1.0);
         tmpvar_22 = vec3(0.0, 0.0, -10000.0);
       };
       hit_24 = bool(1);
     };
-    lowp float tmpvar_82;
-    lowp vec3 tmpvar_83;
-    bool tmpvar_84;
-    lowp float tmpvar_85;
-    tmpvar_85 = ((vec3(-10000.0, 0.0, 0.0) - tmpvar_16).x / tmpvar_17.x);
-    if ((tmpvar_85 < 0.001)) {
-      tmpvar_84 = bool(0);
+    lowp float tmpvar_83;
+    lowp vec3 tmpvar_84;
+    bool tmpvar_85;
+    lowp float tmpvar_86;
+    tmpvar_86 = ((vec3(-10000.0, 0.0, 0.0) - tmpvar_16).x / tmpvar_17.x);
+    if ((tmpvar_86 < 0.001)) {
+      tmpvar_85 = bool(0);
     } else {
-      tmpvar_82 = tmpvar_85;
-      tmpvar_83 = (tmpvar_16 + (tmpvar_85 * tmpvar_17));
-      tmpvar_84 = bool(1);
+      tmpvar_83 = tmpvar_86;
+      tmpvar_84 = (tmpvar_16 + (tmpvar_86 * tmpvar_17));
+      tmpvar_85 = bool(1);
     };
-    if (tmpvar_84) {
-      if (((tmpvar_82 < minT_25) || (minT_25 < 0.0))) {
-        minT_25 = tmpvar_82;
+    if (tmpvar_85) {
+      if (((tmpvar_83 < minT_25) || (minT_25 < 0.0))) {
+        minT_25 = tmpvar_83;
         tmpvar_18 = 17;
-        tmpvar_19 = tmpvar_82;
-        tmpvar_20 = tmpvar_83;
+        tmpvar_19 = tmpvar_83;
+        tmpvar_20 = tmpvar_84;
         tmpvar_21 = vec3(1.0, 0.0, 0.0);
         tmpvar_22 = vec3(-10000.0, 0.0, 0.0);
       };
       hit_24 = bool(1);
     };
-    lowp float tmpvar_86;
-    lowp vec3 tmpvar_87;
-    bool tmpvar_88;
-    lowp float tmpvar_89;
-    tmpvar_89 = (dot (vec3(-1.0, 0.0, 0.0), (vec3(10000.0, 0.0, 0.0) - tmpvar_16)) / dot (vec3(-1.0, 0.0, 0.0), tmpvar_17));
-    if ((tmpvar_89 < 0.001)) {
-      tmpvar_88 = bool(0);
+    lowp float tmpvar_87;
+    lowp vec3 tmpvar_88;
+    bool tmpvar_89;
+    lowp float tmpvar_90;
+    tmpvar_90 = (dot (vec3(-1.0, 0.0, 0.0), (vec3(10000.0, 0.0, 0.0) - tmpvar_16)) / dot (vec3(-1.0, 0.0, 0.0), tmpvar_17));
+    if ((tmpvar_90 < 0.001)) {
+      tmpvar_89 = bool(0);
     } else {
-      tmpvar_86 = tmpvar_89;
-      tmpvar_87 = (tmpvar_16 + (tmpvar_89 * tmpvar_17));
-      tmpvar_88 = bool(1);
+      tmpvar_87 = tmpvar_90;
+      tmpvar_88 = (tmpvar_16 + (tmpvar_90 * tmpvar_17));
+      tmpvar_89 = bool(1);
     };
-    if (tmpvar_88) {
-      if (((tmpvar_86 < minT_25) || (minT_25 < 0.0))) {
-        minT_25 = tmpvar_86;
+    if (tmpvar_89) {
+      if (((tmpvar_87 < minT_25) || (minT_25 < 0.0))) {
+        minT_25 = tmpvar_87;
         tmpvar_18 = 18;
-        tmpvar_19 = tmpvar_86;
-        tmpvar_20 = tmpvar_87;
+        tmpvar_19 = tmpvar_87;
+        tmpvar_20 = tmpvar_88;
         tmpvar_21 = vec3(-1.0, 0.0, 0.0);
         tmpvar_22 = vec3(10000.0, 0.0, 0.0);
       };
       hit_24 = bool(1);
     };
-    lowp float tmpvar_90;
-    lowp vec3 tmpvar_91;
-    bool tmpvar_92;
-    lowp float tmpvar_93;
-    tmpvar_93 = (dot (vec3(0.0, -1.0, 0.0), (vec3(0.0, 10000.0, 0.0) - tmpvar_16)) / dot (vec3(0.0, -1.0, 0.0), tmpvar_17));
-    if ((tmpvar_93 < 0.001)) {
-      tmpvar_92 = bool(0);
+    lowp float tmpvar_91;
+    lowp vec3 tmpvar_92;
+    bool tmpvar_93;
+    lowp float tmpvar_94;
+    tmpvar_94 = (dot (vec3(0.0, -1.0, 0.0), (vec3(0.0, 10000.0, 0.0) - tmpvar_16)) / dot (vec3(0.0, -1.0, 0.0), tmpvar_17));
+    if ((tmpvar_94 < 0.001)) {
+      tmpvar_93 = bool(0);
     } else {
-      tmpvar_90 = tmpvar_93;
-      tmpvar_91 = (tmpvar_16 + (tmpvar_93 * tmpvar_17));
-      tmpvar_92 = bool(1);
+      tmpvar_91 = tmpvar_94;
+      tmpvar_92 = (tmpvar_16 + (tmpvar_94 * tmpvar_17));
+      tmpvar_93 = bool(1);
     };
-    if (tmpvar_92) {
-      if (((tmpvar_90 < minT_25) || (minT_25 < 0.0))) {
-        minT_25 = tmpvar_90;
+    if (tmpvar_93) {
+      if (((tmpvar_91 < minT_25) || (minT_25 < 0.0))) {
+        minT_25 = tmpvar_91;
         tmpvar_18 = 19;
-        tmpvar_19 = tmpvar_90;
-        tmpvar_20 = tmpvar_91;
+        tmpvar_19 = tmpvar_91;
+        tmpvar_20 = tmpvar_92;
         tmpvar_21 = vec3(0.0, -1.0, 0.0);
         tmpvar_22 = vec3(0.0, 10000.0, 0.0);
       };
@@ -437,196 +440,196 @@ void main ()
     tmpvar_13 = tmpvar_21;
     tmpvar_14 = tmpvar_22;
     if (hit_24) {
-      lowp float vec_y_94;
-      vec_y_94 = -(tmpvar_21.z);
-      lowp float vec_x_95;
-      vec_x_95 = -(tmpvar_21.x);
-      lowp float tmpvar_96;
+      lowp float vec_y_95;
+      vec_y_95 = -(tmpvar_21.z);
+      lowp float vec_x_96;
+      vec_x_96 = -(tmpvar_21.x);
       lowp float tmpvar_97;
-      tmpvar_97 = (min (abs(
-        (vec_y_94 / vec_x_95)
-      ), 1.0) / max (abs(
-        (vec_y_94 / vec_x_95)
-      ), 1.0));
       lowp float tmpvar_98;
-      tmpvar_98 = (tmpvar_97 * tmpvar_97);
-      tmpvar_98 = (((
+      tmpvar_98 = (min (abs(
+        (vec_y_95 / vec_x_96)
+      ), 1.0) / max (abs(
+        (vec_y_95 / vec_x_96)
+      ), 1.0));
+      lowp float tmpvar_99;
+      tmpvar_99 = (tmpvar_98 * tmpvar_98);
+      tmpvar_99 = (((
         ((((
-          ((((-0.01213232 * tmpvar_98) + 0.05368138) * tmpvar_98) - 0.1173503)
-         * tmpvar_98) + 0.1938925) * tmpvar_98) - 0.3326756)
-       * tmpvar_98) + 0.9999793) * tmpvar_97);
-      tmpvar_98 = (tmpvar_98 + (float(
-        (abs((vec_y_94 / vec_x_95)) > 1.0)
+          ((((-0.01213232 * tmpvar_99) + 0.05368138) * tmpvar_99) - 0.1173503)
+         * tmpvar_99) + 0.1938925) * tmpvar_99) - 0.3326756)
+       * tmpvar_99) + 0.9999793) * tmpvar_98);
+      tmpvar_99 = (tmpvar_99 + (float(
+        (abs((vec_y_95 / vec_x_96)) > 1.0)
       ) * (
-        (tmpvar_98 * -2.0)
+        (tmpvar_99 * -2.0)
        + 1.570796)));
-      tmpvar_96 = (tmpvar_98 * sign((vec_y_94 / vec_x_95)));
-      if ((abs(vec_x_95) > (1e-08 * abs(vec_y_94)))) {
-        if ((vec_x_95 < 0.0)) {
-          if ((vec_y_94 >= 0.0)) {
-            tmpvar_96 += 3.141593;
+      tmpvar_97 = (tmpvar_99 * sign((vec_y_95 / vec_x_96)));
+      if ((abs(vec_x_96) > (1e-08 * abs(vec_y_95)))) {
+        if ((vec_x_96 < 0.0)) {
+          if ((vec_y_95 >= 0.0)) {
+            tmpvar_97 += 3.141593;
           } else {
-            tmpvar_96 = (tmpvar_96 - 3.141593);
+            tmpvar_97 = (tmpvar_97 - 3.141593);
           };
         };
       } else {
-        tmpvar_96 = (sign(vec_y_94) * 1.570796);
+        tmpvar_97 = (sign(vec_y_95) * 1.570796);
       };
-      u_9 = (0.5 - (tmpvar_96 / 6.283185));
-      lowp float x_99;
-      x_99 = -(tmpvar_21.y);
+      u_9 = (0.5 - (tmpvar_97 / 6.283185));
+      lowp float x_100;
+      x_100 = -(tmpvar_21.y);
       v_8 = (0.5 + ((
-        sign(x_99)
+        sign(x_100)
        * 
         (1.570796 - (sqrt((1.0 - 
-          abs(x_99)
+          abs(x_100)
         )) * (1.570796 + (
-          abs(x_99)
+          abs(x_100)
          * 
-          (-0.2146018 + (abs(x_99) * (0.08656672 + (
-            abs(x_99)
+          (-0.2146018 + (abs(x_100) * (0.08656672 + (
+            abs(x_100)
            * -0.03102955))))
         ))))
       ) / 3.141593));
       if (useNormalMap) {
         if ((tmpvar_18 == 3)) {
-          lowp vec3 normalFromMap_100;
+          lowp vec3 normalFromMap_101;
           u_9 = (u_9 + (time / 2.0));
-          lowp vec2 tmpvar_101;
-          tmpvar_101.x = u_9;
-          tmpvar_101.y = v_8;
-          normalFromMap_100 = normalize(((2.0 * texture (earthNormalMap, tmpvar_101).xyz) - 1.0));
-          lowp mat3 tmpvar_102;
-          lowp float tmpvar_103;
-          tmpvar_103 = (1.570796 - (sign(tmpvar_21.z) * (1.570796 - 
+          lowp vec2 tmpvar_102;
+          tmpvar_102.x = u_9;
+          tmpvar_102.y = v_8;
+          normalFromMap_101 = normalize(((2.0 * texture (earthNormalMap, tmpvar_102).xyz) - 1.0));
+          lowp mat3 tmpvar_103;
+          lowp float tmpvar_104;
+          tmpvar_104 = (1.570796 - (sign(tmpvar_21.z) * (1.570796 - 
             (sqrt((1.0 - abs(tmpvar_21.z))) * (1.570796 + (abs(tmpvar_21.z) * (-0.2146018 + 
               (abs(tmpvar_21.z) * (0.08656672 + (abs(tmpvar_21.z) * -0.03102955)))
             ))))
           )));
-          lowp vec3 tmpvar_104;
-          tmpvar_104 = ((tmpvar_21.yzx * vec3(1.0, 0.0, 0.0)) - (tmpvar_21.zxy * vec3(0.0, 1.0, 0.0)));
-          lowp float tmpvar_105;
-          tmpvar_105 = sqrt(dot (tmpvar_104, tmpvar_104));
-          if ((tmpvar_105 < 0.001)) {
-            tmpvar_102 = mat3(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
+          lowp vec3 tmpvar_105;
+          tmpvar_105 = ((tmpvar_21.yzx * vec3(1.0, 0.0, 0.0)) - (tmpvar_21.zxy * vec3(0.0, 1.0, 0.0)));
+          lowp float tmpvar_106;
+          tmpvar_106 = sqrt(dot (tmpvar_105, tmpvar_105));
+          if ((tmpvar_106 < 0.001)) {
+            tmpvar_103 = mat3(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
           } else {
-            lowp vec3 tmpvar_106;
-            tmpvar_106 = normalize(tmpvar_104);
-            lowp float tmpvar_107;
-            tmpvar_107 = sin(tmpvar_103);
+            lowp vec3 tmpvar_107;
+            tmpvar_107 = normalize(tmpvar_105);
             lowp float tmpvar_108;
-            tmpvar_108 = cos(tmpvar_103);
+            tmpvar_108 = sin(tmpvar_104);
             lowp float tmpvar_109;
-            tmpvar_109 = (1.0 - tmpvar_108);
-            lowp mat3 tmpvar_110;
-            tmpvar_110[uint(0)].x = (((tmpvar_109 * tmpvar_106.x) * tmpvar_106.x) + tmpvar_108);
-            tmpvar_110[uint(0)].y = (((tmpvar_109 * tmpvar_106.x) * tmpvar_106.y) - (tmpvar_106.z * tmpvar_107));
-            tmpvar_110[uint(0)].z = (((tmpvar_109 * tmpvar_106.z) * tmpvar_106.x) + (tmpvar_106.y * tmpvar_107));
-            tmpvar_110[1u].x = (((tmpvar_109 * tmpvar_106.x) * tmpvar_106.y) + (tmpvar_106.z * tmpvar_107));
-            tmpvar_110[1u].y = (((tmpvar_109 * tmpvar_106.y) * tmpvar_106.y) + tmpvar_108);
-            tmpvar_110[1u].z = (((tmpvar_109 * tmpvar_106.y) * tmpvar_106.z) - (tmpvar_106.x * tmpvar_107));
-            tmpvar_110[2u].x = (((tmpvar_109 * tmpvar_106.z) * tmpvar_106.x) - (tmpvar_106.y * tmpvar_107));
-            tmpvar_110[2u].y = (((tmpvar_109 * tmpvar_106.y) * tmpvar_106.z) + (tmpvar_106.x * tmpvar_107));
-            tmpvar_110[2u].z = (((tmpvar_109 * tmpvar_106.z) * tmpvar_106.z) + tmpvar_108);
-            tmpvar_102 = tmpvar_110;
+            tmpvar_109 = cos(tmpvar_104);
+            lowp float tmpvar_110;
+            tmpvar_110 = (1.0 - tmpvar_109);
+            lowp mat3 tmpvar_111;
+            tmpvar_111[uint(0)].x = (((tmpvar_110 * tmpvar_107.x) * tmpvar_107.x) + tmpvar_109);
+            tmpvar_111[uint(0)].y = (((tmpvar_110 * tmpvar_107.x) * tmpvar_107.y) - (tmpvar_107.z * tmpvar_108));
+            tmpvar_111[uint(0)].z = (((tmpvar_110 * tmpvar_107.z) * tmpvar_107.x) + (tmpvar_107.y * tmpvar_108));
+            tmpvar_111[1u].x = (((tmpvar_110 * tmpvar_107.x) * tmpvar_107.y) + (tmpvar_107.z * tmpvar_108));
+            tmpvar_111[1u].y = (((tmpvar_110 * tmpvar_107.y) * tmpvar_107.y) + tmpvar_109);
+            tmpvar_111[1u].z = (((tmpvar_110 * tmpvar_107.y) * tmpvar_107.z) - (tmpvar_107.x * tmpvar_108));
+            tmpvar_111[2u].x = (((tmpvar_110 * tmpvar_107.z) * tmpvar_107.x) - (tmpvar_107.y * tmpvar_108));
+            tmpvar_111[2u].y = (((tmpvar_110 * tmpvar_107.y) * tmpvar_107.z) + (tmpvar_107.x * tmpvar_108));
+            tmpvar_111[2u].z = (((tmpvar_110 * tmpvar_107.z) * tmpvar_107.z) + tmpvar_109);
+            tmpvar_103 = tmpvar_111;
           };
-          tmpvar_13 = (tmpvar_102 * normalFromMap_100);
+          tmpvar_13 = (tmpvar_103 * normalFromMap_101);
         } else {
           if ((tmpvar_18 == 4)) {
-            lowp vec3 normalFromMap_111;
+            lowp vec3 normalFromMap_112;
             u_9 = (u_9 + (time / 7.0));
-            lowp vec2 tmpvar_112;
-            tmpvar_112.x = u_9;
-            tmpvar_112.y = v_8;
-            normalFromMap_111 = normalize(((2.0 * texture (moonNormalMap, tmpvar_112).xyz) - 1.0));
-            lowp mat3 tmpvar_113;
-            lowp float tmpvar_114;
-            tmpvar_114 = (1.570796 - (sign(tmpvar_13.z) * (1.570796 - 
+            lowp vec2 tmpvar_113;
+            tmpvar_113.x = u_9;
+            tmpvar_113.y = v_8;
+            normalFromMap_112 = normalize(((2.0 * texture (moonNormalMap, tmpvar_113).xyz) - 1.0));
+            lowp mat3 tmpvar_114;
+            lowp float tmpvar_115;
+            tmpvar_115 = (1.570796 - (sign(tmpvar_13.z) * (1.570796 - 
               (sqrt((1.0 - abs(tmpvar_13.z))) * (1.570796 + (abs(tmpvar_13.z) * (-0.2146018 + 
                 (abs(tmpvar_13.z) * (0.08656672 + (abs(tmpvar_13.z) * -0.03102955)))
               ))))
             )));
-            lowp vec3 tmpvar_115;
-            tmpvar_115 = ((tmpvar_13.yzx * vec3(1.0, 0.0, 0.0)) - (tmpvar_13.zxy * vec3(0.0, 1.0, 0.0)));
-            lowp float tmpvar_116;
-            tmpvar_116 = sqrt(dot (tmpvar_115, tmpvar_115));
-            if ((tmpvar_116 < 0.001)) {
-              tmpvar_113 = mat3(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
+            lowp vec3 tmpvar_116;
+            tmpvar_116 = ((tmpvar_13.yzx * vec3(1.0, 0.0, 0.0)) - (tmpvar_13.zxy * vec3(0.0, 1.0, 0.0)));
+            lowp float tmpvar_117;
+            tmpvar_117 = sqrt(dot (tmpvar_116, tmpvar_116));
+            if ((tmpvar_117 < 0.001)) {
+              tmpvar_114 = mat3(1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
             } else {
-              lowp vec3 tmpvar_117;
-              tmpvar_117 = normalize(tmpvar_115);
-              lowp float tmpvar_118;
-              tmpvar_118 = sin(tmpvar_114);
+              lowp vec3 tmpvar_118;
+              tmpvar_118 = normalize(tmpvar_116);
               lowp float tmpvar_119;
-              tmpvar_119 = cos(tmpvar_114);
+              tmpvar_119 = sin(tmpvar_115);
               lowp float tmpvar_120;
-              tmpvar_120 = (1.0 - tmpvar_119);
-              lowp mat3 tmpvar_121;
-              tmpvar_121[uint(0)].x = (((tmpvar_120 * tmpvar_117.x) * tmpvar_117.x) + tmpvar_119);
-              tmpvar_121[uint(0)].y = (((tmpvar_120 * tmpvar_117.x) * tmpvar_117.y) - (tmpvar_117.z * tmpvar_118));
-              tmpvar_121[uint(0)].z = (((tmpvar_120 * tmpvar_117.z) * tmpvar_117.x) + (tmpvar_117.y * tmpvar_118));
-              tmpvar_121[1u].x = (((tmpvar_120 * tmpvar_117.x) * tmpvar_117.y) + (tmpvar_117.z * tmpvar_118));
-              tmpvar_121[1u].y = (((tmpvar_120 * tmpvar_117.y) * tmpvar_117.y) + tmpvar_119);
-              tmpvar_121[1u].z = (((tmpvar_120 * tmpvar_117.y) * tmpvar_117.z) - (tmpvar_117.x * tmpvar_118));
-              tmpvar_121[2u].x = (((tmpvar_120 * tmpvar_117.z) * tmpvar_117.x) - (tmpvar_117.y * tmpvar_118));
-              tmpvar_121[2u].y = (((tmpvar_120 * tmpvar_117.y) * tmpvar_117.z) + (tmpvar_117.x * tmpvar_118));
-              tmpvar_121[2u].z = (((tmpvar_120 * tmpvar_117.z) * tmpvar_117.z) + tmpvar_119);
-              tmpvar_113 = tmpvar_121;
+              tmpvar_120 = cos(tmpvar_115);
+              lowp float tmpvar_121;
+              tmpvar_121 = (1.0 - tmpvar_120);
+              lowp mat3 tmpvar_122;
+              tmpvar_122[uint(0)].x = (((tmpvar_121 * tmpvar_118.x) * tmpvar_118.x) + tmpvar_120);
+              tmpvar_122[uint(0)].y = (((tmpvar_121 * tmpvar_118.x) * tmpvar_118.y) - (tmpvar_118.z * tmpvar_119));
+              tmpvar_122[uint(0)].z = (((tmpvar_121 * tmpvar_118.z) * tmpvar_118.x) + (tmpvar_118.y * tmpvar_119));
+              tmpvar_122[1u].x = (((tmpvar_121 * tmpvar_118.x) * tmpvar_118.y) + (tmpvar_118.z * tmpvar_119));
+              tmpvar_122[1u].y = (((tmpvar_121 * tmpvar_118.y) * tmpvar_118.y) + tmpvar_120);
+              tmpvar_122[1u].z = (((tmpvar_121 * tmpvar_118.y) * tmpvar_118.z) - (tmpvar_118.x * tmpvar_119));
+              tmpvar_122[2u].x = (((tmpvar_121 * tmpvar_118.z) * tmpvar_118.x) - (tmpvar_118.y * tmpvar_119));
+              tmpvar_122[2u].y = (((tmpvar_121 * tmpvar_118.y) * tmpvar_118.z) + (tmpvar_118.x * tmpvar_119));
+              tmpvar_122[2u].z = (((tmpvar_121 * tmpvar_118.z) * tmpvar_118.z) + tmpvar_120);
+              tmpvar_114 = tmpvar_122;
             };
-            tmpvar_13 = (tmpvar_113 * normalFromMap_111);
+            tmpvar_13 = (tmpvar_114 * normalFromMap_112);
           };
         };
       };
       bounceCount_5++;
-      lowp vec3 tmpvar_122;
-      bool tmpvar_123;
+      lowp vec3 tmpvar_123;
       bool tmpvar_124;
-      vec3 tmpvar_125;
-      float tmpvar_126;
-      Material tmpvar_127;
+      bool tmpvar_125;
+      vec3 tmpvar_126;
+      float tmpvar_127;
+      Material tmpvar_128;
       if ((tmpvar_18 == 0)) {
-        tmpvar_127 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+        tmpvar_128 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
       } else {
         if ((tmpvar_18 == 1)) {
-          tmpvar_127 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+          tmpvar_128 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
         } else {
           if ((tmpvar_18 == 2)) {
-            tmpvar_127 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+            tmpvar_128 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
           } else {
             if ((tmpvar_18 == 3)) {
-              tmpvar_127 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+              tmpvar_128 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
             } else {
               if ((tmpvar_18 == 4)) {
-                tmpvar_127 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                tmpvar_128 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
               } else {
                 if ((tmpvar_18 == 5)) {
-                  tmpvar_127 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                  tmpvar_128 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                 } else {
                   if ((tmpvar_18 == 6)) {
-                    tmpvar_127 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                    tmpvar_128 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                   } else {
                     if ((tmpvar_18 == 7)) {
-                      tmpvar_127 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                      tmpvar_128 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                     } else {
                       if ((tmpvar_18 == 8)) {
-                        tmpvar_127 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
+                        tmpvar_128 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
                       } else {
                         if ((tmpvar_18 == 9)) {
-                          tmpvar_127 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
+                          tmpvar_128 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
                         } else {
                           if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
-                            tmpvar_127 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                            tmpvar_128 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                           } else {
                             if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
-                              tmpvar_127 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                              tmpvar_128 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                             } else {
                               if ((tmpvar_18 == 12)) {
-                                tmpvar_127 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                tmpvar_128 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                               } else {
                                 if ((tmpvar_18 > 13)) {
-                                  tmpvar_127 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  tmpvar_128 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                 } else {
-                                  tmpvar_127 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  tmpvar_128 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                 };
                               };
                             };
@@ -641,71 +644,71 @@ void main ()
           };
         };
       };
-      tmpvar_122 = tmpvar_127.amb;
-      tmpvar_123 = tmpvar_127.refractive;
-      tmpvar_124 = tmpvar_127.reflective;
-      tmpvar_125 = tmpvar_127.f0;
-      tmpvar_126 = tmpvar_127.n;
-      lowp vec3 tmpvar_128;
+      tmpvar_123 = tmpvar_128.amb;
+      tmpvar_124 = tmpvar_128.refractive;
+      tmpvar_125 = tmpvar_128.reflective;
+      tmpvar_126 = tmpvar_128.f0;
+      tmpvar_127 = tmpvar_128.n;
+      lowp vec3 tmpvar_129;
       if ((tmpvar_18 == 0)) {
-        tmpvar_128 = tmpvar_122;
+        tmpvar_129 = tmpvar_123;
       } else {
-        lowp float diffintensity_129;
-        lowp vec3 toLight_130;
-        lowp vec3 specular_131;
-        lowp vec3 diffuse_132;
-        lowp vec3 color_133;
-        lowp vec3 refDir_134;
-        lowp vec3 I_135;
-        I_135 = (tmpvar_20 - ray_1.origin);
-        refDir_134 = normalize((I_135 - (2.0 * 
-          (dot (tmpvar_13, I_135) * tmpvar_13)
+        lowp float diffintensity_130;
+        lowp vec3 toLight_131;
+        lowp vec3 specular_132;
+        lowp vec3 diffuse_133;
+        lowp vec3 color_134;
+        lowp vec3 refDir_135;
+        lowp vec3 I_136;
+        I_136 = (tmpvar_20 - ray_1.origin);
+        refDir_135 = normalize((I_136 - (2.0 * 
+          (dot (tmpvar_13, I_136) * tmpvar_13)
         )));
-        lowp vec3 tmpvar_136;
-        Material tmpvar_137;
+        lowp vec3 tmpvar_137;
+        Material tmpvar_138;
         if ((tmpvar_18 == 0)) {
-          tmpvar_137 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+          tmpvar_138 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
         } else {
           if ((tmpvar_18 == 1)) {
-            tmpvar_137 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+            tmpvar_138 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
           } else {
             if ((tmpvar_18 == 2)) {
-              tmpvar_137 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+              tmpvar_138 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
             } else {
               if ((tmpvar_18 == 3)) {
-                tmpvar_137 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                tmpvar_138 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
               } else {
                 if ((tmpvar_18 == 4)) {
-                  tmpvar_137 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                  tmpvar_138 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                 } else {
                   if ((tmpvar_18 == 5)) {
-                    tmpvar_137 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                    tmpvar_138 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                   } else {
                     if ((tmpvar_18 == 6)) {
-                      tmpvar_137 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                      tmpvar_138 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                     } else {
                       if ((tmpvar_18 == 7)) {
-                        tmpvar_137 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                        tmpvar_138 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                       } else {
                         if ((tmpvar_18 == 8)) {
-                          tmpvar_137 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
+                          tmpvar_138 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
                         } else {
                           if ((tmpvar_18 == 9)) {
-                            tmpvar_137 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
+                            tmpvar_138 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
                           } else {
                             if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
-                              tmpvar_137 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                              tmpvar_138 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                             } else {
                               if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
-                                tmpvar_137 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                                tmpvar_138 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                               } else {
                                 if ((tmpvar_18 == 12)) {
-                                  tmpvar_137 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  tmpvar_138 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                 } else {
                                   if ((tmpvar_18 > 13)) {
-                                    tmpvar_137 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                    tmpvar_138 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                   } else {
-                                    tmpvar_137 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                    tmpvar_138 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                   };
                                 };
                               };
@@ -720,59 +723,59 @@ void main ()
             };
           };
         };
-        tmpvar_136 = tmpvar_137.amb;
-        color_133 = tmpvar_136;
-        diffuse_132 = vec3(0.0, 0.0, 0.0);
-        specular_131 = vec3(0.0, 0.0, 0.0);
-        lowp vec3 tmpvar_138;
-        tmpvar_138 = normalize(-(tmpvar_20));
-        toLight_130 = tmpvar_138;
-        diffintensity_129 = clamp (dot (tmpvar_13, tmpvar_138), 0.0, 1.0);
-        vec3 tmpvar_139;
-        Material tmpvar_140;
+        tmpvar_137 = tmpvar_138.amb;
+        color_134 = tmpvar_137;
+        diffuse_133 = vec3(0.0, 0.0, 0.0);
+        specular_132 = vec3(0.0, 0.0, 0.0);
+        lowp vec3 tmpvar_139;
+        tmpvar_139 = normalize(-(tmpvar_20));
+        toLight_131 = tmpvar_139;
+        diffintensity_130 = clamp (dot (tmpvar_13, tmpvar_139), 0.0, 1.0);
+        vec3 tmpvar_140;
+        Material tmpvar_141;
         if ((tmpvar_18 == 0)) {
-          tmpvar_140 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+          tmpvar_141 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
         } else {
           if ((tmpvar_18 == 1)) {
-            tmpvar_140 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+            tmpvar_141 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
           } else {
             if ((tmpvar_18 == 2)) {
-              tmpvar_140 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+              tmpvar_141 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
             } else {
               if ((tmpvar_18 == 3)) {
-                tmpvar_140 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                tmpvar_141 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
               } else {
                 if ((tmpvar_18 == 4)) {
-                  tmpvar_140 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                  tmpvar_141 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                 } else {
                   if ((tmpvar_18 == 5)) {
-                    tmpvar_140 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                    tmpvar_141 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                   } else {
                     if ((tmpvar_18 == 6)) {
-                      tmpvar_140 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                      tmpvar_141 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                     } else {
                       if ((tmpvar_18 == 7)) {
-                        tmpvar_140 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                        tmpvar_141 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                       } else {
                         if ((tmpvar_18 == 8)) {
-                          tmpvar_140 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
+                          tmpvar_141 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
                         } else {
                           if ((tmpvar_18 == 9)) {
-                            tmpvar_140 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
+                            tmpvar_141 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
                           } else {
                             if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
-                              tmpvar_140 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                              tmpvar_141 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                             } else {
                               if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
-                                tmpvar_140 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                                tmpvar_141 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                               } else {
                                 if ((tmpvar_18 == 12)) {
-                                  tmpvar_140 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  tmpvar_141 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                 } else {
                                   if ((tmpvar_18 > 13)) {
-                                    tmpvar_140 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                    tmpvar_141 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                   } else {
-                                    tmpvar_140 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                    tmpvar_141 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                   };
                                 };
                               };
@@ -787,68 +790,9 @@ void main ()
             };
           };
         };
-        tmpvar_139 = tmpvar_140.spec;
-        lowp float tmpvar_141;
-        tmpvar_141 = clamp (dot (tmpvar_138, refDir_134), 0.0, 1.0);
-        Material tmpvar_142;
-        if ((tmpvar_18 == 0)) {
-          tmpvar_142 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-        } else {
-          if ((tmpvar_18 == 1)) {
-            tmpvar_142 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-          } else {
-            if ((tmpvar_18 == 2)) {
-              tmpvar_142 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-            } else {
-              if ((tmpvar_18 == 3)) {
-                tmpvar_142 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-              } else {
-                if ((tmpvar_18 == 4)) {
-                  tmpvar_142 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                } else {
-                  if ((tmpvar_18 == 5)) {
-                    tmpvar_142 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                  } else {
-                    if ((tmpvar_18 == 6)) {
-                      tmpvar_142 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                    } else {
-                      if ((tmpvar_18 == 7)) {
-                        tmpvar_142 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                      } else {
-                        if ((tmpvar_18 == 8)) {
-                          tmpvar_142 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
-                        } else {
-                          if ((tmpvar_18 == 9)) {
-                            tmpvar_142 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
-                          } else {
-                            if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
-                              tmpvar_142 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
-                            } else {
-                              if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
-                                tmpvar_142 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
-                              } else {
-                                if ((tmpvar_18 == 12)) {
-                                  tmpvar_142 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                } else {
-                                  if ((tmpvar_18 > 13)) {
-                                    tmpvar_142 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                  } else {
-                                    tmpvar_142 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                  };
-                                };
-                              };
-                            };
-                          };
-                        };
-                      };
-                    };
-                  };
-                };
-              };
-            };
-          };
-        };
-        specular_131 = clamp ((tmpvar_139 * pow (tmpvar_141, tmpvar_142.pow)), 0.0, 1.0);
+        tmpvar_140 = tmpvar_141.spec;
+        lowp float tmpvar_142;
+        tmpvar_142 = clamp (dot (tmpvar_139, refDir_135), 0.0, 1.0);
         Material tmpvar_143;
         if ((tmpvar_18 == 0)) {
           tmpvar_143 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
@@ -907,322 +851,51 @@ void main ()
             };
           };
         };
-        diffuse_132 = clamp ((tmpvar_143.dif * diffintensity_129), 0.0, 1.0);
-        if (isShadowOn) {
-          lowp vec3 tmpvar_144;
-          lowp vec3 tmpvar_145;
-          tmpvar_144 = (tmpvar_20 + (tmpvar_13 * 0.001));
-          tmpvar_145 = normalize(-(tmpvar_20));
-          highp int tmpvar_146;
-          tmpvar_146 = tmpvar_18;
-          highp int i_147;
-          lowp float minT_148;
-          minT_148 = -1.0;
-          i_147 = 0;
-          while (true) {
-            if ((i_147 >= 10)) {
-              break;
-            };
-            vec4 sphere_149;
-            sphere_149 = spheres[i_147];
-            highp int tmpvar_150;
-            lowp float tmpvar_151;
-            bool tmpvar_152;
-            lowp float t_153;
-            lowp float t2_154;
-            lowp float t1_155;
-            lowp vec3 tmpvar_156;
-            tmpvar_156 = (tmpvar_144 - sphere_149.xyz);
-            lowp float tmpvar_157;
-            tmpvar_157 = (dot (tmpvar_156, tmpvar_145) * 2.0);
-            lowp float tmpvar_158;
-            tmpvar_158 = dot (tmpvar_145, tmpvar_145);
-            lowp float tmpvar_159;
-            tmpvar_159 = ((tmpvar_157 * tmpvar_157) - ((4.0 * tmpvar_158) * (
-              dot (tmpvar_156, tmpvar_156)
-             - 
-              (sphere_149.w * sphere_149.w)
-            )));
-            if ((tmpvar_159 < 0.0)) {
-              tmpvar_152 = bool(0);
-            } else {
-              lowp float tmpvar_160;
-              tmpvar_160 = sqrt(tmpvar_159);
-              lowp float tmpvar_161;
-              tmpvar_161 = (((
-                -(tmpvar_157)
-               + tmpvar_160) / 2.0) / tmpvar_158);
-              t1_155 = tmpvar_161;
-              lowp float tmpvar_162;
-              tmpvar_162 = (((
-                -(tmpvar_157)
-               - tmpvar_160) / 2.0) / tmpvar_158);
-              t2_154 = tmpvar_162;
-              if ((tmpvar_161 < 0.001)) {
-                t1_155 = -0.001;
-              };
-              if ((tmpvar_162 < 0.001)) {
-                t2_154 = -0.001;
-              };
-              if ((t1_155 < 0.0)) {
-                tmpvar_152 = bool(0);
-              } else {
-                if ((t2_154 > 0.0)) {
-                  t_153 = t2_154;
-                } else {
-                  t_153 = t1_155;
-                };
-                tmpvar_150 = i_147;
-                tmpvar_151 = t_153;
-                tmpvar_152 = bool(1);
-              };
-            };
-            if ((tmpvar_152 && ((tmpvar_151 < minT_148) || (minT_148 < 0.0)))) {
-              minT_148 = tmpvar_151;
-              tmpvar_146 = tmpvar_150;
-            };
-            i_147++;
-          };
-          lowp float tmpvar_163;
-          bool tmpvar_164;
-          lowp float t1_165;
-          lowp float v_166;
-          lowp float u_167;
-          lowp float invDet_168;
-          lowp vec3 T_169;
-          lowp vec3 tmpvar_170;
-          tmpvar_170 = ((tmpvar_145.yzx * vec3(2.0, 28.0, -19.0)) - (tmpvar_145.zxy * vec3(-19.0, 2.0, 28.0)));
-          invDet_168 = (1.0/(dot (vec3(0.0, -19.0, 2.0), tmpvar_170)));
-          T_169 = (tmpvar_144 - vec3(-14.0, 14.0, -14.0));
-          u_167 = (dot (T_169, tmpvar_170) * invDet_168);
-          if (((u_167 < 0.0) || (u_167 > 1.0))) {
-            tmpvar_164 = bool(0);
-          } else {
-            lowp vec3 tmpvar_171;
-            tmpvar_171 = ((T_169.yzx * vec3(2.0, 0.0, -19.0)) - (T_169.zxy * vec3(-19.0, 2.0, 0.0)));
-            v_166 = (dot (tmpvar_145, tmpvar_171) * invDet_168);
-            if (((v_166 < 0.0) || ((u_167 + v_166) > 1.0))) {
-              tmpvar_164 = bool(0);
-            } else {
-              t1_165 = (dot (vec3(28.0, -19.0, 2.0), tmpvar_171) * invDet_168);
-              if ((t1_165 > 0.001)) {
-                tmpvar_163 = t1_165;
-                tmpvar_164 = bool(1);
-              } else {
-                tmpvar_164 = bool(0);
-              };
-            };
-          };
-          if ((tmpvar_164 && ((tmpvar_163 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_163;
-            tmpvar_146 = 10;
-          };
-          lowp float tmpvar_172;
-          bool tmpvar_173;
-          lowp float t1_174;
-          lowp float v_175;
-          lowp float u_176;
-          lowp float invDet_177;
-          lowp vec3 T_178;
-          lowp vec3 tmpvar_179;
-          tmpvar_179 = ((tmpvar_145.yzx * vec3(0.0, 28.0, 0.0)) - (tmpvar_145.zxy * vec3(0.0, 0.0, 28.0)));
-          invDet_177 = (1.0/(dot (vec3(28.0, -19.0, 2.0), tmpvar_179)));
-          T_178 = (tmpvar_144 - vec3(-14.0, 14.0, -14.0));
-          u_176 = (dot (T_178, tmpvar_179) * invDet_177);
-          if (((u_176 < 0.0) || (u_176 > 1.0))) {
-            tmpvar_173 = bool(0);
-          } else {
-            lowp vec3 tmpvar_180;
-            tmpvar_180 = ((T_178.yzx * vec3(2.0, 28.0, -19.0)) - (T_178.zxy * vec3(-19.0, 2.0, 28.0)));
-            v_175 = (dot (tmpvar_145, tmpvar_180) * invDet_177);
-            if (((v_175 < 0.0) || ((u_176 + v_175) > 1.0))) {
-              tmpvar_173 = bool(0);
-            } else {
-              t1_174 = (dot (vec3(28.0, 0.0, 0.0), tmpvar_180) * invDet_177);
-              if ((t1_174 > 0.001)) {
-                tmpvar_172 = t1_174;
-                tmpvar_173 = bool(1);
-              } else {
-                tmpvar_173 = bool(0);
-              };
-            };
-          };
-          if ((tmpvar_173 && ((tmpvar_172 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_172;
-            tmpvar_146 = 11;
-          };
-          bool tmpvar_181;
-          lowp float tmpvar_182;
-          bool tmpvar_183;
-          lowp float tmpvar_184;
-          tmpvar_184 = ((vec3(0.0, -10.0, 0.0) - tmpvar_144).y / tmpvar_145.y);
-          if ((tmpvar_184 < 0.001)) {
-            tmpvar_183 = bool(0);
-          } else {
-            tmpvar_182 = tmpvar_184;
-            tmpvar_183 = bool(1);
-          };
-          if (tmpvar_183) {
-            lowp float tmpvar_185;
-            lowp vec3 tmpvar_186;
-            tmpvar_186 = ((tmpvar_144 + (tmpvar_182 * tmpvar_145)) - vec3(0.0, -10.0, 0.0));
-            tmpvar_185 = sqrt(dot (tmpvar_186, tmpvar_186));
-            if ((tmpvar_185 > 30.0)) {
-              tmpvar_181 = bool(0);
-            } else {
-              tmpvar_181 = bool(1);
-            };
-          } else {
-            tmpvar_181 = bool(0);
-          };
-          if ((tmpvar_181 && ((tmpvar_182 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_182;
-            tmpvar_146 = 12;
-          };
-          lowp float tmpvar_187;
-          bool tmpvar_188;
-          lowp float tmpvar_189;
-          tmpvar_189 = (dot (vec3(0.0, 0.0, -1.0), (vec3(0.0, 0.0, 10000.0) - tmpvar_144)) / dot (vec3(0.0, 0.0, -1.0), tmpvar_145));
-          if ((tmpvar_189 < 0.001)) {
-            tmpvar_188 = bool(0);
-          } else {
-            tmpvar_187 = tmpvar_189;
-            tmpvar_188 = bool(1);
-          };
-          if ((tmpvar_188 && ((tmpvar_187 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_187;
-            tmpvar_146 = 14;
-          };
-          lowp float tmpvar_190;
-          bool tmpvar_191;
-          lowp float tmpvar_192;
-          tmpvar_192 = ((vec3(0.0, -10000.0, 0.0) - tmpvar_144).y / tmpvar_145.y);
-          if ((tmpvar_192 < 0.001)) {
-            tmpvar_191 = bool(0);
-          } else {
-            tmpvar_190 = tmpvar_192;
-            tmpvar_191 = bool(1);
-          };
-          if ((tmpvar_191 && ((tmpvar_190 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_190;
-            tmpvar_146 = 15;
-          };
-          lowp float tmpvar_193;
-          bool tmpvar_194;
-          lowp float tmpvar_195;
-          tmpvar_195 = ((vec3(0.0, 0.0, -10000.0) - tmpvar_144).z / tmpvar_145.z);
-          if ((tmpvar_195 < 0.001)) {
-            tmpvar_194 = bool(0);
-          } else {
-            tmpvar_193 = tmpvar_195;
-            tmpvar_194 = bool(1);
-          };
-          if ((tmpvar_194 && ((tmpvar_193 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_193;
-            tmpvar_146 = 16;
-          };
-          lowp float tmpvar_196;
-          bool tmpvar_197;
-          lowp float tmpvar_198;
-          tmpvar_198 = ((vec3(-10000.0, 0.0, 0.0) - tmpvar_144).x / tmpvar_145.x);
-          if ((tmpvar_198 < 0.001)) {
-            tmpvar_197 = bool(0);
-          } else {
-            tmpvar_196 = tmpvar_198;
-            tmpvar_197 = bool(1);
-          };
-          if ((tmpvar_197 && ((tmpvar_196 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_196;
-            tmpvar_146 = 17;
-          };
-          lowp float tmpvar_199;
-          bool tmpvar_200;
-          lowp float tmpvar_201;
-          tmpvar_201 = (dot (vec3(-1.0, 0.0, 0.0), (vec3(10000.0, 0.0, 0.0) - tmpvar_144)) / dot (vec3(-1.0, 0.0, 0.0), tmpvar_145));
-          if ((tmpvar_201 < 0.001)) {
-            tmpvar_200 = bool(0);
-          } else {
-            tmpvar_199 = tmpvar_201;
-            tmpvar_200 = bool(1);
-          };
-          if ((tmpvar_200 && ((tmpvar_199 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_199;
-            tmpvar_146 = 18;
-          };
-          lowp float tmpvar_202;
-          bool tmpvar_203;
-          lowp float tmpvar_204;
-          tmpvar_204 = (dot (vec3(0.0, -1.0, 0.0), (vec3(0.0, 10000.0, 0.0) - tmpvar_144)) / dot (vec3(0.0, -1.0, 0.0), tmpvar_145));
-          if ((tmpvar_204 < 0.001)) {
-            tmpvar_203 = bool(0);
-          } else {
-            tmpvar_202 = tmpvar_204;
-            tmpvar_203 = bool(1);
-          };
-          if ((tmpvar_203 && ((tmpvar_202 < minT_148) || (minT_148 < 0.0)))) {
-            minT_148 = tmpvar_202;
-            tmpvar_146 = 19;
-          };
-          if ((((
-            (((tmpvar_146 != 0) && (tmpvar_146 != 5)) && (tmpvar_146 != 6))
-           && 
-            (tmpvar_146 != 12)
-          ) && (tmpvar_146 != tmpvar_18)) && (tmpvar_18 <= 12))) {
-            specular_131 = vec3(0.0, 0.0, 0.0);
-            diffuse_132 = vec3(0.0, 0.0, 0.0);
-          };
-        };
-        color_133 = (tmpvar_136 + (diffuse_132 + specular_131));
-        toLight_130 = (vec3(-2.0, 20.0, 0.0) - tmpvar_20);
-        lowp vec3 tmpvar_205;
-        tmpvar_205 = normalize(toLight_130);
-        toLight_130 = tmpvar_205;
-        diffintensity_129 = clamp (dot (tmpvar_13, tmpvar_205), 0.0, 1.0);
-        vec3 tmpvar_206;
-        Material tmpvar_207;
+        specular_132 = clamp ((tmpvar_140 * pow (tmpvar_142, tmpvar_143.pow)), 0.0, 1.0);
+        Material tmpvar_144;
         if ((tmpvar_18 == 0)) {
-          tmpvar_207 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+          tmpvar_144 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
         } else {
           if ((tmpvar_18 == 1)) {
-            tmpvar_207 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+            tmpvar_144 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
           } else {
             if ((tmpvar_18 == 2)) {
-              tmpvar_207 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+              tmpvar_144 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
             } else {
               if ((tmpvar_18 == 3)) {
-                tmpvar_207 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                tmpvar_144 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
               } else {
                 if ((tmpvar_18 == 4)) {
-                  tmpvar_207 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                  tmpvar_144 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                 } else {
                   if ((tmpvar_18 == 5)) {
-                    tmpvar_207 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                    tmpvar_144 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                   } else {
                     if ((tmpvar_18 == 6)) {
-                      tmpvar_207 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                      tmpvar_144 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                     } else {
                       if ((tmpvar_18 == 7)) {
-                        tmpvar_207 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                        tmpvar_144 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                       } else {
                         if ((tmpvar_18 == 8)) {
-                          tmpvar_207 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
+                          tmpvar_144 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
                         } else {
                           if ((tmpvar_18 == 9)) {
-                            tmpvar_207 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
+                            tmpvar_144 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
                           } else {
                             if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
-                              tmpvar_207 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                              tmpvar_144 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                             } else {
                               if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
-                                tmpvar_207 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                                tmpvar_144 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                               } else {
                                 if ((tmpvar_18 == 12)) {
-                                  tmpvar_207 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  tmpvar_144 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                 } else {
                                   if ((tmpvar_18 > 13)) {
-                                    tmpvar_207 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                    tmpvar_144 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                   } else {
-                                    tmpvar_207 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                    tmpvar_144 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                   };
                                 };
                               };
@@ -1237,9 +910,281 @@ void main ()
             };
           };
         };
-        tmpvar_206 = tmpvar_207.spec;
-        lowp float tmpvar_208;
-        tmpvar_208 = clamp (dot (tmpvar_205, refDir_134), 0.0, 1.0);
+        diffuse_133 = clamp ((tmpvar_144.dif * diffintensity_130), 0.0, 1.0);
+        if (isShadowOn) {
+          lowp vec3 tmpvar_145;
+          lowp vec3 tmpvar_146;
+          tmpvar_145 = (tmpvar_20 + (tmpvar_13 * 0.001));
+          tmpvar_146 = normalize(-(tmpvar_20));
+          highp int tmpvar_147;
+          tmpvar_147 = tmpvar_18;
+          highp int i_148;
+          lowp float minT_149;
+          minT_149 = -1.0;
+          i_148 = 0;
+          while (true) {
+            if ((i_148 >= 10)) {
+              break;
+            };
+            vec4 sphere_150;
+            sphere_150 = spheres[i_148];
+            highp int tmpvar_151;
+            lowp float tmpvar_152;
+            bool tmpvar_153;
+            lowp float t_154;
+            lowp float t2_155;
+            lowp float t1_156;
+            lowp vec3 tmpvar_157;
+            tmpvar_157 = (tmpvar_145 - sphere_150.xyz);
+            lowp float tmpvar_158;
+            tmpvar_158 = (dot (tmpvar_157, tmpvar_146) * 2.0);
+            lowp float tmpvar_159;
+            tmpvar_159 = dot (tmpvar_146, tmpvar_146);
+            lowp float tmpvar_160;
+            tmpvar_160 = ((tmpvar_158 * tmpvar_158) - ((4.0 * tmpvar_159) * (
+              dot (tmpvar_157, tmpvar_157)
+             - 
+              (sphere_150.w * sphere_150.w)
+            )));
+            if ((tmpvar_160 < 0.0)) {
+              tmpvar_153 = bool(0);
+            } else {
+              lowp float tmpvar_161;
+              tmpvar_161 = sqrt(tmpvar_160);
+              lowp float tmpvar_162;
+              tmpvar_162 = (((
+                -(tmpvar_158)
+               + tmpvar_161) / 2.0) / tmpvar_159);
+              t1_156 = tmpvar_162;
+              lowp float tmpvar_163;
+              tmpvar_163 = (((
+                -(tmpvar_158)
+               - tmpvar_161) / 2.0) / tmpvar_159);
+              t2_155 = tmpvar_163;
+              if ((tmpvar_162 < 0.001)) {
+                t1_156 = -0.001;
+              };
+              if ((tmpvar_163 < 0.001)) {
+                t2_155 = -0.001;
+              };
+              if ((t1_156 < 0.0)) {
+                tmpvar_153 = bool(0);
+              } else {
+                if ((t2_155 > 0.0)) {
+                  t_154 = t2_155;
+                } else {
+                  t_154 = t1_156;
+                };
+                tmpvar_151 = i_148;
+                tmpvar_152 = t_154;
+                tmpvar_153 = bool(1);
+              };
+            };
+            if ((tmpvar_153 && ((tmpvar_152 < minT_149) || (minT_149 < 0.0)))) {
+              minT_149 = tmpvar_152;
+              tmpvar_147 = tmpvar_151;
+            };
+            i_148++;
+          };
+          lowp float tmpvar_164;
+          bool tmpvar_165;
+          lowp float t1_166;
+          lowp float v_167;
+          lowp float u_168;
+          lowp float invDet_169;
+          lowp vec3 T_170;
+          lowp vec3 tmpvar_171;
+          tmpvar_171 = ((tmpvar_146.yzx * vec3(2.0, 28.0, -19.0)) - (tmpvar_146.zxy * vec3(-19.0, 2.0, 28.0)));
+          invDet_169 = (1.0/(dot (vec3(0.0, -19.0, 2.0), tmpvar_171)));
+          T_170 = (tmpvar_145 - vec3(-14.0, 14.0, -14.0));
+          u_168 = (dot (T_170, tmpvar_171) * invDet_169);
+          if (((u_168 < 0.0) || (u_168 > 1.0))) {
+            tmpvar_165 = bool(0);
+          } else {
+            lowp vec3 tmpvar_172;
+            tmpvar_172 = ((T_170.yzx * vec3(2.0, 0.0, -19.0)) - (T_170.zxy * vec3(-19.0, 2.0, 0.0)));
+            v_167 = (dot (tmpvar_146, tmpvar_172) * invDet_169);
+            if (((v_167 < 0.0) || ((u_168 + v_167) > 1.0))) {
+              tmpvar_165 = bool(0);
+            } else {
+              t1_166 = (dot (vec3(28.0, -19.0, 2.0), tmpvar_172) * invDet_169);
+              if ((t1_166 > 0.001)) {
+                tmpvar_164 = t1_166;
+                tmpvar_165 = bool(1);
+              } else {
+                tmpvar_165 = bool(0);
+              };
+            };
+          };
+          if ((tmpvar_165 && ((tmpvar_164 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_164;
+            tmpvar_147 = 10;
+          };
+          lowp float tmpvar_173;
+          bool tmpvar_174;
+          lowp float t1_175;
+          lowp float v_176;
+          lowp float u_177;
+          lowp float invDet_178;
+          lowp vec3 T_179;
+          lowp vec3 tmpvar_180;
+          tmpvar_180 = ((tmpvar_146.yzx * vec3(0.0, 28.0, 0.0)) - (tmpvar_146.zxy * vec3(0.0, 0.0, 28.0)));
+          invDet_178 = (1.0/(dot (vec3(28.0, -19.0, 2.0), tmpvar_180)));
+          T_179 = (tmpvar_145 - vec3(-14.0, 14.0, -14.0));
+          u_177 = (dot (T_179, tmpvar_180) * invDet_178);
+          if (((u_177 < 0.0) || (u_177 > 1.0))) {
+            tmpvar_174 = bool(0);
+          } else {
+            lowp vec3 tmpvar_181;
+            tmpvar_181 = ((T_179.yzx * vec3(2.0, 28.0, -19.0)) - (T_179.zxy * vec3(-19.0, 2.0, 28.0)));
+            v_176 = (dot (tmpvar_146, tmpvar_181) * invDet_178);
+            if (((v_176 < 0.0) || ((u_177 + v_176) > 1.0))) {
+              tmpvar_174 = bool(0);
+            } else {
+              t1_175 = (dot (vec3(28.0, 0.0, 0.0), tmpvar_181) * invDet_178);
+              if ((t1_175 > 0.001)) {
+                tmpvar_173 = t1_175;
+                tmpvar_174 = bool(1);
+              } else {
+                tmpvar_174 = bool(0);
+              };
+            };
+          };
+          if ((tmpvar_174 && ((tmpvar_173 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_173;
+            tmpvar_147 = 11;
+          };
+          bool tmpvar_182;
+          tmpvar_182 = bool(1);
+          bool tmpvar_183;
+          lowp float tmpvar_184;
+          bool tmpvar_185;
+          lowp float tmpvar_186;
+          tmpvar_186 = ((vec3(0.0, -10.0, 0.0) - tmpvar_145).y / tmpvar_146.y);
+          if ((tmpvar_186 < 0.001)) {
+            tmpvar_185 = bool(0);
+          } else {
+            tmpvar_184 = tmpvar_186;
+            tmpvar_185 = bool(1);
+          };
+          if (tmpvar_185) {
+            lowp float tmpvar_187;
+            lowp vec3 tmpvar_188;
+            tmpvar_188 = ((tmpvar_145 + (tmpvar_184 * tmpvar_146)) - vec3(0.0, -10.0, 0.0));
+            tmpvar_187 = sqrt(dot (tmpvar_188, tmpvar_188));
+            if ((tmpvar_187 <= 30.0)) {
+              tmpvar_183 = bool(1);
+              tmpvar_182 = bool(0);
+            };
+          };
+          if (tmpvar_182) {
+            tmpvar_183 = bool(0);
+            tmpvar_182 = bool(0);
+          };
+          if ((tmpvar_183 && ((tmpvar_184 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_184;
+            tmpvar_147 = 12;
+          };
+          lowp float tmpvar_189;
+          bool tmpvar_190;
+          lowp float tmpvar_191;
+          tmpvar_191 = (dot (vec3(0.0, 0.0, -1.0), (vec3(0.0, 0.0, 10000.0) - tmpvar_145)) / dot (vec3(0.0, 0.0, -1.0), tmpvar_146));
+          if ((tmpvar_191 < 0.001)) {
+            tmpvar_190 = bool(0);
+          } else {
+            tmpvar_189 = tmpvar_191;
+            tmpvar_190 = bool(1);
+          };
+          if ((tmpvar_190 && ((tmpvar_189 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_189;
+            tmpvar_147 = 14;
+          };
+          lowp float tmpvar_192;
+          bool tmpvar_193;
+          lowp float tmpvar_194;
+          tmpvar_194 = ((vec3(0.0, -10000.0, 0.0) - tmpvar_145).y / tmpvar_146.y);
+          if ((tmpvar_194 < 0.001)) {
+            tmpvar_193 = bool(0);
+          } else {
+            tmpvar_192 = tmpvar_194;
+            tmpvar_193 = bool(1);
+          };
+          if ((tmpvar_193 && ((tmpvar_192 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_192;
+            tmpvar_147 = 15;
+          };
+          lowp float tmpvar_195;
+          bool tmpvar_196;
+          lowp float tmpvar_197;
+          tmpvar_197 = ((vec3(0.0, 0.0, -10000.0) - tmpvar_145).z / tmpvar_146.z);
+          if ((tmpvar_197 < 0.001)) {
+            tmpvar_196 = bool(0);
+          } else {
+            tmpvar_195 = tmpvar_197;
+            tmpvar_196 = bool(1);
+          };
+          if ((tmpvar_196 && ((tmpvar_195 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_195;
+            tmpvar_147 = 16;
+          };
+          lowp float tmpvar_198;
+          bool tmpvar_199;
+          lowp float tmpvar_200;
+          tmpvar_200 = ((vec3(-10000.0, 0.0, 0.0) - tmpvar_145).x / tmpvar_146.x);
+          if ((tmpvar_200 < 0.001)) {
+            tmpvar_199 = bool(0);
+          } else {
+            tmpvar_198 = tmpvar_200;
+            tmpvar_199 = bool(1);
+          };
+          if ((tmpvar_199 && ((tmpvar_198 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_198;
+            tmpvar_147 = 17;
+          };
+          lowp float tmpvar_201;
+          bool tmpvar_202;
+          lowp float tmpvar_203;
+          tmpvar_203 = (dot (vec3(-1.0, 0.0, 0.0), (vec3(10000.0, 0.0, 0.0) - tmpvar_145)) / dot (vec3(-1.0, 0.0, 0.0), tmpvar_146));
+          if ((tmpvar_203 < 0.001)) {
+            tmpvar_202 = bool(0);
+          } else {
+            tmpvar_201 = tmpvar_203;
+            tmpvar_202 = bool(1);
+          };
+          if ((tmpvar_202 && ((tmpvar_201 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_201;
+            tmpvar_147 = 18;
+          };
+          lowp float tmpvar_204;
+          bool tmpvar_205;
+          lowp float tmpvar_206;
+          tmpvar_206 = (dot (vec3(0.0, -1.0, 0.0), (vec3(0.0, 10000.0, 0.0) - tmpvar_145)) / dot (vec3(0.0, -1.0, 0.0), tmpvar_146));
+          if ((tmpvar_206 < 0.001)) {
+            tmpvar_205 = bool(0);
+          } else {
+            tmpvar_204 = tmpvar_206;
+            tmpvar_205 = bool(1);
+          };
+          if ((tmpvar_205 && ((tmpvar_204 < minT_149) || (minT_149 < 0.0)))) {
+            minT_149 = tmpvar_204;
+            tmpvar_147 = 19;
+          };
+          if ((((
+            (((tmpvar_147 != 0) && (tmpvar_147 != 5)) && (tmpvar_147 != 6))
+           && 
+            (tmpvar_147 != 12)
+          ) && (tmpvar_147 != tmpvar_18)) && (tmpvar_18 <= 12))) {
+            specular_132 = vec3(0.0, 0.0, 0.0);
+            diffuse_133 = vec3(0.0, 0.0, 0.0);
+          };
+        };
+        color_134 = (tmpvar_137 + (diffuse_133 + specular_132));
+        toLight_131 = (vec3(-2.0, 20.0, 0.0) - tmpvar_20);
+        lowp vec3 tmpvar_207;
+        tmpvar_207 = normalize(toLight_131);
+        toLight_131 = tmpvar_207;
+        diffintensity_130 = clamp (dot (tmpvar_13, tmpvar_207), 0.0, 1.0);
+        vec3 tmpvar_208;
         Material tmpvar_209;
         if ((tmpvar_18 == 0)) {
           tmpvar_209 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
@@ -1298,51 +1243,53 @@ void main ()
             };
           };
         };
-        specular_131 = clamp ((tmpvar_206 * pow (tmpvar_208, tmpvar_209.pow)), 0.0, 1.0);
-        Material tmpvar_210;
+        tmpvar_208 = tmpvar_209.spec;
+        lowp float tmpvar_210;
+        tmpvar_210 = clamp (dot (tmpvar_207, refDir_135), 0.0, 1.0);
+        Material tmpvar_211;
         if ((tmpvar_18 == 0)) {
-          tmpvar_210 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+          tmpvar_211 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
         } else {
           if ((tmpvar_18 == 1)) {
-            tmpvar_210 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+            tmpvar_211 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
           } else {
             if ((tmpvar_18 == 2)) {
-              tmpvar_210 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+              tmpvar_211 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
             } else {
               if ((tmpvar_18 == 3)) {
-                tmpvar_210 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                tmpvar_211 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
               } else {
                 if ((tmpvar_18 == 4)) {
-                  tmpvar_210 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                  tmpvar_211 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                 } else {
                   if ((tmpvar_18 == 5)) {
-                    tmpvar_210 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                    tmpvar_211 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                   } else {
                     if ((tmpvar_18 == 6)) {
-                      tmpvar_210 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                      tmpvar_211 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                     } else {
                       if ((tmpvar_18 == 7)) {
-                        tmpvar_210 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                        tmpvar_211 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                       } else {
                         if ((tmpvar_18 == 8)) {
-                          tmpvar_210 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
+                          tmpvar_211 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
                         } else {
                           if ((tmpvar_18 == 9)) {
-                            tmpvar_210 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
+                            tmpvar_211 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
                           } else {
                             if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
-                              tmpvar_210 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                              tmpvar_211 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                             } else {
                               if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
-                                tmpvar_210 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                                tmpvar_211 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
                               } else {
                                 if ((tmpvar_18 == 12)) {
-                                  tmpvar_210 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  tmpvar_211 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                 } else {
                                   if ((tmpvar_18 > 13)) {
-                                    tmpvar_210 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                    tmpvar_211 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                   } else {
-                                    tmpvar_210 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                    tmpvar_211 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                                   };
                                 };
                               };
@@ -1357,398 +1304,340 @@ void main ()
             };
           };
         };
-        diffuse_132 = clamp ((tmpvar_210.dif * diffintensity_129), 0.0, 1.0);
+        specular_132 = clamp ((tmpvar_208 * pow (tmpvar_210, tmpvar_211.pow)), 0.0, 1.0);
+        Material tmpvar_212;
+        if ((tmpvar_18 == 0)) {
+          tmpvar_212 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+        } else {
+          if ((tmpvar_18 == 1)) {
+            tmpvar_212 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+          } else {
+            if ((tmpvar_18 == 2)) {
+              tmpvar_212 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+            } else {
+              if ((tmpvar_18 == 3)) {
+                tmpvar_212 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+              } else {
+                if ((tmpvar_18 == 4)) {
+                  tmpvar_212 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                } else {
+                  if ((tmpvar_18 == 5)) {
+                    tmpvar_212 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                  } else {
+                    if ((tmpvar_18 == 6)) {
+                      tmpvar_212 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                    } else {
+                      if ((tmpvar_18 == 7)) {
+                        tmpvar_212 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                      } else {
+                        if ((tmpvar_18 == 8)) {
+                          tmpvar_212 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
+                        } else {
+                          if ((tmpvar_18 == 9)) {
+                            tmpvar_212 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
+                          } else {
+                            if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
+                              tmpvar_212 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                            } else {
+                              if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
+                                tmpvar_212 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                              } else {
+                                if ((tmpvar_18 == 12)) {
+                                  tmpvar_212 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                } else {
+                                  if ((tmpvar_18 > 13)) {
+                                    tmpvar_212 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  } else {
+                                    tmpvar_212 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  };
+                                };
+                              };
+                            };
+                          };
+                        };
+                      };
+                    };
+                  };
+                };
+              };
+            };
+          };
+        };
+        diffuse_133 = clamp ((tmpvar_212.dif * diffintensity_130), 0.0, 1.0);
         if (isShadowOn) {
-          lowp vec3 tmpvar_211;
-          lowp vec3 tmpvar_212;
-          tmpvar_211 = (tmpvar_20 + (tmpvar_13 * 0.001));
-          tmpvar_212 = normalize((vec3(-2.0, 20.0, 0.0) - tmpvar_20));
-          highp int tmpvar_213;
-          tmpvar_213 = tmpvar_18;
-          highp int i_214;
-          lowp float minT_215;
-          minT_215 = -1.0;
-          i_214 = 0;
+          lowp vec3 tmpvar_213;
+          lowp vec3 tmpvar_214;
+          tmpvar_213 = (tmpvar_20 + (tmpvar_13 * 0.001));
+          tmpvar_214 = normalize((vec3(-2.0, 20.0, 0.0) - tmpvar_20));
+          highp int tmpvar_215;
+          tmpvar_215 = tmpvar_18;
+          highp int i_216;
+          lowp float minT_217;
+          minT_217 = -1.0;
+          i_216 = 0;
           while (true) {
-            if ((i_214 >= 10)) {
+            if ((i_216 >= 10)) {
               break;
             };
-            vec4 sphere_216;
-            sphere_216 = spheres[i_214];
-            highp int tmpvar_217;
-            lowp float tmpvar_218;
-            bool tmpvar_219;
-            lowp float t_220;
-            lowp float t2_221;
-            lowp float t1_222;
-            lowp vec3 tmpvar_223;
-            tmpvar_223 = (tmpvar_211 - sphere_216.xyz);
-            lowp float tmpvar_224;
-            tmpvar_224 = (dot (tmpvar_223, tmpvar_212) * 2.0);
-            lowp float tmpvar_225;
-            tmpvar_225 = dot (tmpvar_212, tmpvar_212);
+            vec4 sphere_218;
+            sphere_218 = spheres[i_216];
+            highp int tmpvar_219;
+            lowp float tmpvar_220;
+            bool tmpvar_221;
+            lowp float t_222;
+            lowp float t2_223;
+            lowp float t1_224;
+            lowp vec3 tmpvar_225;
+            tmpvar_225 = (tmpvar_213 - sphere_218.xyz);
             lowp float tmpvar_226;
-            tmpvar_226 = ((tmpvar_224 * tmpvar_224) - ((4.0 * tmpvar_225) * (
-              dot (tmpvar_223, tmpvar_223)
+            tmpvar_226 = (dot (tmpvar_225, tmpvar_214) * 2.0);
+            lowp float tmpvar_227;
+            tmpvar_227 = dot (tmpvar_214, tmpvar_214);
+            lowp float tmpvar_228;
+            tmpvar_228 = ((tmpvar_226 * tmpvar_226) - ((4.0 * tmpvar_227) * (
+              dot (tmpvar_225, tmpvar_225)
              - 
-              (sphere_216.w * sphere_216.w)
+              (sphere_218.w * sphere_218.w)
             )));
-            if ((tmpvar_226 < 0.0)) {
-              tmpvar_219 = bool(0);
+            if ((tmpvar_228 < 0.0)) {
+              tmpvar_221 = bool(0);
             } else {
-              lowp float tmpvar_227;
-              tmpvar_227 = sqrt(tmpvar_226);
-              lowp float tmpvar_228;
-              tmpvar_228 = (((
-                -(tmpvar_224)
-               + tmpvar_227) / 2.0) / tmpvar_225);
-              t1_222 = tmpvar_228;
               lowp float tmpvar_229;
-              tmpvar_229 = (((
-                -(tmpvar_224)
-               - tmpvar_227) / 2.0) / tmpvar_225);
-              t2_221 = tmpvar_229;
-              if ((tmpvar_228 < 0.001)) {
-                t1_222 = -0.001;
+              tmpvar_229 = sqrt(tmpvar_228);
+              lowp float tmpvar_230;
+              tmpvar_230 = (((
+                -(tmpvar_226)
+               + tmpvar_229) / 2.0) / tmpvar_227);
+              t1_224 = tmpvar_230;
+              lowp float tmpvar_231;
+              tmpvar_231 = (((
+                -(tmpvar_226)
+               - tmpvar_229) / 2.0) / tmpvar_227);
+              t2_223 = tmpvar_231;
+              if ((tmpvar_230 < 0.001)) {
+                t1_224 = -0.001;
               };
-              if ((tmpvar_229 < 0.001)) {
-                t2_221 = -0.001;
+              if ((tmpvar_231 < 0.001)) {
+                t2_223 = -0.001;
               };
-              if ((t1_222 < 0.0)) {
-                tmpvar_219 = bool(0);
+              if ((t1_224 < 0.0)) {
+                tmpvar_221 = bool(0);
               } else {
-                if ((t2_221 > 0.0)) {
-                  t_220 = t2_221;
+                if ((t2_223 > 0.0)) {
+                  t_222 = t2_223;
                 } else {
-                  t_220 = t1_222;
+                  t_222 = t1_224;
                 };
-                tmpvar_217 = i_214;
-                tmpvar_218 = t_220;
-                tmpvar_219 = bool(1);
+                tmpvar_219 = i_216;
+                tmpvar_220 = t_222;
+                tmpvar_221 = bool(1);
               };
             };
-            if ((tmpvar_219 && ((tmpvar_218 < minT_215) || (minT_215 < 0.0)))) {
-              minT_215 = tmpvar_218;
-              tmpvar_213 = tmpvar_217;
+            if ((tmpvar_221 && ((tmpvar_220 < minT_217) || (minT_217 < 0.0)))) {
+              minT_217 = tmpvar_220;
+              tmpvar_215 = tmpvar_219;
             };
-            i_214++;
+            i_216++;
           };
-          lowp float tmpvar_230;
-          bool tmpvar_231;
-          lowp float t1_232;
-          lowp float v_233;
-          lowp float u_234;
-          lowp float invDet_235;
-          lowp vec3 T_236;
-          lowp vec3 tmpvar_237;
-          tmpvar_237 = ((tmpvar_212.yzx * vec3(2.0, 28.0, -19.0)) - (tmpvar_212.zxy * vec3(-19.0, 2.0, 28.0)));
-          invDet_235 = (1.0/(dot (vec3(0.0, -19.0, 2.0), tmpvar_237)));
-          T_236 = (tmpvar_211 - vec3(-14.0, 14.0, -14.0));
-          u_234 = (dot (T_236, tmpvar_237) * invDet_235);
-          if (((u_234 < 0.0) || (u_234 > 1.0))) {
-            tmpvar_231 = bool(0);
+          lowp float tmpvar_232;
+          bool tmpvar_233;
+          lowp float t1_234;
+          lowp float v_235;
+          lowp float u_236;
+          lowp float invDet_237;
+          lowp vec3 T_238;
+          lowp vec3 tmpvar_239;
+          tmpvar_239 = ((tmpvar_214.yzx * vec3(2.0, 28.0, -19.0)) - (tmpvar_214.zxy * vec3(-19.0, 2.0, 28.0)));
+          invDet_237 = (1.0/(dot (vec3(0.0, -19.0, 2.0), tmpvar_239)));
+          T_238 = (tmpvar_213 - vec3(-14.0, 14.0, -14.0));
+          u_236 = (dot (T_238, tmpvar_239) * invDet_237);
+          if (((u_236 < 0.0) || (u_236 > 1.0))) {
+            tmpvar_233 = bool(0);
           } else {
-            lowp vec3 tmpvar_238;
-            tmpvar_238 = ((T_236.yzx * vec3(2.0, 0.0, -19.0)) - (T_236.zxy * vec3(-19.0, 2.0, 0.0)));
-            v_233 = (dot (tmpvar_212, tmpvar_238) * invDet_235);
-            if (((v_233 < 0.0) || ((u_234 + v_233) > 1.0))) {
-              tmpvar_231 = bool(0);
+            lowp vec3 tmpvar_240;
+            tmpvar_240 = ((T_238.yzx * vec3(2.0, 0.0, -19.0)) - (T_238.zxy * vec3(-19.0, 2.0, 0.0)));
+            v_235 = (dot (tmpvar_214, tmpvar_240) * invDet_237);
+            if (((v_235 < 0.0) || ((u_236 + v_235) > 1.0))) {
+              tmpvar_233 = bool(0);
             } else {
-              t1_232 = (dot (vec3(28.0, -19.0, 2.0), tmpvar_238) * invDet_235);
-              if ((t1_232 > 0.001)) {
-                tmpvar_230 = t1_232;
-                tmpvar_231 = bool(1);
+              t1_234 = (dot (vec3(28.0, -19.0, 2.0), tmpvar_240) * invDet_237);
+              if ((t1_234 > 0.001)) {
+                tmpvar_232 = t1_234;
+                tmpvar_233 = bool(1);
               } else {
-                tmpvar_231 = bool(0);
+                tmpvar_233 = bool(0);
               };
             };
           };
-          if ((tmpvar_231 && ((tmpvar_230 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_230;
-            tmpvar_213 = 10;
+          if ((tmpvar_233 && ((tmpvar_232 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_232;
+            tmpvar_215 = 10;
           };
-          lowp float tmpvar_239;
-          bool tmpvar_240;
-          lowp float t1_241;
-          lowp float v_242;
-          lowp float u_243;
-          lowp float invDet_244;
-          lowp vec3 T_245;
-          lowp vec3 tmpvar_246;
-          tmpvar_246 = ((tmpvar_212.yzx * vec3(0.0, 28.0, 0.0)) - (tmpvar_212.zxy * vec3(0.0, 0.0, 28.0)));
-          invDet_244 = (1.0/(dot (vec3(28.0, -19.0, 2.0), tmpvar_246)));
-          T_245 = (tmpvar_211 - vec3(-14.0, 14.0, -14.0));
-          u_243 = (dot (T_245, tmpvar_246) * invDet_244);
-          if (((u_243 < 0.0) || (u_243 > 1.0))) {
-            tmpvar_240 = bool(0);
+          lowp float tmpvar_241;
+          bool tmpvar_242;
+          lowp float t1_243;
+          lowp float v_244;
+          lowp float u_245;
+          lowp float invDet_246;
+          lowp vec3 T_247;
+          lowp vec3 tmpvar_248;
+          tmpvar_248 = ((tmpvar_214.yzx * vec3(0.0, 28.0, 0.0)) - (tmpvar_214.zxy * vec3(0.0, 0.0, 28.0)));
+          invDet_246 = (1.0/(dot (vec3(28.0, -19.0, 2.0), tmpvar_248)));
+          T_247 = (tmpvar_213 - vec3(-14.0, 14.0, -14.0));
+          u_245 = (dot (T_247, tmpvar_248) * invDet_246);
+          if (((u_245 < 0.0) || (u_245 > 1.0))) {
+            tmpvar_242 = bool(0);
           } else {
-            lowp vec3 tmpvar_247;
-            tmpvar_247 = ((T_245.yzx * vec3(2.0, 28.0, -19.0)) - (T_245.zxy * vec3(-19.0, 2.0, 28.0)));
-            v_242 = (dot (tmpvar_212, tmpvar_247) * invDet_244);
-            if (((v_242 < 0.0) || ((u_243 + v_242) > 1.0))) {
-              tmpvar_240 = bool(0);
+            lowp vec3 tmpvar_249;
+            tmpvar_249 = ((T_247.yzx * vec3(2.0, 28.0, -19.0)) - (T_247.zxy * vec3(-19.0, 2.0, 28.0)));
+            v_244 = (dot (tmpvar_214, tmpvar_249) * invDet_246);
+            if (((v_244 < 0.0) || ((u_245 + v_244) > 1.0))) {
+              tmpvar_242 = bool(0);
             } else {
-              t1_241 = (dot (vec3(28.0, 0.0, 0.0), tmpvar_247) * invDet_244);
-              if ((t1_241 > 0.001)) {
-                tmpvar_239 = t1_241;
-                tmpvar_240 = bool(1);
+              t1_243 = (dot (vec3(28.0, 0.0, 0.0), tmpvar_249) * invDet_246);
+              if ((t1_243 > 0.001)) {
+                tmpvar_241 = t1_243;
+                tmpvar_242 = bool(1);
               } else {
-                tmpvar_240 = bool(0);
+                tmpvar_242 = bool(0);
               };
             };
           };
-          if ((tmpvar_240 && ((tmpvar_239 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_239;
-            tmpvar_213 = 11;
+          if ((tmpvar_242 && ((tmpvar_241 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_241;
+            tmpvar_215 = 11;
           };
-          bool tmpvar_248;
-          lowp float tmpvar_249;
           bool tmpvar_250;
-          lowp float tmpvar_251;
-          tmpvar_251 = ((vec3(0.0, -10.0, 0.0) - tmpvar_211).y / tmpvar_212.y);
-          if ((tmpvar_251 < 0.001)) {
-            tmpvar_250 = bool(0);
+          tmpvar_250 = bool(1);
+          bool tmpvar_251;
+          lowp float tmpvar_252;
+          bool tmpvar_253;
+          lowp float tmpvar_254;
+          tmpvar_254 = ((vec3(0.0, -10.0, 0.0) - tmpvar_213).y / tmpvar_214.y);
+          if ((tmpvar_254 < 0.001)) {
+            tmpvar_253 = bool(0);
           } else {
-            tmpvar_249 = tmpvar_251;
-            tmpvar_250 = bool(1);
+            tmpvar_252 = tmpvar_254;
+            tmpvar_253 = bool(1);
+          };
+          if (tmpvar_253) {
+            lowp float tmpvar_255;
+            lowp vec3 tmpvar_256;
+            tmpvar_256 = ((tmpvar_213 + (tmpvar_252 * tmpvar_214)) - vec3(0.0, -10.0, 0.0));
+            tmpvar_255 = sqrt(dot (tmpvar_256, tmpvar_256));
+            if ((tmpvar_255 <= 30.0)) {
+              tmpvar_251 = bool(1);
+              tmpvar_250 = bool(0);
+            };
           };
           if (tmpvar_250) {
-            lowp float tmpvar_252;
-            lowp vec3 tmpvar_253;
-            tmpvar_253 = ((tmpvar_211 + (tmpvar_249 * tmpvar_212)) - vec3(0.0, -10.0, 0.0));
-            tmpvar_252 = sqrt(dot (tmpvar_253, tmpvar_253));
-            if ((tmpvar_252 > 30.0)) {
-              tmpvar_248 = bool(0);
-            } else {
-              tmpvar_248 = bool(1);
-            };
-          } else {
-            tmpvar_248 = bool(0);
+            tmpvar_251 = bool(0);
+            tmpvar_250 = bool(0);
           };
-          if ((tmpvar_248 && ((tmpvar_249 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_249;
-            tmpvar_213 = 12;
-          };
-          lowp float tmpvar_254;
-          bool tmpvar_255;
-          lowp float tmpvar_256;
-          tmpvar_256 = (dot (vec3(0.0, 0.0, -1.0), (vec3(0.0, 0.0, 10000.0) - tmpvar_211)) / dot (vec3(0.0, 0.0, -1.0), tmpvar_212));
-          if ((tmpvar_256 < 0.001)) {
-            tmpvar_255 = bool(0);
-          } else {
-            tmpvar_254 = tmpvar_256;
-            tmpvar_255 = bool(1);
-          };
-          if ((tmpvar_255 && ((tmpvar_254 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_254;
-            tmpvar_213 = 14;
+          if ((tmpvar_251 && ((tmpvar_252 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_252;
+            tmpvar_215 = 12;
           };
           lowp float tmpvar_257;
           bool tmpvar_258;
           lowp float tmpvar_259;
-          tmpvar_259 = ((vec3(0.0, -10000.0, 0.0) - tmpvar_211).y / tmpvar_212.y);
+          tmpvar_259 = (dot (vec3(0.0, 0.0, -1.0), (vec3(0.0, 0.0, 10000.0) - tmpvar_213)) / dot (vec3(0.0, 0.0, -1.0), tmpvar_214));
           if ((tmpvar_259 < 0.001)) {
             tmpvar_258 = bool(0);
           } else {
             tmpvar_257 = tmpvar_259;
             tmpvar_258 = bool(1);
           };
-          if ((tmpvar_258 && ((tmpvar_257 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_257;
-            tmpvar_213 = 15;
+          if ((tmpvar_258 && ((tmpvar_257 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_257;
+            tmpvar_215 = 14;
           };
           lowp float tmpvar_260;
           bool tmpvar_261;
           lowp float tmpvar_262;
-          tmpvar_262 = ((vec3(0.0, 0.0, -10000.0) - tmpvar_211).z / tmpvar_212.z);
+          tmpvar_262 = ((vec3(0.0, -10000.0, 0.0) - tmpvar_213).y / tmpvar_214.y);
           if ((tmpvar_262 < 0.001)) {
             tmpvar_261 = bool(0);
           } else {
             tmpvar_260 = tmpvar_262;
             tmpvar_261 = bool(1);
           };
-          if ((tmpvar_261 && ((tmpvar_260 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_260;
-            tmpvar_213 = 16;
+          if ((tmpvar_261 && ((tmpvar_260 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_260;
+            tmpvar_215 = 15;
           };
           lowp float tmpvar_263;
           bool tmpvar_264;
           lowp float tmpvar_265;
-          tmpvar_265 = ((vec3(-10000.0, 0.0, 0.0) - tmpvar_211).x / tmpvar_212.x);
+          tmpvar_265 = ((vec3(0.0, 0.0, -10000.0) - tmpvar_213).z / tmpvar_214.z);
           if ((tmpvar_265 < 0.001)) {
             tmpvar_264 = bool(0);
           } else {
             tmpvar_263 = tmpvar_265;
             tmpvar_264 = bool(1);
           };
-          if ((tmpvar_264 && ((tmpvar_263 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_263;
-            tmpvar_213 = 17;
+          if ((tmpvar_264 && ((tmpvar_263 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_263;
+            tmpvar_215 = 16;
           };
           lowp float tmpvar_266;
           bool tmpvar_267;
           lowp float tmpvar_268;
-          tmpvar_268 = (dot (vec3(-1.0, 0.0, 0.0), (vec3(10000.0, 0.0, 0.0) - tmpvar_211)) / dot (vec3(-1.0, 0.0, 0.0), tmpvar_212));
+          tmpvar_268 = ((vec3(-10000.0, 0.0, 0.0) - tmpvar_213).x / tmpvar_214.x);
           if ((tmpvar_268 < 0.001)) {
             tmpvar_267 = bool(0);
           } else {
             tmpvar_266 = tmpvar_268;
             tmpvar_267 = bool(1);
           };
-          if ((tmpvar_267 && ((tmpvar_266 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_266;
-            tmpvar_213 = 18;
+          if ((tmpvar_267 && ((tmpvar_266 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_266;
+            tmpvar_215 = 17;
           };
           lowp float tmpvar_269;
           bool tmpvar_270;
           lowp float tmpvar_271;
-          tmpvar_271 = (dot (vec3(0.0, -1.0, 0.0), (vec3(0.0, 10000.0, 0.0) - tmpvar_211)) / dot (vec3(0.0, -1.0, 0.0), tmpvar_212));
+          tmpvar_271 = (dot (vec3(-1.0, 0.0, 0.0), (vec3(10000.0, 0.0, 0.0) - tmpvar_213)) / dot (vec3(-1.0, 0.0, 0.0), tmpvar_214));
           if ((tmpvar_271 < 0.001)) {
             tmpvar_270 = bool(0);
           } else {
             tmpvar_269 = tmpvar_271;
             tmpvar_270 = bool(1);
           };
-          if ((tmpvar_270 && ((tmpvar_269 < minT_215) || (minT_215 < 0.0)))) {
-            minT_215 = tmpvar_269;
-            tmpvar_213 = 19;
+          if ((tmpvar_270 && ((tmpvar_269 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_269;
+            tmpvar_215 = 18;
+          };
+          lowp float tmpvar_272;
+          bool tmpvar_273;
+          lowp float tmpvar_274;
+          tmpvar_274 = (dot (vec3(0.0, -1.0, 0.0), (vec3(0.0, 10000.0, 0.0) - tmpvar_213)) / dot (vec3(0.0, -1.0, 0.0), tmpvar_214));
+          if ((tmpvar_274 < 0.001)) {
+            tmpvar_273 = bool(0);
+          } else {
+            tmpvar_272 = tmpvar_274;
+            tmpvar_273 = bool(1);
+          };
+          if ((tmpvar_273 && ((tmpvar_272 < minT_217) || (minT_217 < 0.0)))) {
+            minT_217 = tmpvar_272;
+            tmpvar_215 = 19;
           };
           if ((((
-            (((tmpvar_213 != 0) && (tmpvar_213 != 5)) && (tmpvar_213 != 6))
+            (((tmpvar_215 != 0) && (tmpvar_215 != 5)) && (tmpvar_215 != 6))
            && 
-            (tmpvar_213 != 12)
-          ) && (tmpvar_213 != tmpvar_18)) && (tmpvar_18 <= 12))) {
-            specular_131 = vec3(0.0, 0.0, 0.0);
-            diffuse_132 = vec3(0.0, 0.0, 0.0);
+            (tmpvar_215 != 12)
+          ) && (tmpvar_215 != tmpvar_18)) && (tmpvar_18 <= 12))) {
+            specular_132 = vec3(0.0, 0.0, 0.0);
+            diffuse_133 = vec3(0.0, 0.0, 0.0);
           };
         };
-        color_133 = (color_133 + (diffuse_132 + specular_131));
-        toLight_130 = (vec3(20.0, 20.0, 0.0) - tmpvar_20);
-        lowp vec3 tmpvar_272;
-        tmpvar_272 = normalize(toLight_130);
-        toLight_130 = tmpvar_272;
-        diffintensity_129 = clamp (dot (tmpvar_13, tmpvar_272), 0.0, 1.0);
-        vec3 tmpvar_273;
-        Material tmpvar_274;
-        if ((tmpvar_18 == 0)) {
-          tmpvar_274 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-        } else {
-          if ((tmpvar_18 == 1)) {
-            tmpvar_274 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-          } else {
-            if ((tmpvar_18 == 2)) {
-              tmpvar_274 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-            } else {
-              if ((tmpvar_18 == 3)) {
-                tmpvar_274 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-              } else {
-                if ((tmpvar_18 == 4)) {
-                  tmpvar_274 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                } else {
-                  if ((tmpvar_18 == 5)) {
-                    tmpvar_274 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                  } else {
-                    if ((tmpvar_18 == 6)) {
-                      tmpvar_274 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                    } else {
-                      if ((tmpvar_18 == 7)) {
-                        tmpvar_274 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                      } else {
-                        if ((tmpvar_18 == 8)) {
-                          tmpvar_274 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
-                        } else {
-                          if ((tmpvar_18 == 9)) {
-                            tmpvar_274 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
-                          } else {
-                            if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
-                              tmpvar_274 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
-                            } else {
-                              if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
-                                tmpvar_274 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
-                              } else {
-                                if ((tmpvar_18 == 12)) {
-                                  tmpvar_274 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                } else {
-                                  if ((tmpvar_18 > 13)) {
-                                    tmpvar_274 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                  } else {
-                                    tmpvar_274 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                  };
-                                };
-                              };
-                            };
-                          };
-                        };
-                      };
-                    };
-                  };
-                };
-              };
-            };
-          };
-        };
-        tmpvar_273 = tmpvar_274.spec;
-        lowp float tmpvar_275;
-        tmpvar_275 = clamp (dot (tmpvar_272, refDir_134), 0.0, 1.0);
-        Material tmpvar_276;
-        if ((tmpvar_18 == 0)) {
-          tmpvar_276 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-        } else {
-          if ((tmpvar_18 == 1)) {
-            tmpvar_276 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-          } else {
-            if ((tmpvar_18 == 2)) {
-              tmpvar_276 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-            } else {
-              if ((tmpvar_18 == 3)) {
-                tmpvar_276 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-              } else {
-                if ((tmpvar_18 == 4)) {
-                  tmpvar_276 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                } else {
-                  if ((tmpvar_18 == 5)) {
-                    tmpvar_276 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                  } else {
-                    if ((tmpvar_18 == 6)) {
-                      tmpvar_276 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                    } else {
-                      if ((tmpvar_18 == 7)) {
-                        tmpvar_276 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                      } else {
-                        if ((tmpvar_18 == 8)) {
-                          tmpvar_276 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
-                        } else {
-                          if ((tmpvar_18 == 9)) {
-                            tmpvar_276 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
-                          } else {
-                            if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
-                              tmpvar_276 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
-                            } else {
-                              if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
-                                tmpvar_276 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
-                              } else {
-                                if ((tmpvar_18 == 12)) {
-                                  tmpvar_276 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                } else {
-                                  if ((tmpvar_18 > 13)) {
-                                    tmpvar_276 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                  } else {
-                                    tmpvar_276 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
-                                  };
-                                };
-                              };
-                            };
-                          };
-                        };
-                      };
-                    };
-                  };
-                };
-              };
-            };
-          };
-        };
-        specular_131 = clamp ((tmpvar_273 * pow (tmpvar_275, tmpvar_276.pow)), 0.0, 1.0);
+        color_134 = (color_134 + (diffuse_133 + specular_132));
+        toLight_131 = (vec3(20.0, 20.0, 0.0) - tmpvar_20);
+        lowp vec3 tmpvar_275;
+        tmpvar_275 = normalize(toLight_131);
+        toLight_131 = tmpvar_275;
+        diffintensity_130 = clamp (dot (tmpvar_13, tmpvar_275), 0.0, 1.0);
+        vec3 tmpvar_276;
         Material tmpvar_277;
         if ((tmpvar_18 == 0)) {
           tmpvar_277 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
@@ -1807,302 +1696,425 @@ void main ()
             };
           };
         };
-        diffuse_132 = clamp ((tmpvar_277.dif * diffintensity_129), 0.0, 1.0);
-        if (isShadowOn) {
-          lowp vec3 tmpvar_278;
-          lowp vec3 tmpvar_279;
-          tmpvar_278 = (tmpvar_20 + (tmpvar_13 * 0.001));
-          tmpvar_279 = normalize((vec3(20.0, 20.0, 0.0) - tmpvar_20));
-          highp int tmpvar_280;
-          tmpvar_280 = tmpvar_18;
-          highp int i_281;
-          lowp float minT_282;
-          minT_282 = -1.0;
-          i_281 = 0;
-          while (true) {
-            if ((i_281 >= 10)) {
-              break;
-            };
-            vec4 sphere_283;
-            sphere_283 = spheres[i_281];
-            highp int tmpvar_284;
-            lowp float tmpvar_285;
-            bool tmpvar_286;
-            lowp float t_287;
-            lowp float t2_288;
-            lowp float t1_289;
-            lowp vec3 tmpvar_290;
-            tmpvar_290 = (tmpvar_278 - sphere_283.xyz);
-            lowp float tmpvar_291;
-            tmpvar_291 = (dot (tmpvar_290, tmpvar_279) * 2.0);
-            lowp float tmpvar_292;
-            tmpvar_292 = dot (tmpvar_279, tmpvar_279);
-            lowp float tmpvar_293;
-            tmpvar_293 = ((tmpvar_291 * tmpvar_291) - ((4.0 * tmpvar_292) * (
-              dot (tmpvar_290, tmpvar_290)
-             - 
-              (sphere_283.w * sphere_283.w)
-            )));
-            if ((tmpvar_293 < 0.0)) {
-              tmpvar_286 = bool(0);
+        tmpvar_276 = tmpvar_277.spec;
+        lowp float tmpvar_278;
+        tmpvar_278 = clamp (dot (tmpvar_275, refDir_135), 0.0, 1.0);
+        Material tmpvar_279;
+        if ((tmpvar_18 == 0)) {
+          tmpvar_279 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+        } else {
+          if ((tmpvar_18 == 1)) {
+            tmpvar_279 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+          } else {
+            if ((tmpvar_18 == 2)) {
+              tmpvar_279 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
             } else {
-              lowp float tmpvar_294;
-              tmpvar_294 = sqrt(tmpvar_293);
-              lowp float tmpvar_295;
-              tmpvar_295 = (((
-                -(tmpvar_291)
-               + tmpvar_294) / 2.0) / tmpvar_292);
-              t1_289 = tmpvar_295;
-              lowp float tmpvar_296;
-              tmpvar_296 = (((
-                -(tmpvar_291)
-               - tmpvar_294) / 2.0) / tmpvar_292);
-              t2_288 = tmpvar_296;
-              if ((tmpvar_295 < 0.001)) {
-                t1_289 = -0.001;
-              };
-              if ((tmpvar_296 < 0.001)) {
-                t2_288 = -0.001;
-              };
-              if ((t1_289 < 0.0)) {
-                tmpvar_286 = bool(0);
+              if ((tmpvar_18 == 3)) {
+                tmpvar_279 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
               } else {
-                if ((t2_288 > 0.0)) {
-                  t_287 = t2_288;
+                if ((tmpvar_18 == 4)) {
+                  tmpvar_279 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
                 } else {
-                  t_287 = t1_289;
+                  if ((tmpvar_18 == 5)) {
+                    tmpvar_279 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                  } else {
+                    if ((tmpvar_18 == 6)) {
+                      tmpvar_279 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                    } else {
+                      if ((tmpvar_18 == 7)) {
+                        tmpvar_279 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                      } else {
+                        if ((tmpvar_18 == 8)) {
+                          tmpvar_279 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
+                        } else {
+                          if ((tmpvar_18 == 9)) {
+                            tmpvar_279 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
+                          } else {
+                            if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
+                              tmpvar_279 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                            } else {
+                              if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
+                                tmpvar_279 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                              } else {
+                                if ((tmpvar_18 == 12)) {
+                                  tmpvar_279 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                } else {
+                                  if ((tmpvar_18 > 13)) {
+                                    tmpvar_279 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  } else {
+                                    tmpvar_279 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  };
+                                };
+                              };
+                            };
+                          };
+                        };
+                      };
+                    };
+                  };
                 };
-                tmpvar_284 = i_281;
-                tmpvar_285 = t_287;
-                tmpvar_286 = bool(1);
               };
             };
-            if ((tmpvar_286 && ((tmpvar_285 < minT_282) || (minT_282 < 0.0)))) {
-              minT_282 = tmpvar_285;
-              tmpvar_280 = tmpvar_284;
-            };
-            i_281++;
-          };
-          lowp float tmpvar_297;
-          bool tmpvar_298;
-          lowp float t1_299;
-          lowp float v_300;
-          lowp float u_301;
-          lowp float invDet_302;
-          lowp vec3 T_303;
-          lowp vec3 tmpvar_304;
-          tmpvar_304 = ((tmpvar_279.yzx * vec3(2.0, 28.0, -19.0)) - (tmpvar_279.zxy * vec3(-19.0, 2.0, 28.0)));
-          invDet_302 = (1.0/(dot (vec3(0.0, -19.0, 2.0), tmpvar_304)));
-          T_303 = (tmpvar_278 - vec3(-14.0, 14.0, -14.0));
-          u_301 = (dot (T_303, tmpvar_304) * invDet_302);
-          if (((u_301 < 0.0) || (u_301 > 1.0))) {
-            tmpvar_298 = bool(0);
-          } else {
-            lowp vec3 tmpvar_305;
-            tmpvar_305 = ((T_303.yzx * vec3(2.0, 0.0, -19.0)) - (T_303.zxy * vec3(-19.0, 2.0, 0.0)));
-            v_300 = (dot (tmpvar_279, tmpvar_305) * invDet_302);
-            if (((v_300 < 0.0) || ((u_301 + v_300) > 1.0))) {
-              tmpvar_298 = bool(0);
-            } else {
-              t1_299 = (dot (vec3(28.0, -19.0, 2.0), tmpvar_305) * invDet_302);
-              if ((t1_299 > 0.001)) {
-                tmpvar_297 = t1_299;
-                tmpvar_298 = bool(1);
-              } else {
-                tmpvar_298 = bool(0);
-              };
-            };
-          };
-          if ((tmpvar_298 && ((tmpvar_297 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_297;
-            tmpvar_280 = 10;
-          };
-          lowp float tmpvar_306;
-          bool tmpvar_307;
-          lowp float t1_308;
-          lowp float v_309;
-          lowp float u_310;
-          lowp float invDet_311;
-          lowp vec3 T_312;
-          lowp vec3 tmpvar_313;
-          tmpvar_313 = ((tmpvar_279.yzx * vec3(0.0, 28.0, 0.0)) - (tmpvar_279.zxy * vec3(0.0, 0.0, 28.0)));
-          invDet_311 = (1.0/(dot (vec3(28.0, -19.0, 2.0), tmpvar_313)));
-          T_312 = (tmpvar_278 - vec3(-14.0, 14.0, -14.0));
-          u_310 = (dot (T_312, tmpvar_313) * invDet_311);
-          if (((u_310 < 0.0) || (u_310 > 1.0))) {
-            tmpvar_307 = bool(0);
-          } else {
-            lowp vec3 tmpvar_314;
-            tmpvar_314 = ((T_312.yzx * vec3(2.0, 28.0, -19.0)) - (T_312.zxy * vec3(-19.0, 2.0, 28.0)));
-            v_309 = (dot (tmpvar_279, tmpvar_314) * invDet_311);
-            if (((v_309 < 0.0) || ((u_310 + v_309) > 1.0))) {
-              tmpvar_307 = bool(0);
-            } else {
-              t1_308 = (dot (vec3(28.0, 0.0, 0.0), tmpvar_314) * invDet_311);
-              if ((t1_308 > 0.001)) {
-                tmpvar_306 = t1_308;
-                tmpvar_307 = bool(1);
-              } else {
-                tmpvar_307 = bool(0);
-              };
-            };
-          };
-          if ((tmpvar_307 && ((tmpvar_306 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_306;
-            tmpvar_280 = 11;
-          };
-          bool tmpvar_315;
-          lowp float tmpvar_316;
-          bool tmpvar_317;
-          lowp float tmpvar_318;
-          tmpvar_318 = ((vec3(0.0, -10.0, 0.0) - tmpvar_278).y / tmpvar_279.y);
-          if ((tmpvar_318 < 0.001)) {
-            tmpvar_317 = bool(0);
-          } else {
-            tmpvar_316 = tmpvar_318;
-            tmpvar_317 = bool(1);
-          };
-          if (tmpvar_317) {
-            lowp float tmpvar_319;
-            lowp vec3 tmpvar_320;
-            tmpvar_320 = ((tmpvar_278 + (tmpvar_316 * tmpvar_279)) - vec3(0.0, -10.0, 0.0));
-            tmpvar_319 = sqrt(dot (tmpvar_320, tmpvar_320));
-            if ((tmpvar_319 > 30.0)) {
-              tmpvar_315 = bool(0);
-            } else {
-              tmpvar_315 = bool(1);
-            };
-          } else {
-            tmpvar_315 = bool(0);
-          };
-          if ((tmpvar_315 && ((tmpvar_316 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_316;
-            tmpvar_280 = 12;
-          };
-          lowp float tmpvar_321;
-          bool tmpvar_322;
-          lowp float tmpvar_323;
-          tmpvar_323 = (dot (vec3(0.0, 0.0, -1.0), (vec3(0.0, 0.0, 10000.0) - tmpvar_278)) / dot (vec3(0.0, 0.0, -1.0), tmpvar_279));
-          if ((tmpvar_323 < 0.001)) {
-            tmpvar_322 = bool(0);
-          } else {
-            tmpvar_321 = tmpvar_323;
-            tmpvar_322 = bool(1);
-          };
-          if ((tmpvar_322 && ((tmpvar_321 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_321;
-            tmpvar_280 = 14;
-          };
-          lowp float tmpvar_324;
-          bool tmpvar_325;
-          lowp float tmpvar_326;
-          tmpvar_326 = ((vec3(0.0, -10000.0, 0.0) - tmpvar_278).y / tmpvar_279.y);
-          if ((tmpvar_326 < 0.001)) {
-            tmpvar_325 = bool(0);
-          } else {
-            tmpvar_324 = tmpvar_326;
-            tmpvar_325 = bool(1);
-          };
-          if ((tmpvar_325 && ((tmpvar_324 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_324;
-            tmpvar_280 = 15;
-          };
-          lowp float tmpvar_327;
-          bool tmpvar_328;
-          lowp float tmpvar_329;
-          tmpvar_329 = ((vec3(0.0, 0.0, -10000.0) - tmpvar_278).z / tmpvar_279.z);
-          if ((tmpvar_329 < 0.001)) {
-            tmpvar_328 = bool(0);
-          } else {
-            tmpvar_327 = tmpvar_329;
-            tmpvar_328 = bool(1);
-          };
-          if ((tmpvar_328 && ((tmpvar_327 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_327;
-            tmpvar_280 = 16;
-          };
-          lowp float tmpvar_330;
-          bool tmpvar_331;
-          lowp float tmpvar_332;
-          tmpvar_332 = ((vec3(-10000.0, 0.0, 0.0) - tmpvar_278).x / tmpvar_279.x);
-          if ((tmpvar_332 < 0.001)) {
-            tmpvar_331 = bool(0);
-          } else {
-            tmpvar_330 = tmpvar_332;
-            tmpvar_331 = bool(1);
-          };
-          if ((tmpvar_331 && ((tmpvar_330 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_330;
-            tmpvar_280 = 17;
-          };
-          lowp float tmpvar_333;
-          bool tmpvar_334;
-          lowp float tmpvar_335;
-          tmpvar_335 = (dot (vec3(-1.0, 0.0, 0.0), (vec3(10000.0, 0.0, 0.0) - tmpvar_278)) / dot (vec3(-1.0, 0.0, 0.0), tmpvar_279));
-          if ((tmpvar_335 < 0.001)) {
-            tmpvar_334 = bool(0);
-          } else {
-            tmpvar_333 = tmpvar_335;
-            tmpvar_334 = bool(1);
-          };
-          if ((tmpvar_334 && ((tmpvar_333 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_333;
-            tmpvar_280 = 18;
-          };
-          lowp float tmpvar_336;
-          bool tmpvar_337;
-          lowp float tmpvar_338;
-          tmpvar_338 = (dot (vec3(0.0, -1.0, 0.0), (vec3(0.0, 10000.0, 0.0) - tmpvar_278)) / dot (vec3(0.0, -1.0, 0.0), tmpvar_279));
-          if ((tmpvar_338 < 0.001)) {
-            tmpvar_337 = bool(0);
-          } else {
-            tmpvar_336 = tmpvar_338;
-            tmpvar_337 = bool(1);
-          };
-          if ((tmpvar_337 && ((tmpvar_336 < minT_282) || (minT_282 < 0.0)))) {
-            minT_282 = tmpvar_336;
-            tmpvar_280 = 19;
-          };
-          if ((((
-            (((tmpvar_280 != 0) && (tmpvar_280 != 5)) && (tmpvar_280 != 6))
-           && 
-            (tmpvar_280 != 12)
-          ) && (tmpvar_280 != tmpvar_18)) && (tmpvar_18 <= 12))) {
-            specular_131 = vec3(0.0, 0.0, 0.0);
-            diffuse_132 = vec3(0.0, 0.0, 0.0);
           };
         };
-        color_133 = (color_133 + (diffuse_132 + specular_131));
-        tmpvar_128 = color_133;
+        specular_132 = clamp ((tmpvar_276 * pow (tmpvar_278, tmpvar_279.pow)), 0.0, 1.0);
+        Material tmpvar_280;
+        if ((tmpvar_18 == 0)) {
+          tmpvar_280 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+        } else {
+          if ((tmpvar_18 == 1)) {
+            tmpvar_280 = Material(vec3(0.0, 0.2, 0.0), vec3(0.0, 0.4, 0.0), vec3(0.8, 0.8, 0.8), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+          } else {
+            if ((tmpvar_18 == 2)) {
+              tmpvar_280 = Material(vec3(0.0, 0.0, 0.2), vec3(0.0, 0.0, 0.4), vec3(0.0, 0.0, 0.0), 50.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+            } else {
+              if ((tmpvar_18 == 3)) {
+                tmpvar_280 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+              } else {
+                if ((tmpvar_18 == 4)) {
+                  tmpvar_280 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                } else {
+                  if ((tmpvar_18 == 5)) {
+                    tmpvar_280 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                  } else {
+                    if ((tmpvar_18 == 6)) {
+                      tmpvar_280 = Material(vec3(0.5, 0.5, 0.5), vec3(0.8, 0.5, 0.8), vec3(0.9, 0.9, 0.9), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                    } else {
+                      if ((tmpvar_18 == 7)) {
+                        tmpvar_280 = Material(vec3(0.2, 0.0, 0.0), vec3(0.5, 0.0, 0.0), vec3(0.8, 0.8, 0.8), 66.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                      } else {
+                        if ((tmpvar_18 == 8)) {
+                          tmpvar_280 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.62, 0.555802, 0.366065), 51.2, bool(0), bool(1), vec3(0.93806, 0.846365, 0.391481), 1.0);
+                        } else {
+                          if ((tmpvar_18 == 9)) {
+                            tmpvar_280 = Material(vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 70.0, bool(1), bool(1), vec3(0.04, 0.04, 0.04), 1.5);
+                          } else {
+                            if (((tmpvar_18 >= 10) && (tmpvar_18 < 10))) {
+                              tmpvar_280 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                            } else {
+                              if (((tmpvar_18 == 10) || (tmpvar_18 == 11))) {
+                                tmpvar_280 = Material(vec3(0.0, 0.0, 0.0), vec3(0.01, 0.01, 0.01), vec3(0.8, 0.8, 0.8), 120.0, bool(0), bool(1), vec3(0.9691, 0.90355, 0.952236), 1.0);
+                              } else {
+                                if ((tmpvar_18 == 12)) {
+                                  tmpvar_280 = Material(vec3(0.25, 0.25, 0.25), vec3(0.3, 0.34, 0.36), vec3(0.8, 0.8, 0.8), 60.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                } else {
+                                  if ((tmpvar_18 > 13)) {
+                                    tmpvar_280 = Material(vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), vec3(0.5, 0.5, 0.5), 20.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  } else {
+                                    tmpvar_280 = Material(vec3(1.0, 0.95, 0.85), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 30.0, bool(0), bool(0), vec3(0.0, 0.0, 0.0), 1.0);
+                                  };
+                                };
+                              };
+                            };
+                          };
+                        };
+                      };
+                    };
+                  };
+                };
+              };
+            };
+          };
+        };
+        diffuse_133 = clamp ((tmpvar_280.dif * diffintensity_130), 0.0, 1.0);
+        if (isShadowOn) {
+          lowp vec3 tmpvar_281;
+          lowp vec3 tmpvar_282;
+          tmpvar_281 = (tmpvar_20 + (tmpvar_13 * 0.001));
+          tmpvar_282 = normalize((vec3(20.0, 20.0, 0.0) - tmpvar_20));
+          highp int tmpvar_283;
+          tmpvar_283 = tmpvar_18;
+          highp int i_284;
+          lowp float minT_285;
+          minT_285 = -1.0;
+          i_284 = 0;
+          while (true) {
+            if ((i_284 >= 10)) {
+              break;
+            };
+            vec4 sphere_286;
+            sphere_286 = spheres[i_284];
+            highp int tmpvar_287;
+            lowp float tmpvar_288;
+            bool tmpvar_289;
+            lowp float t_290;
+            lowp float t2_291;
+            lowp float t1_292;
+            lowp vec3 tmpvar_293;
+            tmpvar_293 = (tmpvar_281 - sphere_286.xyz);
+            lowp float tmpvar_294;
+            tmpvar_294 = (dot (tmpvar_293, tmpvar_282) * 2.0);
+            lowp float tmpvar_295;
+            tmpvar_295 = dot (tmpvar_282, tmpvar_282);
+            lowp float tmpvar_296;
+            tmpvar_296 = ((tmpvar_294 * tmpvar_294) - ((4.0 * tmpvar_295) * (
+              dot (tmpvar_293, tmpvar_293)
+             - 
+              (sphere_286.w * sphere_286.w)
+            )));
+            if ((tmpvar_296 < 0.0)) {
+              tmpvar_289 = bool(0);
+            } else {
+              lowp float tmpvar_297;
+              tmpvar_297 = sqrt(tmpvar_296);
+              lowp float tmpvar_298;
+              tmpvar_298 = (((
+                -(tmpvar_294)
+               + tmpvar_297) / 2.0) / tmpvar_295);
+              t1_292 = tmpvar_298;
+              lowp float tmpvar_299;
+              tmpvar_299 = (((
+                -(tmpvar_294)
+               - tmpvar_297) / 2.0) / tmpvar_295);
+              t2_291 = tmpvar_299;
+              if ((tmpvar_298 < 0.001)) {
+                t1_292 = -0.001;
+              };
+              if ((tmpvar_299 < 0.001)) {
+                t2_291 = -0.001;
+              };
+              if ((t1_292 < 0.0)) {
+                tmpvar_289 = bool(0);
+              } else {
+                if ((t2_291 > 0.0)) {
+                  t_290 = t2_291;
+                } else {
+                  t_290 = t1_292;
+                };
+                tmpvar_287 = i_284;
+                tmpvar_288 = t_290;
+                tmpvar_289 = bool(1);
+              };
+            };
+            if ((tmpvar_289 && ((tmpvar_288 < minT_285) || (minT_285 < 0.0)))) {
+              minT_285 = tmpvar_288;
+              tmpvar_283 = tmpvar_287;
+            };
+            i_284++;
+          };
+          lowp float tmpvar_300;
+          bool tmpvar_301;
+          lowp float t1_302;
+          lowp float v_303;
+          lowp float u_304;
+          lowp float invDet_305;
+          lowp vec3 T_306;
+          lowp vec3 tmpvar_307;
+          tmpvar_307 = ((tmpvar_282.yzx * vec3(2.0, 28.0, -19.0)) - (tmpvar_282.zxy * vec3(-19.0, 2.0, 28.0)));
+          invDet_305 = (1.0/(dot (vec3(0.0, -19.0, 2.0), tmpvar_307)));
+          T_306 = (tmpvar_281 - vec3(-14.0, 14.0, -14.0));
+          u_304 = (dot (T_306, tmpvar_307) * invDet_305);
+          if (((u_304 < 0.0) || (u_304 > 1.0))) {
+            tmpvar_301 = bool(0);
+          } else {
+            lowp vec3 tmpvar_308;
+            tmpvar_308 = ((T_306.yzx * vec3(2.0, 0.0, -19.0)) - (T_306.zxy * vec3(-19.0, 2.0, 0.0)));
+            v_303 = (dot (tmpvar_282, tmpvar_308) * invDet_305);
+            if (((v_303 < 0.0) || ((u_304 + v_303) > 1.0))) {
+              tmpvar_301 = bool(0);
+            } else {
+              t1_302 = (dot (vec3(28.0, -19.0, 2.0), tmpvar_308) * invDet_305);
+              if ((t1_302 > 0.001)) {
+                tmpvar_300 = t1_302;
+                tmpvar_301 = bool(1);
+              } else {
+                tmpvar_301 = bool(0);
+              };
+            };
+          };
+          if ((tmpvar_301 && ((tmpvar_300 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_300;
+            tmpvar_283 = 10;
+          };
+          lowp float tmpvar_309;
+          bool tmpvar_310;
+          lowp float t1_311;
+          lowp float v_312;
+          lowp float u_313;
+          lowp float invDet_314;
+          lowp vec3 T_315;
+          lowp vec3 tmpvar_316;
+          tmpvar_316 = ((tmpvar_282.yzx * vec3(0.0, 28.0, 0.0)) - (tmpvar_282.zxy * vec3(0.0, 0.0, 28.0)));
+          invDet_314 = (1.0/(dot (vec3(28.0, -19.0, 2.0), tmpvar_316)));
+          T_315 = (tmpvar_281 - vec3(-14.0, 14.0, -14.0));
+          u_313 = (dot (T_315, tmpvar_316) * invDet_314);
+          if (((u_313 < 0.0) || (u_313 > 1.0))) {
+            tmpvar_310 = bool(0);
+          } else {
+            lowp vec3 tmpvar_317;
+            tmpvar_317 = ((T_315.yzx * vec3(2.0, 28.0, -19.0)) - (T_315.zxy * vec3(-19.0, 2.0, 28.0)));
+            v_312 = (dot (tmpvar_282, tmpvar_317) * invDet_314);
+            if (((v_312 < 0.0) || ((u_313 + v_312) > 1.0))) {
+              tmpvar_310 = bool(0);
+            } else {
+              t1_311 = (dot (vec3(28.0, 0.0, 0.0), tmpvar_317) * invDet_314);
+              if ((t1_311 > 0.001)) {
+                tmpvar_309 = t1_311;
+                tmpvar_310 = bool(1);
+              } else {
+                tmpvar_310 = bool(0);
+              };
+            };
+          };
+          if ((tmpvar_310 && ((tmpvar_309 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_309;
+            tmpvar_283 = 11;
+          };
+          bool tmpvar_318;
+          tmpvar_318 = bool(1);
+          bool tmpvar_319;
+          lowp float tmpvar_320;
+          bool tmpvar_321;
+          lowp float tmpvar_322;
+          tmpvar_322 = ((vec3(0.0, -10.0, 0.0) - tmpvar_281).y / tmpvar_282.y);
+          if ((tmpvar_322 < 0.001)) {
+            tmpvar_321 = bool(0);
+          } else {
+            tmpvar_320 = tmpvar_322;
+            tmpvar_321 = bool(1);
+          };
+          if (tmpvar_321) {
+            lowp float tmpvar_323;
+            lowp vec3 tmpvar_324;
+            tmpvar_324 = ((tmpvar_281 + (tmpvar_320 * tmpvar_282)) - vec3(0.0, -10.0, 0.0));
+            tmpvar_323 = sqrt(dot (tmpvar_324, tmpvar_324));
+            if ((tmpvar_323 <= 30.0)) {
+              tmpvar_319 = bool(1);
+              tmpvar_318 = bool(0);
+            };
+          };
+          if (tmpvar_318) {
+            tmpvar_319 = bool(0);
+            tmpvar_318 = bool(0);
+          };
+          if ((tmpvar_319 && ((tmpvar_320 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_320;
+            tmpvar_283 = 12;
+          };
+          lowp float tmpvar_325;
+          bool tmpvar_326;
+          lowp float tmpvar_327;
+          tmpvar_327 = (dot (vec3(0.0, 0.0, -1.0), (vec3(0.0, 0.0, 10000.0) - tmpvar_281)) / dot (vec3(0.0, 0.0, -1.0), tmpvar_282));
+          if ((tmpvar_327 < 0.001)) {
+            tmpvar_326 = bool(0);
+          } else {
+            tmpvar_325 = tmpvar_327;
+            tmpvar_326 = bool(1);
+          };
+          if ((tmpvar_326 && ((tmpvar_325 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_325;
+            tmpvar_283 = 14;
+          };
+          lowp float tmpvar_328;
+          bool tmpvar_329;
+          lowp float tmpvar_330;
+          tmpvar_330 = ((vec3(0.0, -10000.0, 0.0) - tmpvar_281).y / tmpvar_282.y);
+          if ((tmpvar_330 < 0.001)) {
+            tmpvar_329 = bool(0);
+          } else {
+            tmpvar_328 = tmpvar_330;
+            tmpvar_329 = bool(1);
+          };
+          if ((tmpvar_329 && ((tmpvar_328 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_328;
+            tmpvar_283 = 15;
+          };
+          lowp float tmpvar_331;
+          bool tmpvar_332;
+          lowp float tmpvar_333;
+          tmpvar_333 = ((vec3(0.0, 0.0, -10000.0) - tmpvar_281).z / tmpvar_282.z);
+          if ((tmpvar_333 < 0.001)) {
+            tmpvar_332 = bool(0);
+          } else {
+            tmpvar_331 = tmpvar_333;
+            tmpvar_332 = bool(1);
+          };
+          if ((tmpvar_332 && ((tmpvar_331 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_331;
+            tmpvar_283 = 16;
+          };
+          lowp float tmpvar_334;
+          bool tmpvar_335;
+          lowp float tmpvar_336;
+          tmpvar_336 = ((vec3(-10000.0, 0.0, 0.0) - tmpvar_281).x / tmpvar_282.x);
+          if ((tmpvar_336 < 0.001)) {
+            tmpvar_335 = bool(0);
+          } else {
+            tmpvar_334 = tmpvar_336;
+            tmpvar_335 = bool(1);
+          };
+          if ((tmpvar_335 && ((tmpvar_334 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_334;
+            tmpvar_283 = 17;
+          };
+          lowp float tmpvar_337;
+          bool tmpvar_338;
+          lowp float tmpvar_339;
+          tmpvar_339 = (dot (vec3(-1.0, 0.0, 0.0), (vec3(10000.0, 0.0, 0.0) - tmpvar_281)) / dot (vec3(-1.0, 0.0, 0.0), tmpvar_282));
+          if ((tmpvar_339 < 0.001)) {
+            tmpvar_338 = bool(0);
+          } else {
+            tmpvar_337 = tmpvar_339;
+            tmpvar_338 = bool(1);
+          };
+          if ((tmpvar_338 && ((tmpvar_337 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_337;
+            tmpvar_283 = 18;
+          };
+          lowp float tmpvar_340;
+          bool tmpvar_341;
+          lowp float tmpvar_342;
+          tmpvar_342 = (dot (vec3(0.0, -1.0, 0.0), (vec3(0.0, 10000.0, 0.0) - tmpvar_281)) / dot (vec3(0.0, -1.0, 0.0), tmpvar_282));
+          if ((tmpvar_342 < 0.001)) {
+            tmpvar_341 = bool(0);
+          } else {
+            tmpvar_340 = tmpvar_342;
+            tmpvar_341 = bool(1);
+          };
+          if ((tmpvar_341 && ((tmpvar_340 < minT_285) || (minT_285 < 0.0)))) {
+            minT_285 = tmpvar_340;
+            tmpvar_283 = 19;
+          };
+          if ((((
+            (((tmpvar_283 != 0) && (tmpvar_283 != 5)) && (tmpvar_283 != 6))
+           && 
+            (tmpvar_283 != 12)
+          ) && (tmpvar_283 != tmpvar_18)) && (tmpvar_18 <= 12))) {
+            specular_132 = vec3(0.0, 0.0, 0.0);
+            diffuse_133 = vec3(0.0, 0.0, 0.0);
+          };
+        };
+        color_134 = (color_134 + (diffuse_133 + specular_132));
+        tmpvar_129 = color_134;
       };
-      color_15 = (color_15 + (tmpvar_128 * coeff_4));
+      color_15 = (color_15 + (tmpvar_129 * coeff_4));
       if ((tmpvar_18 == 0)) {
-        float tmpvar_339;
-        tmpvar_339 = (time / 5.0);
-        u_9 = (u_9 + tmpvar_339);
-        v_8 = (v_8 + tmpvar_339);
-        lowp vec2 tmpvar_340;
-        tmpvar_340.x = u_9;
-        tmpvar_340.y = v_8;
-        color_15 = (color_15 * (texture (sunTexture, tmpvar_340).xyz + vec3(0.0, 0.0, 0.5)));
+        float tmpvar_343;
+        tmpvar_343 = (time / 5.0);
+        u_9 = (u_9 + tmpvar_343);
+        v_8 = (v_8 + tmpvar_343);
+        lowp vec2 tmpvar_344;
+        tmpvar_344.x = u_9;
+        tmpvar_344.y = v_8;
+        color_15 = (color_15 * (texture (sunTexture, tmpvar_344).xyz + vec3(0.0, 0.0, 0.5)));
       } else {
         if ((tmpvar_18 == 3)) {
           if (!(useNormalMap)) {
             u_9 = (u_9 + (time / 2.0));
           };
-          lowp vec2 tmpvar_341;
-          tmpvar_341.x = u_9;
-          tmpvar_341.y = v_8;
-          color_15 = (color_15 * texture (earthTexture, tmpvar_341).xyz);
+          lowp vec2 tmpvar_345;
+          tmpvar_345.x = u_9;
+          tmpvar_345.y = v_8;
+          color_15 = (color_15 * texture (earthTexture, tmpvar_345).xyz);
         } else {
           if ((tmpvar_18 == 4)) {
             if (!(useNormalMap)) {
               u_9 = (u_9 + (time / 7.0));
             };
-            lowp vec2 tmpvar_342;
-            tmpvar_342.x = u_9;
-            tmpvar_342.y = v_8;
-            color_15 = (color_15 * texture (moonTexture, tmpvar_342).xyz);
+            lowp vec2 tmpvar_346;
+            tmpvar_346.x = u_9;
+            tmpvar_346.y = v_8;
+            color_15 = (color_15 * texture (moonTexture, tmpvar_346).xyz);
           } else {
             if ((tmpvar_18 == 12)) {
               color_15 = (color_15 * texture (groundTexture, (0.15 * tmpvar_20.xz)).xyz);
@@ -2140,112 +2152,112 @@ void main ()
           };
         };
       };
-      bool tmpvar_343;
-      tmpvar_343 = (((tmpvar_18 == 3) && (color_15.z > color_15.x)) && (color_15.z > color_15.y));
-      if ((((tmpvar_124 || tmpvar_123) || tmpvar_343) && (bounceCount_5 <= depth))) {
-        bool totalInternalReflection_344;
-        totalInternalReflection_344 = bool(0);
-        if (tmpvar_123) {
-          Ray refractedRay_345;
-          float tmpvar_346;
-          tmpvar_346 = (1.0/(tmpvar_126));
-          lowp float tmpvar_347;
-          tmpvar_347 = dot (ray_1.dir, tmpvar_13);
-          lowp vec3 tmpvar_348;
-          if ((tmpvar_347 <= 0.0)) {
-            vec3 I_349;
-            I_349 = ray_1.dir;
-            lowp vec3 tmpvar_350;
-            lowp float tmpvar_351;
-            tmpvar_351 = dot (tmpvar_13, I_349);
-            lowp float tmpvar_352;
-            tmpvar_352 = (1.0 - (tmpvar_346 * (tmpvar_346 * 
-              (1.0 - (tmpvar_351 * tmpvar_351))
-            )));
-            if ((tmpvar_352 < 0.0)) {
-              tmpvar_350 = vec3(0.0, 0.0, 0.0);
-            } else {
-              tmpvar_350 = ((tmpvar_346 * I_349) - ((
-                (tmpvar_346 * tmpvar_351)
-               + 
-                sqrt(tmpvar_352)
-              ) * tmpvar_13));
-            };
-            tmpvar_348 = tmpvar_350;
-          } else {
+      bool tmpvar_347;
+      tmpvar_347 = (((tmpvar_18 == 3) && (color_15.z > color_15.x)) && (color_15.z > color_15.y));
+      if ((((tmpvar_125 || tmpvar_124) || tmpvar_347) && (bounceCount_5 <= depth))) {
+        bool totalInternalReflection_348;
+        totalInternalReflection_348 = bool(0);
+        if (tmpvar_124) {
+          Ray refractedRay_349;
+          float tmpvar_350;
+          tmpvar_350 = (1.0/(tmpvar_127));
+          lowp float tmpvar_351;
+          tmpvar_351 = dot (ray_1.dir, tmpvar_13);
+          lowp vec3 tmpvar_352;
+          if ((tmpvar_351 <= 0.0)) {
             vec3 I_353;
             I_353 = ray_1.dir;
-            lowp vec3 N_354;
-            N_354 = -(tmpvar_13);
-            float eta_355;
-            eta_355 = (1.0/(tmpvar_346));
-            lowp vec3 tmpvar_356;
-            lowp float tmpvar_357;
-            tmpvar_357 = dot (N_354, I_353);
-            lowp float tmpvar_358;
-            tmpvar_358 = (1.0 - (eta_355 * (eta_355 * 
-              (1.0 - (tmpvar_357 * tmpvar_357))
+            lowp vec3 tmpvar_354;
+            lowp float tmpvar_355;
+            tmpvar_355 = dot (tmpvar_13, I_353);
+            lowp float tmpvar_356;
+            tmpvar_356 = (1.0 - (tmpvar_350 * (tmpvar_350 * 
+              (1.0 - (tmpvar_355 * tmpvar_355))
             )));
-            if ((tmpvar_358 < 0.0)) {
-              tmpvar_356 = vec3(0.0, 0.0, 0.0);
+            if ((tmpvar_356 < 0.0)) {
+              tmpvar_354 = vec3(0.0, 0.0, 0.0);
             } else {
-              tmpvar_356 = ((eta_355 * I_353) - ((
-                (eta_355 * tmpvar_357)
+              tmpvar_354 = ((tmpvar_350 * I_353) - ((
+                (tmpvar_350 * tmpvar_355)
                + 
-                sqrt(tmpvar_358)
-              ) * N_354));
+                sqrt(tmpvar_356)
+              ) * tmpvar_13));
             };
-            tmpvar_348 = tmpvar_356;
+            tmpvar_352 = tmpvar_354;
+          } else {
+            vec3 I_357;
+            I_357 = ray_1.dir;
+            lowp vec3 N_358;
+            N_358 = -(tmpvar_13);
+            float eta_359;
+            eta_359 = (1.0/(tmpvar_350));
+            lowp vec3 tmpvar_360;
+            lowp float tmpvar_361;
+            tmpvar_361 = dot (N_358, I_357);
+            lowp float tmpvar_362;
+            tmpvar_362 = (1.0 - (eta_359 * (eta_359 * 
+              (1.0 - (tmpvar_361 * tmpvar_361))
+            )));
+            if ((tmpvar_362 < 0.0)) {
+              tmpvar_360 = vec3(0.0, 0.0, 0.0);
+            } else {
+              tmpvar_360 = ((eta_359 * I_357) - ((
+                (eta_359 * tmpvar_361)
+               + 
+                sqrt(tmpvar_362)
+              ) * N_358));
+            };
+            tmpvar_352 = tmpvar_360;
           };
-          refractedRay_345.dir = tmpvar_348;
-          vec3 x_359;
-          x_359 = refractedRay_345.dir;
-          totalInternalReflection_344 = (sqrt(dot (x_359, x_359)) < 0.001);
-          if (totalInternalReflection_344) {
-            vec3 I_360;
-            I_360 = ray_1.dir;
-            lowp vec3 N_361;
-            N_361 = -(tmpvar_13);
-            ray_1.dir = normalize((I_360 - (2.0 * 
-              (dot (N_361, I_360) * N_361)
+          refractedRay_349.dir = tmpvar_352;
+          vec3 x_363;
+          x_363 = refractedRay_349.dir;
+          totalInternalReflection_348 = (sqrt(dot (x_363, x_363)) < 0.001);
+          if (totalInternalReflection_348) {
+            vec3 I_364;
+            I_364 = ray_1.dir;
+            lowp vec3 N_365;
+            N_365 = -(tmpvar_13);
+            ray_1.dir = normalize((I_364 - (2.0 * 
+              (dot (N_365, I_364) * N_365)
             )));
             ray_1.origin = (tmpvar_20 - (tmpvar_13 * 0.001));
           } else {
-            refractedRay_345.origin = (tmpvar_20 + ((tmpvar_13 * 0.001) * sign(
+            refractedRay_349.origin = (tmpvar_20 + ((tmpvar_13 * 0.001) * sign(
               dot (ray_1.dir, tmpvar_13)
             )));
-            refractedRay_345.dir = normalize(refractedRay_345.dir);
-            if (!(tmpvar_124)) {
-              ray_1 = refractedRay_345;
+            refractedRay_349.dir = normalize(refractedRay_349.dir);
+            if (!(tmpvar_125)) {
+              ray_1 = refractedRay_349;
             } else {
-              stack_7[stackSize_6].coeff = (coeff_4 * (vec3(1.0, 1.0, 1.0) - (tmpvar_125 + 
-                ((vec3(1.0, 1.0, 1.0) - tmpvar_125) * pow ((1.0 - abs(
+              stack_7[stackSize_6].coeff = (coeff_4 * (vec3(1.0, 1.0, 1.0) - (tmpvar_126 + 
+                ((vec3(1.0, 1.0, 1.0) - tmpvar_126) * pow ((1.0 - abs(
                   dot (tmpvar_13, ray_1.dir)
                 )), 5.0))
               )));
               stack_7[stackSize_6].depth = bounceCount_5;
-              highp int tmpvar_362;
-              tmpvar_362 = stackSize_6;
+              highp int tmpvar_366;
+              tmpvar_366 = stackSize_6;
               stackSize_6++;
-              stack_7[tmpvar_362].ray = refractedRay_345;
+              stack_7[tmpvar_366].ray = refractedRay_349;
             };
           };
         };
-        if ((((tmpvar_124 && 
-          !(totalInternalReflection_344)
-        ) && (tmpvar_18 != 3)) || tmpvar_343)) {
-          lowp float tmpvar_363;
-          tmpvar_363 = dot (ray_1.dir, tmpvar_13);
-          if ((tmpvar_363 < 0.0)) {
-            coeff_4 = (coeff_4 * (tmpvar_125 + (
-              (vec3(1.0, 1.0, 1.0) - tmpvar_125)
+        if ((((tmpvar_125 && 
+          !(totalInternalReflection_348)
+        ) && (tmpvar_18 != 3)) || tmpvar_347)) {
+          lowp float tmpvar_367;
+          tmpvar_367 = dot (ray_1.dir, tmpvar_13);
+          if ((tmpvar_367 < 0.0)) {
+            coeff_4 = (coeff_4 * (tmpvar_126 + (
+              (vec3(1.0, 1.0, 1.0) - tmpvar_126)
              * 
               pow ((1.0 - abs(dot (tmpvar_13, ray_1.dir))), 5.0)
             )));
-            vec3 I_364;
-            I_364 = ray_1.dir;
-            ray_1.dir = normalize((I_364 - (2.0 * 
-              (dot (tmpvar_13, I_364) * tmpvar_13)
+            vec3 I_368;
+            I_368 = ray_1.dir;
+            ray_1.dir = normalize((I_368 - (2.0 * 
+              (dot (tmpvar_13, I_368) * tmpvar_13)
             )));
             ray_1.origin = (tmpvar_20 + (tmpvar_13 * 0.001));
           } else {
@@ -2260,47 +2272,47 @@ void main ()
       continueLoop_3 = bool(0);
     };
     if (isGlowOn) {
-      vec3 glowness_365;
-      vec3 tmpvar_366;
-      tmpvar_366 = normalize(ray_1.dir);
-      vec3 tmpvar_367;
-      tmpvar_367 = (ray_1.origin + (abs(
-        dot ((spheres[0].xyz - ray_1.origin), tmpvar_366)
-      ) * tmpvar_366));
-      float tmpvar_368;
-      tmpvar_368 = sqrt(dot (tmpvar_367, tmpvar_367));
-      lowp float tmpvar_369;
-      lowp vec3 x_370;
-      x_370 = (tmpvar_20 - eye);
-      tmpvar_369 = sqrt(dot (x_370, x_370));
-      float tmpvar_371;
-      vec3 x_372;
-      x_372 = (spheres[0].xyz - eye);
-      tmpvar_371 = sqrt(dot (x_372, x_372));
-      if (((tmpvar_369 + spheres[0].w) < tmpvar_371)) {
-        glowness_365 = vec3(0.0, 0.0, 0.0);
+      vec3 glowness_369;
+      vec3 tmpvar_370;
+      tmpvar_370 = normalize(ray_1.dir);
+      vec3 tmpvar_371;
+      tmpvar_371 = (ray_1.origin + (abs(
+        dot ((spheres[0].xyz - ray_1.origin), tmpvar_370)
+      ) * tmpvar_370));
+      float tmpvar_372;
+      tmpvar_372 = sqrt(dot (tmpvar_371, tmpvar_371));
+      lowp float tmpvar_373;
+      lowp vec3 x_374;
+      x_374 = (tmpvar_20 - eye);
+      tmpvar_373 = sqrt(dot (x_374, x_374));
+      float tmpvar_375;
+      vec3 x_376;
+      x_376 = (spheres[0].xyz - eye);
+      tmpvar_375 = sqrt(dot (x_376, x_376));
+      if (((tmpvar_373 + spheres[0].w) < tmpvar_375)) {
+        glowness_369 = vec3(0.0, 0.0, 0.0);
       } else {
-        glowness_365 = (vec3(1.0, 0.95, 0.1) * clamp ((2.0 / 
-          (0.5 + (tmpvar_368 * tmpvar_368))
+        glowness_369 = (vec3(1.0, 0.95, 0.1) * clamp ((2.0 / 
+          (0.5 + (tmpvar_372 * tmpvar_372))
         ), 0.0, 1.0));
       };
-      color_15 = (color_15 + glowness_365);
+      color_15 = (color_15 + glowness_369);
     };
     if ((!(continueLoop_3) && (stackSize_6 > 0))) {
-      highp int tmpvar_373;
-      tmpvar_373 = (stackSize_6 - 1);
-      stackSize_6 = tmpvar_373;
-      ray_1 = stack_7[tmpvar_373].ray;
-      bounceCount_5 = stack_7[tmpvar_373].depth;
-      coeff_4 = stack_7[tmpvar_373].coeff;
+      highp int tmpvar_377;
+      tmpvar_377 = (stackSize_6 - 1);
+      stackSize_6 = tmpvar_377;
+      ray_1 = stack_7[tmpvar_377].ray;
+      bounceCount_5 = stack_7[tmpvar_377].depth;
+      coeff_4 = stack_7[tmpvar_377].coeff;
       continueLoop_3 = bool(1);
     };
     i_2++;
   };
-  lowp vec4 tmpvar_374;
-  tmpvar_374.w = 1.0;
-  tmpvar_374.x = color_15[colorModeInTernary[0]];
-  tmpvar_374.y = color_15[colorModeInTernary[1]];
-  tmpvar_374.z = color_15[colorModeInTernary[2]];
-  fragColor = tmpvar_374;
+  lowp vec4 tmpvar_378;
+  tmpvar_378.w = 1.0;
+  tmpvar_378.x = color_15[colorModeInTernary[0]];
+  tmpvar_378.y = color_15[colorModeInTernary[1]];
+  tmpvar_378.z = color_15[colorModeInTernary[2]];
+  fragColor = tmpvar_378;
 }
